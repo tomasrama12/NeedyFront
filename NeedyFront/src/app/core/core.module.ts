@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CoreRoutingModule } from './core-routing.module';
 import { NeedyButtonComponent } from './components/needy-button/needy-button.component';
+import { combineLatest } from 'rxjs';
 
 
 @NgModule({
@@ -10,8 +10,10 @@ import { NeedyButtonComponent } from './components/needy-button/needy-button.com
     NeedyButtonComponent
   ],
   imports: [
-    CommonModule,
-    CoreRoutingModule
+    CommonModule
+  ],
+  exports: [
+    NeedyButtonComponent
   ]
 })
 export class CoreModule { }

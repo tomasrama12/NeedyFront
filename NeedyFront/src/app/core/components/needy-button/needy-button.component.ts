@@ -13,7 +13,7 @@ export class NeedyButtonComponent implements OnInit {
   }
 
   @Input() text!: string;
-  @Input() color!: string;
+  @Input() bgColor!: string;
 
 
 }
