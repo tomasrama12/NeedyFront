@@ -1,5 +1,4 @@
 .form-container{
-    border: 1px solid red;
     position: relative;
     height: 100%;
     width: 100%;
@@ -11,7 +10,6 @@
 }
 
 .inputs-section{
-    border: 1px solid blue;
     width: 80%;
     height: 60%;
     display: flex;
@@ -21,7 +19,6 @@
 }
 
 .button-section{
-    border: 1px solid green;
     width: 80%;
     height: 30%;
     display: flex;
@@ -34,4 +31,19 @@
     border-radius: 45px;
     overflow: hidden;
 }
+
+.inputNeedy{
+    width: 100%;
+}
+
+.toggler{
+    width: 100%;
+    
+}
+
+.form-check {
+    padding-bottom: 5%;
+
+}
+
 
