@@ -7,9 +7,11 @@
 .bgColor-white{
     background-color: white;
     width: 100%;
+    color:  #0a2472 ;
 }
 
 .bgColor-lightBlue{
-    background-color: #5e90b6;
+    background-color: #a0bed4;
     width: 100%;
+    color: white;
 }
