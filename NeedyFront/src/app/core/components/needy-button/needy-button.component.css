@@ -6,4 +6,10 @@
 
 .bgColor-white{
     background-color: white;
+    width: 100%;
+}
+
+.bgColor-lightBlue{
+    background-color: #5e90b6;
+    width: 100%;
 }
