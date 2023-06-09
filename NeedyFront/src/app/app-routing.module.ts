@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorPageComponent } from './core/components/error-page/error-page.component';
 
 
 const routes: Routes = [
-  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
-  {path: 'main-screen', loadChildren: () => import('./main-screen/main-screen.module').then(m => m.MainScreenModule)}
+  {path: '', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
+  {path: 'needs', loadChildren: () => import('./need/need.module').then(m => m.NeedModule)},
+  {path: 'helpers', loadChildren: () => import('./helper/helper.module').then(m => m.HelperModule)},
+  {path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
+  {path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule)},
+  {path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({
