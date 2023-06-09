@@ -4,12 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { NeedPageComponent } from './need/components/need-page/need-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NeedPageComponent,
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     AppRoutingModule
   ],

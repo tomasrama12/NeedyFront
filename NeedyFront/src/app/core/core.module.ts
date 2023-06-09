@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NeedyButtonComponent } from './components/needy-button/needy-button.component';
-import { combineLatest } from 'rxjs';
 import { InputNeedyComponent } from './components/input-needy/input-needy.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 @NgModule({
   declarations: [
     NeedyButtonComponent,
-    InputNeedyComponent
+    InputNeedyComponent,
+    ErrorPageComponent
   ],
   imports: [
     CommonModule
