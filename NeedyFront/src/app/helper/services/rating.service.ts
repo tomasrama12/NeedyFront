@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 
 import { API_URL } from 'src/app/core/const';
-import { InsertRating } from 'src/app/core/interfaces/insertRating';
-import { Rating } from 'src/app/core/interfaces/rating';
+import { InsertRating } from 'src/app/interfaces/insertRating';
+import { Rating } from 'src/app/interfaces/rating';
 
-const URL = `${API_URL}/needs`;
+const URL = `${API_URL}/ratings`;
 const token = localStorage.getItem('token');
+const parseToken = JSON.parse(token!);
 const headers = new HttpHeaders({
-  'Authorization': `Bearer ${token}`
+  'Authorization': `Bearer ${parseToken}`
 });
 
 @Injectable({
@@ -33,7 +34,7 @@ export class RatingService {
 
   private handleError<T>(operation: string, result?: T){
     return (error: any): Observable<T> => {
-      console.error(`${operation} failed: ${error.error.message}`);
+      console.error(`${operation} failed: ${error.error}`);
       return of(result as T);
     }
   }

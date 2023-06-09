@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { InputNeedyComponent } from 'src/app/core/components/input-needy/input-needy.component';
+import { AuthService } from '../../services/auth.service';
+import { Login } from 'src/app/interfaces/login';
 
 @Component({
   selector: 'app-login-form',
@@ -8,7 +11,7 @@ import { InputNeedyComponent } from 'src/app/core/components/input-needy/input-n
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +26,10 @@ export class LoginFormComponent implements OnInit {
   getData(){
     this.email = this.childInputEmail.getText();
     this.password = this.childInputPassword.getText();
-    console.log(this.email + ' ' + this.password);
+    const loginInfo: Login = {
+      email: this.email,
+      password: this.password
+    }
+    this.authService.login(loginInfo).subscribe(response => console.log(response));
   }
 }

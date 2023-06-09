@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 
 import { API_URL } from 'src/app/core/const';
-import { UpdateUser } from 'src/app/core/interfaces/updateUser';
-import { User } from 'src/app/core/interfaces/user';
+import { UpdateUser } from 'src/app/interfaces/updateUser';
+import { User } from 'src/app/interfaces/user';
 
 const URL = `${API_URL}/users`;
 const token = localStorage.getItem('token');
+const parseToken = JSON.parse(token!);
 const headers = new HttpHeaders({
-  'Authorization': `Bearer ${token}`
+  'Authorization': `Bearer ${parseToken}`
 });
 
 @Injectable({
@@ -55,7 +56,7 @@ export class UserService {
 
   private handleError<T>(operation: string, result?: T){
     return (error: any): Observable<T> => {
-      console.error(`${operation} failed: ${error.error.message}`);
+      console.error(`${operation} failed: ${error.error}`);
       return of(result as T);
     }
   }
