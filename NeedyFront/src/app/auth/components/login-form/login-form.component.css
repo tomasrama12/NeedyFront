@@ -1,0 +1,47 @@
+.form-container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs-section{
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-section{
+    width: 80%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-needy{
+    width: 50%;
+    border-radius: 45px;
+    overflow: hidden;
+}
+
+.inputNeedy{
+    width: 100%;
+}
+
+.toggler{
+    width: 100%;
+    
+}
+
+.form-check {
+    padding-bottom: 5%;
+
+}
