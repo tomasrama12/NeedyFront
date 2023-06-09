@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 
 import { API_URL } from 'src/app/core/const';
-import { InsertNeed } from 'src/app/interfaces/insertNeed';
-import { ManageApplier } from 'src/app/interfaces/manageApplier';
-import { Need } from 'src/app/interfaces/need';
-import { UpdateNeed } from 'src/app/interfaces/updateNeed';
+import { InsertNeed } from 'src/app/core/interfaces/insertNeed';
+import { ManageApplier } from 'src/app/core/interfaces/manageApplier';
+import { Need } from 'src/app/core/interfaces/need';
+import { UpdateNeed } from 'src/app/core/interfaces/updateNeed';
 
 const URL = `${API_URL}/needs`;
 const token = localStorage.getItem('token');

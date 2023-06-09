@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SkillService } from '../../services/skill.service';
-import { Skill } from 'src/app/interfaces/skill';
+import { Skill } from 'src/app/core/interfaces/skill';
 
 @Component({
   selector: 'app-helper-page',

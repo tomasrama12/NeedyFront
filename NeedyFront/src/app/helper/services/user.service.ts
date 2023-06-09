@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 
 import { API_URL } from 'src/app/core/const';
-import { UpdateUser } from 'src/app/interfaces/updateUser';
-import { User } from 'src/app/interfaces/user';
+import { UpdateUser } from 'src/app/core/interfaces/updateUser';
+import { User } from 'src/app/core/interfaces/user';
 
 const URL = `${API_URL}/users`;
 const token = localStorage.getItem('token');

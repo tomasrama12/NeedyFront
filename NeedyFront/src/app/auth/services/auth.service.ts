@@ -5,8 +5,8 @@ import { catchError, of, tap } from 'rxjs';
 import * as moment from "moment";
 import { API_URL } from 'src/app/core/const';
 import { UserService } from 'src/app/helper/services/user.service';
-import { Login } from 'src/app/interfaces/login';
-import { InsertUser } from 'src/app/interfaces/insertUser';
+import { Login } from 'src/app/core/interfaces/login';
+import { InsertUser } from 'src/app/core/interfaces/insertUser';
 
 const URL = `${API_URL}/auth`;
 

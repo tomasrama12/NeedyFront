@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 
 import { API_URL } from 'src/app/core/const';
-import { Skill } from 'src/app/interfaces/skill';
+import { Skill } from 'src/app/core/interfaces/skill';
 
 const URL = `${API_URL}/skills`;
 const token = localStorage.getItem('token');

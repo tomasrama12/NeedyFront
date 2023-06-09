@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NeedService } from '../../services/need.service';
-import { Need } from 'src/app/interfaces/need';
+import { Need } from 'src/app/core/interfaces/need';
 
 @Component({
   selector: 'app-need-page',

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { InputNeedyComponent } from 'src/app/core/components/input-needy/input-needy.component';
 import { AuthService } from '../../services/auth.service';
-import { Login } from 'src/app/interfaces/login';
+import { Login } from 'src/app/core/interfaces/login';
 
 @Component({
   selector: 'app-login-form',

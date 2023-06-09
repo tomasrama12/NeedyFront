@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 
 import { API_URL } from 'src/app/core/const';
-import { InsertRating } from 'src/app/interfaces/insertRating';
-import { Rating } from 'src/app/interfaces/rating';
+import { InsertRating } from 'src/app/core/interfaces/insertRating';
+import { Rating } from 'src/app/core/interfaces/rating';
 
 const URL = `${API_URL}/ratings`;
 const token = localStorage.getItem('token');
