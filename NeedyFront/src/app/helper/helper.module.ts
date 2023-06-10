@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HelperRoutingModule } from './helper-routing.module';
 import { HelperPageComponent } from './components/helper-page/helper-page.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { HelperPageComponent } from './components/helper-page/helper-page.compon
   ],
   imports: [
     CommonModule,
+    CoreModule,
     HelperRoutingModule
   ]
 })
