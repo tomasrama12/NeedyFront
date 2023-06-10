@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Skill } from '../../skill';
+import { Skill } from 'src/app/core/interfaces/skill';
+
 
 @Component({
   selector: 'app-skill-signup',

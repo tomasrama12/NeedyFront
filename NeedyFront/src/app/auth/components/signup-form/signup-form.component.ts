@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { InputNeedyComponent } from 'src/app/core/components/input-needy/input-needy.component';
-import { Skill } from '../../skill';
+import { InsertUser } from 'src/app/core/interfaces/insertUser';
+import { Skill } from 'src/app/core/interfaces/skill';
+
 
 @Component({
   selector: 'app-signup-form',
@@ -22,11 +24,33 @@ export class SignupFormComponent implements OnInit {
 
   @ViewChild('inputLastName', {static: true}) childInputLastName! : InputNeedyComponent;
 
+  @ViewChild('inputCi', {static: true}) childInputCi! : InputNeedyComponent;
+  
+  @ViewChild('inputZone', {static: true}) childInputZone! : InputNeedyComponent;
+
+  @ViewChild('inputAddress', {static: true}) childInputAddress! : InputNeedyComponent;
+
+  @ViewChild('inputPhone', {static: true}) childInputPhone! : InputNeedyComponent;
+
+  @ViewChild('inputGender', {static: true}) childInputGender! : InputNeedyComponent;
+
+  @ViewChild('inputAboutMe', {static: true}) childInputAboutMe! : InputNeedyComponent;
+
+  @ViewChild('inputBirthDate', {static: true}) childInputBirthDate! : ElementRef;
+
 
   firstName?: string;
   lastName?: string;
   email?: string;
   password?: string;
+  ci?: string;
+  zone?: string;
+  address?: string;
+  phone?: string;
+  gender?: string;
+  aboutMe?: string;
+  birthDate?: Date;
+
   skills = [
     {"id": 1, "name": "Objeto1"},
     {"id": 2, "name": "Objeto2"},
@@ -49,22 +73,47 @@ export class SignupFormComponent implements OnInit {
     {"id": 19, "name": "Objeto19"}
   ]
 
-  skillsToSignup:Skill[] = [];
+  skillsToSignup:number[] = [];
   
   
 
-  getData(){
+  signUp(){
     this.email = this.childInputEmail.getText();
     this.password = this.childInputPassword.getText();
     this.firstName = this.childInputFirstName.getText();
     this.lastName = this.childInputLastName.getText();
+    this.ci = this.childInputCi.getText();
+    this.zone = this.childInputZone.getText();
+    this.address = this.childInputAddress.getText();
+    this.phone = this.childInputPhone.getText();
+    this.gender = this.childInputGender.getText();
+    this.aboutMe = this.childInputAboutMe.getText();
+    this.birthDate = this.childInputBirthDate.nativeElement.value;
+    
+    const user: InsertUser = {
+      ci: this.ci,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      email: this.email,
+      password: this.password,
+      zone: this.zone,
+      address: this.address,
+      phone: this.phone,
+      gender: this.gender,
+      aboutMe: this.aboutMe,
+      birthDate: this.birthDate!,
+      skillsId: this.skillsToSignup
+
+
+    }
   }
 
+
   saveSkill(skill:Skill){
-    if(this.skillsToSignup.includes(skill)){
-      this.skillsToSignup.splice(this.skillsToSignup.indexOf(skill), 1);
+    if(this.skillsToSignup.includes(skill.id)){
+      this.skillsToSignup.splice(this.skillsToSignup.indexOf(skill.id), 1);
     }else{
-      this.skillsToSignup.push(skill);
+      this.skillsToSignup.push(skill.id);
     } 
   }
 
