@@ -15,16 +15,20 @@ export class HelperPageComponent implements OnInit {
   age: number = 25;
   rating: number = 3;
   description: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.';
-  userSkills: any[] = [
-    { skill: 'Skill 1' },
-    { skill: 'Skill 2' },
-    { skill: 'Skill 3' }
-    // Add more container objects as needed
-  ];
+  // userSkills: any[] = [
+  //   { skill: 'Skill 1' },
+  //   { skill: 'Skill 2' },
+  //   { skill: 'Skill 3' }
+  //   // Add more container objects as needed
+  // ];
 
   constructor(private skillService: SkillService) { }
 
-  skills: Skill[] = [];
+  userSkills: Skill[] = [
+    { id: 1, name: 'Skill 1' },
+    { id: 2, name: 'Skill 2' },
+    { id: 3, name: 'Skill 3' },
+  ];
 
   ngOnInit(): void {
   }
@@ -32,7 +36,7 @@ export class HelperPageComponent implements OnInit {
   getSkills(){
     this.skillService.getSkills().subscribe(
       skills => {
-        this.skills = skills;
+        this.userSkills = skills;
         console.log(skills);
       }
     );
