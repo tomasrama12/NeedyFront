@@ -15,12 +15,6 @@ export class HelperPageComponent implements OnInit {
   age: number = 25;
   rating: number = 3;
   description: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.';
-  // userSkills: any[] = [
-  //   { skill: 'Skill 1' },
-  //   { skill: 'Skill 2' },
-  //   { skill: 'Skill 3' }
-  //   // Add more container objects as needed
-  // ];
 
   constructor(private skillService: SkillService) { }
 
