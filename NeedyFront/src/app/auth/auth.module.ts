@@ -7,6 +7,9 @@ import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.comp
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { SkillSignupComponent } from './components/skill-signup/skill-signup.component';
 
 
 @NgModule({
@@ -14,12 +17,15 @@ import { CoreModule } from '../core/core.module';
     PresentationPageComponent,
     SignUpPageComponent,
     LoginPageComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    SignupFormComponent,
+    SkillSignupComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ]
 })
 export class AuthModule { }
