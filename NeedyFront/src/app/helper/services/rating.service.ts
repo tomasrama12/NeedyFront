@@ -10,7 +10,8 @@ const URL = `${API_URL}/ratings`;
 const token = localStorage.getItem('token');
 const parseToken = JSON.parse(token!);
 const headers = new HttpHeaders({
-  'Authorization': `Bearer ${parseToken}`
+  'Authorization': `Bearer ${parseToken}`,
+  'Content-Type': 'application/json'
 });
 
 @Injectable({
@@ -21,7 +22,8 @@ export class RatingService {
   constructor(private http: HttpClient) { }
 
   getUserRating(ci: string): Observable<Rating[]> {
-    return this.http.post<Rating[]>(`${URL}/get-ratings-by-user`, ci, { headers }).pipe(
+    const userCI = JSON.stringify(ci);
+    return this.http.post<Rating[]>(`${URL}/get-ratings-by-user`, userCI, { headers }).pipe(
       catchError(this.handleError<Rating[]>(`getUserRating`))
     );
   }

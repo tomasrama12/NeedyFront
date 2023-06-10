@@ -12,7 +12,8 @@ const URL = `${API_URL}/needs`;
 const token = localStorage.getItem('token');
 const parseToken = JSON.parse(token!);
 const headers = new HttpHeaders({
-  'Authorization': `Bearer ${parseToken}`
+  'Authorization': `Bearer ${parseToken}`,
+  'Content-Type': 'application/json'
 });
 
 @Injectable({
@@ -40,8 +41,16 @@ export class NeedService {
     );
   }
 
+  getUserCreatedNeeds(ci: string): Observable<Need[]> {
+    const userCI = JSON.stringify(ci);
+    return this.http.post<Need[]>(`${URL}/get-user-created-needs`, userCI, { headers }).pipe(
+      catchError(this.handleError<Need[]>(`getUserNeeds`))
+    );
+  }
+
   getUserAppliedNeeds(ci: string): Observable<Need[]> {
-    return this.http.post<Need[]>(`${URL}/get-user-applied-needs`, ci, { headers }).pipe(
+    const userCI = JSON.stringify(ci);
+    return this.http.post<Need[]>(`${URL}/get-user-applied-needs`, userCI, { headers }).pipe(
       catchError(this.handleError<Need[]>(`getUserAppliedNeeds`))
     );
   }

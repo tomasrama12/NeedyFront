@@ -9,7 +9,8 @@ const URL = `${API_URL}/skills`;
 const token = localStorage.getItem('token');
 const parseToken = JSON.parse(token!);
 const headers = new HttpHeaders({
-  'Authorization': `Bearer ${parseToken}`
+  'Authorization': `Bearer ${parseToken}`,
+  'Content-Type': 'application/json'
 });
 
 @Injectable({

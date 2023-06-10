@@ -34,12 +34,14 @@ export class AuthService {
     const expiresAt = moment().add(authResult.expiresIn, 'second');
     localStorage.setItem('token', authResult.token);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem('userCI', authResult.userCI);
   }
 
   logout() {
     this.userService.SetUser(undefined);
     localStorage.removeItem("token");
     localStorage.removeItem("expires_at");
+    localStorage.removeItem("userCI");
   }
 
   private handleError<T>(operation: String) {
