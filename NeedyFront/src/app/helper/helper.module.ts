@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { HelperRoutingModule } from './helper-routing.module';
-import { HelperPageComponent } from './components/helper-page/helper-page.component';
 import { CoreModule } from '../core/core.module';
+import { HelperPageComponent } from './components/helper-page/helper-page.component';
+import { HelperRoutingModule } from './helper-routing.module';
 
 
 @NgModule({
