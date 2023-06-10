@@ -1,0 +1,23 @@
+.main-screen-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.button-container{
+    width: 50%;
+    border-radius: 45px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+h1{
+    font-size: 2vh;
+    color: #0a2472;
+    font-family: 'Franklin Gothic Medium', 'Arial', sans-serif;
+}
