@@ -1,0 +1,113 @@
+.blue-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0a2472;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
+}
+
+.title-container{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a2472;
+}
+
+.gray-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: gray;
+    border: 2px solid white;
+  }
+  
+
+.info-container{
+    width: 100%;
+    height: 70%;
+    border-radius: 25px 25px 0px 0px;
+    background-color: white;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.heading {
+    font-family: Calibri, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #0a2472;
+    margin-bottom: 15px;
+  }
+
+.rating {
+    font-family: Calibri, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: yellowgreen;
+}
+
+.space::before {
+    content: "\00a0"; /* Unicode character for a non-breaking space */
+  }
+  
+.rating-row {
+    /* Styles for the rating row */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add separation below the rating row */
+  }
+
+  .expanded-container {
+    flex: 1;
+  }
+  
+  .list-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 400px; 
+  }
+  
+.item-container {
+    margin-bottom: 10px; /* Adjust the spacing between items as needed */
+    width: auto;
+    height: auto;
+  }
+  
+.rating-container {
+    height: auto; /* Set the desired height for the container */
+    border-radius: 10px;
+    width: auto;
+    padding: 10px;
+    background-color: #0a2472; /* Replace with your desired background color */
+    /* Add any other styles for the container */
+  }
+
+.giver-name {
+    font-family: Calibri, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+.rating-comment {
+    font-family: Calibri, Arial, sans-serif;
+    font-weight: regular;
+    font-size: 18px;
+    color: rgb(186, 182, 182);
+    margin-bottom: 10px;
+}
+
+  
+  
+  
+  
+  

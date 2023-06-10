@@ -1,0 +1,26 @@
+<div class="blue-container">
+    <div class="title-container">
+        <div class="gray-circle"></div>
+    </div>
+    <div class="info-container">
+        <h1 class="heading">{{ userFullName }}<span class="space"></span> {{ age }}</h1>
+        <div class="rating-row">
+          <h1 class="rating">Rating:<span class="space"></span> {{ rating }}/5</h1>
+        </div>    
+        <div class="expanded-container">
+            <div class="list-container">
+                <ng-container *ngFor="let rating of userRatings; let index = index">
+                  <div class="item-container">
+                    <div class="rating-container">
+                      <!-- Replace the content inside this container with your desired child elements -->
+                      <h2 class="giver-name">{{ rating.giverCI }}</h2>
+                      <h3 class="rating">Rating: {{ rating.stars }}/5</h3>
+                      <p class="rating-comment">{{ rating.comment }}</p>
+                     
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+          </div>
+    </div>
+</div>

@@ -127,6 +127,24 @@
     text-align: center;
     max-lines: 2;
   }
+
+  .rating-button {
+    /* Styles for the rating button */
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #0a2472; /* Set the background color of the button */
+    border-radius: 5px; /* Apply border radius to create rounded corners */
+    color: #fff; /* Set the text color */
+    margin-left: auto;
+  }
+
+  .rating-row {
+    /* Styles for the rating row */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add separation below the rating row */
+  }
+  
   
   
   
