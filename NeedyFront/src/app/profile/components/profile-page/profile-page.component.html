@@ -1,1 +1,24 @@
-<p>profile-page works!</p>
+<div class="profile-container">
+    <div class="header">
+        <div class="img-container">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+        </div>
+        <h2>hola</h2>
+    </div>
+    <div class="content-container">
+        <div class="x-menu">
+            <p [class.selected-menu]="selectedMenuIndex === 0" (click)="selectMenu(0)">My needs</p>
+            <p [class.selected-menu]="selectedMenuIndex === 1" (click)="selectMenu(1)">My applies</p>
+            <p [class.selected-menu]="selectedMenuIndex === 2" (click)="selectMenu(2)">My skills</p>
+        </div>
+        <div class="menu-items-container">
+            <div *ngIf="selectedMenuIndex === 0"  class="need-card">
+                <app-need-card 
+                *ngFor="let need of needs"
+                [need]="need"
+                ></app-need-card>
+            </div>
+        </div>
+    </div>
+    <app-navbar></app-navbar>
+</div>
