@@ -1,1 +1,14 @@
-<p>home-page works!</p>
+<div class="main-screen-container">
+    <!--TODO: Agregar appbar con la arrow back-->
+    <div class="button-container">
+        <app-needy-button [text]="'View Helpers'" [bgColor]="'bgColor-blue'" class="button-needy"></app-needy-button>
+    </div>
+    <div class="title-container">
+        <h1 class="main-screen-title">------ or ------</h1>
+    </div>
+    <div class="button-container">
+        <app-needy-button [text]="'View Needs'" [bgColor]="'bgColor-blue'" class="button-needy"></app-needy-button>
+    </div>
+    <app-navbar></app-navbar>
+</div>
+

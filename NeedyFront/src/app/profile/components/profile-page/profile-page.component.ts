@@ -18,13 +18,15 @@ export class ProfilePageComponent implements OnInit {
     private userService: UserService
   ) { }
 
-  user?: User;
+  user!: User;
   myApplies: Need[] = [];
   myNeeds: Need[] = [];
 
   ngOnInit(): void {
     this.userService.getUserByCI('1234567').subscribe(
       user => {
+        console.log(user);
+        
         this.user = user;
 
         this.needService.getUserCreatedNeeds(user.ci).subscribe(
@@ -40,6 +42,14 @@ export class ProfilePageComponent implements OnInit {
         );
       }
     );
+  }
+
+  selectedMenuIndex:number = 0;
+
+  //Funcion para cambiar de menu
+  selectMenu(index:number){
+    console.log(index);
+    this.selectedMenuIndex = index;
   }
 
 }

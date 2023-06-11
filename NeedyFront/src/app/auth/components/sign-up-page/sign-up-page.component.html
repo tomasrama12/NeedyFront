@@ -42,8 +42,8 @@
                         <option value="">Select Zone</option>
                         <option *ngFor="let option of zones" [value]="option">{{ option }}</option>
                       </select>
-                    <div *ngIf="signupForm.controls['birthDate'].invalid && signupForm.controls['birthDate'].touched" class="text-danger">
-                        <div *ngIf="signupForm.get('birthDate')?.errors?.['required']">BirthDate is required</div>
+                    <div *ngIf="signupForm.controls['zone'].invalid && signupForm.controls['zone'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('zone')?.errors?.['required']">Zone is required</div>
                     </div>
                 </div>
                 <div class="mb-3">
