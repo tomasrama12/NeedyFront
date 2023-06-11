@@ -28,6 +28,7 @@ export class ProfilePageComponent implements OnInit {
     aboutMe: "I am a skilled professional with experience in various fields."
   }
 
+  //Necesario para las que publique
   needs:Need[] = [
     {
       id:1,
@@ -142,6 +143,38 @@ export class ProfilePageComponent implements OnInit {
     }
   ]
 
+  //Necesario para las que aplique
+  myNeedysApplied:Need[] = [
+    {
+      id:1,
+      requestor: this.user,
+      appliers: [],
+      status: "Open",
+      description: "I need help with my homework",
+      creationDate: new Date(),
+      needDate: new Date(),
+      requestedSkills: [
+        { id: 1, name: "Expert" },
+        { id: 2, name: "Intermediate" }
+      ],
+      needAddress: "123 Main St",
+      modality: "In Person"
+    },
+    {
+      id:2,
+      requestor: this.user,
+      appliers: [],
+      status: "Open",
+      description: "I need help with my homework",
+      creationDate: new Date(),
+      needDate: new Date(),
+      requestedSkills: [
+        { id: 2, name: "Intermediate" }
+      ],
+      needAddress: "123 Main St",
+      modality: "In Person"
+    }
+  ]
 
 
   ngOnInit(): void {
@@ -149,9 +182,14 @@ export class ProfilePageComponent implements OnInit {
 
   selectedMenuIndex:number = 0;
 
+  //Funcion para cambiar de menu
   selectMenu(index:number){
     console.log(index);
     this.selectedMenuIndex = index;
+  }
+
+  getSkillsString(){
+    return this.user.skills.map(skill => skill.name).join(", ");
   }
 
 }
