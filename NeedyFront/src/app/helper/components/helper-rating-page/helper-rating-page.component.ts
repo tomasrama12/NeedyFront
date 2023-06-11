@@ -31,6 +31,14 @@ export class HelperRatingPageComponent implements OnInit {
       receiverCI: "2345",
       needId: 5,
       stars: 3,
+      comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.'
+    },
+    {
+      id: 1,
+      giverCI: "12344",
+      receiverCI: "2345",
+      needId: 5,
+      stars: 3,
       comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.'
     },
     {

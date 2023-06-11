@@ -1,8 +1,10 @@
 <div class="blue-container">
-    <!-- <app-header [backPage]="'/helpers'" [currentText]="'Helper profile'"></app-header> -->
-    <div class="title-container">
-        <div class="gray-circle"></div>
-    </div>
+    <app-header [backPage]="'/helpers'" [currentText]="'Helper profile'"></app-header>
+    <div class="header">
+      <div class="img-container">
+          <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+      </div>
+  </div>
     <div class="info-container">
         <h1 class="heading">{{ userFullName }}<span class="space"></span> {{ age }}</h1>
         <div class="rating-row">
