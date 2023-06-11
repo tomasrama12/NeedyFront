@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NeedCardComponent } from './components/need-card/need-card.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    NeedCardComponent,
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   exports: [
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    NeedCardComponent
   ]
 })
 export class SharedModule { }
