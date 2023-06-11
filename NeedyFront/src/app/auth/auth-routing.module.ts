@@ -17,9 +17,9 @@ const routes: Routes = [
       data: { animation: 'Login' }
   }, 
   {
-      path: 'signUp',
+      path: 'singUp',
       component: SignUpPageComponent,
-      data: { animation: 'SignUp' }
+      data: { animation: 'SingUp' }
   }
 ];
 

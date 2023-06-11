@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { NeedCardComponent } from './components/need-card/need-card.component';
 
 
@@ -9,6 +10,7 @@ import { NeedCardComponent } from './components/need-card/need-card.component';
 @NgModule({
   declarations: [
     NavbarComponent,
+    HeaderComponent,
     NeedCardComponent,
   ],
   imports: [
@@ -17,6 +19,7 @@ import { NeedCardComponent } from './components/need-card/need-card.component';
   ],
   exports: [
     NavbarComponent,
+    HeaderComponent,
     NeedCardComponent
   ]
 })

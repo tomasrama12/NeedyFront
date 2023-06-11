@@ -1,3 +1,27 @@
-<p>helper-page works!</p>
-
-<app-needy-button [text]="'Get Skills'" [bgColor]="'bgColor-blue'" class="button-needy" (click)="getSkills()"></app-needy-button>
+<div class="blue-container">
+    <app-header [backPage]="'/helpers'" [currentText]="'Helper profile'"></app-header>
+    <div class="header">
+      <div class="img-container">
+          <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+      </div>
+  </div>
+    <div class="info-container">
+        <h1 class="heading">{{ userFullName }}<span class="space"></span> {{ age }}</h1>
+        <div class="rating-row">
+          <h1 class="rating">Rating:<span class="space"></span> {{ rating }}/5</h1>
+          <button class="rating-button" routerLink="/helpers/rating">VER HELPER RATING</button>
+        </div>
+        <h1 class="description">{{description}}</h1>
+        <h1 class="heading">Skills</h1>
+        <div class="container-row">
+            <div class="container-item" *ngFor="let skill of userSkills">
+              <div class="container">
+                <h1 class="description">{{ skill.name }}</h1>
+              </div>
+            </div>
+          </div>          
+        <!--TODO: Agregar el click-->
+        <div class="button-container">
+            <app-needy-button [text]="'Contactar'" [bgColor]="'bgColor-blue'" class="button-needy"></app-needy-button>
+    </div>
+</div>

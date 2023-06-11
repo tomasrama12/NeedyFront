@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SkillService } from '../../services/skill.service';
 import { Skill } from 'src/app/core/interfaces/skill';
+import { SkillService } from '../../services/skill.service';
 
 @Component({
   selector: 'app-helper-page',
@@ -10,9 +10,19 @@ import { Skill } from 'src/app/core/interfaces/skill';
 })
 export class HelperPageComponent implements OnInit {
 
+  //TODO: Add the user name here from parameter
+  userFullName: string = 'John Doe';
+  age: number = 25;
+  rating: number = 3;
+  description: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.';
+
   constructor(private skillService: SkillService) { }
 
-  skills: Skill[] = [];
+  userSkills: Skill[] = [
+    { id: 1, name: 'Skill 1' },
+    { id: 2, name: 'Skill 2' },
+    { id: 3, name: 'Skill 3' },
+  ];
 
   ngOnInit(): void {
   }
@@ -20,7 +30,7 @@ export class HelperPageComponent implements OnInit {
   getSkills(){
     this.skillService.getSkills().subscribe(
       skills => {
-        this.skills = skills;
+        this.userSkills = skills;
         console.log(skills);
       }
     );
