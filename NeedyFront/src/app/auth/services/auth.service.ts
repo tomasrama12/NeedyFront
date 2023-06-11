@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, of, tap } from 'rxjs';
+import { catchError, map, of, tap } from 'rxjs';
 
 import * as moment from "moment";
 import { API_URL } from 'src/app/core/const';
@@ -19,13 +19,17 @@ export class AuthService {
 
   login(info: Login) {
     return this.http.post<any>(`${URL}/login`, info).pipe(
-      tap(res => this.setSession(res)),
+      tap(res => this.setSession(res)),      
       catchError(this.handleError<any>('login'))
     );
   }
 
   signup(info: InsertUser) {
-    return this.http.post<any>(`${URL}/register`, info).pipe(
+    return this.http.post<any>(`${URL}/register`, info, { observe: 'response' }).pipe(
+      map((response: HttpResponse<any>) => {
+        console.log(response.body);
+        return response.body;
+      }),
       catchError(this.handleError<any>('signup'))
     );
   }

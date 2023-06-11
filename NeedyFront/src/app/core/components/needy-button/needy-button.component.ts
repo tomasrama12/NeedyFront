@@ -14,6 +14,6 @@ export class NeedyButtonComponent implements OnInit {
 
   @Input() text!: string;
   @Input() bgColor!: string;
-
+  @Input() type!: string;
 
 }

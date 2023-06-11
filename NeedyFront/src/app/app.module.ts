@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NeedPageComponent } from './need/components/need-page/need-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NeedPageComponent,
   ],
   imports: [
-    CoreModule,
-    BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    BrowserModule,
+    CoreModule,
+    HttpClientModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

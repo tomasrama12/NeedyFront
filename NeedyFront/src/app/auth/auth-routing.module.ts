@@ -8,18 +8,15 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 const routes: Routes = [
   {
       path: '',
-      component: PresentationPageComponent,
-      data: { animation: 'Presentation' }
+      component: PresentationPageComponent
   },
   {
       path: 'login',
-      component: LoginPageComponent,
-      data: { animation: 'Login' }
+      component: LoginPageComponent
   }, 
   {
-      path: 'signUp',
-      component: SignUpPageComponent,
-      data: { animation: 'SignUp' }
+      path: 'signup',
+      component: SignUpPageComponent
   }
 ];
 

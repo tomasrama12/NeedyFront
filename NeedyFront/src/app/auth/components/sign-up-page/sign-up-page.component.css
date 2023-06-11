@@ -6,8 +6,6 @@
     background-color: #0a2472;
 }
 
-/*TODO: el titulo se puede componentizar*/
-
 .title-container{
     width: 100%;
     height: 30%;
@@ -22,7 +20,38 @@
     height: 70%;
     border-radius: 25px 25px 0px 0px;
     background-color: white;
-    overflow: hidden;
+    overflow: scroll;
+}
+
+form{
+    margin: 2rem 0;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.inputs-section{
+    width: 90vw;
+}
+
+.button-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+}
+
+input, select, textarea{
+    border-radius: 2rem;
+}
+
+.bottom{
+    margin-top: 1rem;
 }
 
 h1{
@@ -31,9 +60,28 @@ h1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-
-
-.input-needy{
+.bgColor-blue{
+    background-color: #0a2472;
+    color: white;
     width: 100%;
 }
 
+.bgColor-white{
+    background-color: white;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
+.bgColor-lightBlue{
+    background-color: #a0bed4;
+    width: 100%;
+    color: white;
+}
+
+.btn{
+    border-radius: 2rem;
+}
+
+.error{
+    margin-bottom: 1rem;
+}
