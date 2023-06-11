@@ -1,1 +1,79 @@
-<p>profile-page works!</p>
+<div class="profile-container">
+    <div class="header">
+        <div class="img-container">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+        </div>
+        <h2>{{user.firstName}}</h2>
+    </div>
+    <div class="content-container">
+        <div class="x-menu">
+            <p [class.selected-menu]="selectedMenuIndex === 0" (click)="selectMenu(0)">My needs</p>
+            <p [class.selected-menu]="selectedMenuIndex === 1" (click)="selectMenu(1)">My applies</p>
+            <p [class.selected-menu]="selectedMenuIndex === 2" (click)="selectMenu(2)">My info</p>
+        </div>
+        <div class="menu-items-container">
+            <div *ngIf="selectedMenuIndex === 0"  class="need-card">
+                <app-need-card 
+                *ngFor="let need of needs"
+                [need]="need"
+                ></app-need-card>
+            </div>
+
+            <div *ngIf="selectedMenuIndex === 1" class="need-card">
+                <app-need-card 
+                *ngFor="let need of myNeedysApplied"
+                [need]="need"
+                ></app-need-card>
+            </div>
+
+            <div *ngIf="selectedMenuIndex === 2" class="info-container">
+                <div class="w-100">
+                    <label for="basic-url">CI</label>
+                    <p>{{user.ci}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">First name</label>
+                    <p>{{user.firstName}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">Last name</label>
+                    <p>{{user.lastName}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">Address</label>
+                    <p>{{user.address}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">Zone</label>
+                    <p>{{user.zone}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">Phone</label>
+                    <p>{{user.phone}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">Age</label>
+                    <p>{{user.age}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">Skills</label>
+                    <p>{{getSkillsString()}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">Average rating</label>
+                    <p>{{user.avgRating}}</p>
+                </div>
+                <div class="w-100">
+                    <label for="basic-url">About me</label>
+                    <p>{{user.aboutMe}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-container">
+        <app-needy-button [text]="'Create Needy'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 0 || selectedMenuIndex === 1"></app-needy-button>
+        <app-needy-button [text]="'Modify info'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 2"></app-needy-button>
+    </div>
+    <app-navbar></app-navbar>
+</div>
+
