@@ -1,0 +1,162 @@
+.need-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.need-image-container{
+    width: 100%;
+    height: 30%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.need-image-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.need-info-container{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px 25px 0px 0px;
+    background-color: white;
+
+    margin-top: -20px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.first-section{
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.needy-requestor{
+
+}
+
+.needy-requestor img{
+    border-radius: 50%;
+}
+
+.img-requestor-container{
+    width:75px;
+    height: 75px;
+}
+
+
+.needy-date{
+    display: flex;
+    flex-direction: column;
+}
+
+.needy-date p{
+    margin: 2px;
+}
+
+.needy-skills{
+    overflow-x: auto;
+}
+
+.skills-container{
+    overflow-x: auto;
+    display: flex;
+}
+
+.skill{
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #0A2472; /* Adjust the border color as needed */
+}
+
+.skill p{
+    margin: 0;
+    color: #0A2472;
+    font-weight: bold;
+}
+
+.description-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description-title{
+    width: 100%;
+    font-weight: bold;
+    margin: 0;
+}
+
+.location-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location-container p{
+    width: 100%;
+    margin: 0;
+}
+
+.last-section{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    align-content: center;
+    margin-top: 10px;
+}
+
+.appliers-img-container{
+    display: flex;
+}
+
+.img-applier-2{
+    margin-left: -20px;
+}
+
+.appliers-img-container img{
+    border-radius: 50%;
+}
+
+.appliers-container{
+    padding-left: 0px;
+}
+.last-section p{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+}
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+app-needy-button{
+    width: 50%;
+    border-radius:45px;
+    overflow: hidden;
+}
+
+.blue{
+    color: #0A2472;
+}
