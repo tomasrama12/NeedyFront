@@ -20,22 +20,28 @@
     height: 70%;
     border-radius: 25px 25px 0px 0px;
     background-color: white;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+}
+
+form{
+    width: 80vw;
+    height: 100%;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .inputs-section{
-    width: 90vw;
+    height: 70%;
 }
 
 .button-section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90vw;
 }
 
 input{
@@ -44,30 +50,13 @@ input{
 
 .bottom{
     margin-top: 1rem;
-}
-
-h1{
-    font-size: 10vh;
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 3rem;
 }
 
 .bgColor-blue{
     background-color: #0a2472;
     color: white;
     width: 100%;
-}
-
-.bgColor-white{
-    background-color: white;
-    width: 100%;
-    color:  #0a2472 ;
-}
-
-.bgColor-lightBlue{
-    background-color: #a0bed4;
-    width: 100%;
-    color: white;
 }
 
 .btn{

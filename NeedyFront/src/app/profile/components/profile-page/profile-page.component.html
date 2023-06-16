@@ -1,5 +1,7 @@
+<app-header class="header" [currentText]="'Profile'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
+
 <div class="profile-container">
-    <div class="header">
+    <div class="header1">
         <div class="img-container">
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
         </div>
@@ -70,6 +72,6 @@
         <app-needy-button [text]="'Create Needy'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 0 || selectedMenuIndex === 1"></app-needy-button>
         <app-needy-button [text]="'Modify info'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 2"></app-needy-button>
     </div>
-    <app-navbar></app-navbar>
 </div>
 
+<app-navbar></app-navbar>

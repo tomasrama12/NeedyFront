@@ -113,17 +113,3 @@ img{
   margin-left: 10px; /* Add spacing between image and details */
   width: 100%;
 }
-.header{
-  height: 30%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-  
-  
-  
-  
-  

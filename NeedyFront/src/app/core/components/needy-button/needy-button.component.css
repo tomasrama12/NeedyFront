@@ -11,7 +11,11 @@
 }
 
 .bgColor-lightBlue{
-    background-color: #a0bed4;
+    background-color: rgba(255, 255, 255, 0.4);
     width: 100%;
     color: white;
+}
+
+.btn{
+    border-radius: 2rem;
 }

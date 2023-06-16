@@ -7,6 +7,7 @@ import { PresentationPageComponent } from './components/presentation-page/presen
 import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { CoreModule } from '../core/core.module';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
+    SharedModule,
     CoreModule
   ]
 })

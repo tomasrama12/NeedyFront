@@ -1,3 +1,4 @@
+<app-header class="header" [currentText]="'Signup'" [bgColor]="'bgColor-white'" [visibility]="'hidden'"></app-header>
 <div class="signup-container">
     <div class="title-container">
         <h1 class="login-title">Needy</h1>
@@ -98,7 +99,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="aboutMe" class="form-label">About Me</label>
-                    <textarea id="aboutMe" class="form-control" formControlName="aboutMe"></textarea>
+                    <textarea id="aboutMe" class="form-control" formControlName="aboutMe" placeholder="Add description..."></textarea>
                     <div *ngIf="signupForm.controls['aboutMe'].invalid && signupForm.controls['aboutMe'].touched" class="text-danger">
                         <div *ngIf="signupForm.get('aboutMe')?.errors?.['required']">About Me is required</div>
                         <div *ngIf="signupForm.get('aboutMe')?.errors?.['minlength']">About Me must have less than 150 characters</div>

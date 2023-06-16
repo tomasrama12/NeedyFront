@@ -6,6 +6,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
 import { CreateNeedComponent } from './components/create-need/create-need.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { CreateNeedComponent } from './components/create-need/create-need.compon
   imports: [
     CommonModule,
     ProfileRoutingModule,
+    ReactiveFormsModule,
     SharedModule,
     CoreModule
   ]

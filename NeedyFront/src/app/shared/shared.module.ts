@@ -6,7 +6,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NeedCardComponent } from './components/need-card/need-card.component';
 
 
-
 @NgModule({
   declarations: [
     NavbarComponent,

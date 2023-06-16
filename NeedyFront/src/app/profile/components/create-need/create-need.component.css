@@ -1,0 +1,40 @@
+.create-need-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 100%;
+    overflow: hidden;
+    background-color: brown;
+}
+
+.bgColor-blue{
+    background-color: #0a2472;
+    color: white;
+    width: 100%;
+}
+
+.bgColor-white{
+    background-color: white;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
+.bgColor-lightBlue{
+    background-color: #a0bed4;
+    width: 100%;
+    color: white;
+}
+
+.btn{
+    border-radius: 2rem;
+}

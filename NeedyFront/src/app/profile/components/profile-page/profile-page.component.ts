@@ -23,25 +23,25 @@ export class ProfilePageComponent implements OnInit {
   myNeeds: Need[] = [];
 
   ngOnInit(): void {
-    this.userService.getUserByCI('1234567').subscribe(
-      user => {
-        console.log(user);
+    // this.userService.getUserByCI('1234567').subscribe(
+    //   user => {
+    //     console.log(user);
         
-        this.user = user;
+    //     this.user = user;
 
-        this.needService.getUserCreatedNeeds(user.ci).subscribe(
-          needs => {
-            this.myNeeds = needs;
-          }
-        );
+    //     this.needService.getUserCreatedNeeds(user.ci).subscribe(
+    //       needs => {
+    //         this.myNeeds = needs;
+    //       }
+    //     );
     
-        this.needService.getUserAppliedNeeds(user.ci).subscribe(
-          needs => {
-            this.myApplies = needs;
-          }
-        );
-      }
-    );
+    //     this.needService.getUserAppliedNeeds(user.ci).subscribe(
+    //       needs => {
+    //         this.myApplies = needs;
+    //       }
+    //     );
+    //   }
+    // );
   }
 
   selectedMenuIndex:number = 0;
