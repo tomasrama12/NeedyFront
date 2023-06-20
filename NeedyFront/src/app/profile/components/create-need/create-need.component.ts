@@ -28,12 +28,12 @@ export class CreateNeedComponent implements OnInit {
   skillsId: number[] = [];
 
   ngOnInit(): void {
-    this.skillsId = [];
-    this.skillService.getSkills().subscribe(
-      skills => {
-        this.skills = skills;
-      }
-    );
+    // this.skillsId = [];
+    // this.skillService.getSkills().subscribe(
+    //   skills => {
+    //     this.skills = skills;
+    //   }
+    // );
 
     this.needForm = this.fb.group({
       title: new FormControl('', Validators.required),

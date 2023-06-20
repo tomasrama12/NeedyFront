@@ -56,8 +56,7 @@ export class UserService {
   }
 
   getUserByCI(ci: string): Observable<User> {
-    const userCI = JSON.stringify(ci);
-    return this.http.post<User>(`${URL}/get-user-by-ci`, userCI, { headers }).pipe(
+    return this.http.post<User>(`${URL}/get-user-by-ci`, ci, { headers }).pipe(
       catchError(this.handleError<User>(`getUserByCI`))
     );
   }

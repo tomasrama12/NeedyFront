@@ -21,34 +21,30 @@ export class ProfilePageComponent implements OnInit {
   user!: User;
   myApplies: Need[] = [];
   myNeeds: Need[] = [];
-
-  ngOnInit(): void {
-    // this.userService.getUserByCI('1234567').subscribe(
-    //   user => {
-    //     console.log(user);
-        
-    //     this.user = user;
-
-    //     this.needService.getUserCreatedNeeds(user.ci).subscribe(
-    //       needs => {
-    //         this.myNeeds = needs;
-    //       }
-    //     );
-    
-    //     this.needService.getUserAppliedNeeds(user.ci).subscribe(
-    //       needs => {
-    //         this.myApplies = needs;
-    //       }
-    //     );
-    //   }
-    // );
-  }
-
   selectedMenuIndex:number = 0;
 
-  //Funcion para cambiar de menu
+  ngOnInit(): void {
+    const userCI = JSON.stringify(localStorage.getItem("userCI"));
+    this.userService.getUserByCI(userCI).subscribe(
+      user => {
+        this.user = user;
+
+        this.needService.getUserCreatedNeeds(user.ci).subscribe(
+          needs => {
+            this.myNeeds = needs;
+          }
+        );
+    
+        this.needService.getUserAppliedNeeds(user.ci).subscribe(
+          needs => {
+            this.myApplies = needs;
+          }
+        );
+      }
+    );
+  }
+
   selectMenu(index:number){
-    console.log(index);
     this.selectedMenuIndex = index;
   }
 

@@ -3,6 +3,7 @@ import { User } from "./user";
 
 export interface Need {
     id: number;
+    title: string;
     requestor: User;
     appliers: User[];
     acceptedApplier?: User;

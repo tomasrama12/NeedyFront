@@ -1,0 +1,32 @@
+<div class = "rating-container">
+    <!-- TODO: Cambiar el backPage -->
+    <h1 class = "rating-title">Como estuvo la experiencia con .... ?</h1>
+    <div class="header">
+        <div class="img-container">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+        </div>
+    </div>
+    <h1 class="name-title">{{ receiverName }}</h1>
+    <form class="form-container" [formGroup]="ratingForm" (ngSubmit)="giveRating()"> 
+        <div class="mb-3">
+            <label for="comment" class="form-label">Rating</label>
+            <div class="star-rating">
+                <ng-container *ngFor="let star of getStars(rating)">
+                  <i class="fas fa-star"></i>
+                </ng-container>
+              </div>
+        </div> 
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea id="comment" class="form-control" formControlName="comment" placeholder="Add comment..."></textarea>
+            <div *ngIf="ratingForm.controls['comment'].invalid && ratingForm.controls['comment'].touched" class="text-danger">
+                <div *ngIf="ratingForm.get('comment')?.errors?.['required']">Comment is required</div>
+                <div *ngIf="ratingForm.get('comment')?.errors?.['minlength']">Comment must have less than 150 characters</div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button type="submit" class="btn bgColor-blue" [disabled]="!ratingForm.valid">Give rating</button>
+        </div>
+    </form>
+     <app-navbar></app-navbar>
+</div>

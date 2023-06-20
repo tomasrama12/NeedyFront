@@ -1,11 +1,11 @@
 <app-header class="header" [currentText]="'Profile'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
 
 <div class="profile-container">
-    <div class="header1">
+    <div class="top">
         <div class="img-container">
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
         </div>
-        <h2>{{user.firstName}}</h2>
+        <h2>{{user.firstName | uppercase}} {{user.lastName | uppercase}}</h2>
     </div>
     <div class="content-container">
         <div class="x-menu">
@@ -23,54 +23,52 @@
             </div>
 
             <div *ngIf="selectedMenuIndex === 2" class="info-container">
-                <div class="w-100">
-                    <label for="basic-url">CI</label>
-                    <p>{{user.ci}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">First name</label>
-                    <p>{{user.firstName}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Last name</label>
-                    <p>{{user.lastName}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Address</label>
-                    <p>{{user.address}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Zone</label>
-                    <p>{{user.zone}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Phone</label>
-                    <p>{{user.phone}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Age</label>
-                    <p>{{user.age}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Skills</label>
-                    <div *ngFor="let skill of user.skills">
-                        <p>{{skill.name}}</p>
-                    </div>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Average rating</label>
-                    <p>{{user.avgRating}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">About me</label>
-                    <p>{{user.aboutMe}}</p>
-                </div>
+                <p class="w-100 input">
+                    <span class="label">CI</span>
+                    <span class="data">{{user.ci}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">First name</span>
+                    <span class="data">{{user.firstName}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Last name</span>
+                    <span class="data">{{user.lastName}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Address</span>
+                    <span class="data">{{user.address}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Zone</span>
+                    <span class="data">{{user.zone}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Phone</span>
+                    <span class="data">{{user.phone}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Age</span>
+                    <span class="data">{{user.age}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">About me</span>
+                    <span class="data">{{user.aboutMe}}</span>
+                </p>
+                <span class="w-100 input skills">
+                    <span class="label">Skills</span>
+                    <ul *ngFor="let skill of user.skills">
+                        <li>
+                            <span class="data">{{skill.name}}</span>
+                        </li>
+                    </ul>
+                </span>
             </div>
         </div>
     </div>
     <div class="btn-container">
-        <app-needy-button [text]="'Create Needy'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 0 || selectedMenuIndex === 1"></app-needy-button>
-        <app-needy-button [text]="'Modify info'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 2"></app-needy-button>
+        <app-needy-button [text]="'Create Needy'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 0"></app-needy-button>
+        <app-needy-button [text]="'Edit info'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 2"></app-needy-button>
     </div>
 </div>
 

@@ -8,8 +8,9 @@ const routes: Routes = [
   {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
   {path: 'needs', loadChildren: () => import('./need/need.module').then(m => m.NeedModule)},
   {path: 'helpers', loadChildren: () => import('./helper/helper.module').then(m => m.HelperModule)},
-  {path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
-  {path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule)},
+  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule) },
+  { path: 'rating', loadChildren: () => import('./rating/rating.module').then(m => m.RatingModule) },
   {path: '**', component: ErrorPageComponent}
 ];
 
