@@ -1,0 +1,18 @@
+<div class="appliers-page-container">
+    <div class="need-image-container">
+        <img src="https://twyzle-s3-1.s3.amazonaws.com/networks/1/sites/10306/plomero-san-fernando-header-mobile.jpg" alt="">
+    </div>
+    <div class="need-info-container">
+        <div class="title-container">
+            <h1>Plomero</h1>
+        </div>
+        <div class="applies-container">
+            <app-user-preview class="applie"
+            *ngFor="let applier of need.appliers"
+             [name]="applier.firstName"
+             [lastName]="applier.lastName"
+             [avgRating]="applier.avgRating!"
+             ></app-user-preview>
+        </div>
+    </div>
+</div>
