@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NeedCardComponent } from './components/need-card/need-card.component';
+import { UserPreviewComponent } from './components/user-preview/user-preview.component';
 
 
 
@@ -12,6 +13,7 @@ import { NeedCardComponent } from './components/need-card/need-card.component';
     NavbarComponent,
     HeaderComponent,
     NeedCardComponent,
+    UserPreviewComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { NeedCardComponent } from './components/need-card/need-card.component';
   exports: [
     NavbarComponent,
     HeaderComponent,
-    NeedCardComponent
+    NeedCardComponent,
+    UserPreviewComponent
   ]
 })
 export class SharedModule { }
