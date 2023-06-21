@@ -11,7 +11,7 @@ const routes: Routes = [
     //canActivate: [AuthGuard]
   },
   {
-    path: 'rating',
+    path: 'ratings',
     component: HelperRatingPageComponent,
     //canActivate: [AuthGuard]
 }, 

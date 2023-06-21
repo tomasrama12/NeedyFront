@@ -15,11 +15,15 @@
         </div>
         <div class="menu-items-container">
             <div *ngIf="selectedMenuIndex === 0"  class="need-card">
-                <app-need-card *ngFor="let need of myNeeds" [need]="need"></app-need-card>
+                <div *ngFor="let need of myNeeds" (click)="redirectToNeedPage(need.id)">
+                    <app-need-card [need]="need"></app-need-card>
+                </div>
             </div>
 
             <div *ngIf="selectedMenuIndex === 1" class="need-card">
-                <app-need-card *ngFor="let need of myApplies" [need]="need"></app-need-card>
+                <div *ngFor="let need of myApplies" (click)="redirectToNeedPage(need.id)">
+                    <app-need-card [need]="need"></app-need-card>
+                </div>
             </div>
 
             <div *ngIf="selectedMenuIndex === 2" class="info-container">

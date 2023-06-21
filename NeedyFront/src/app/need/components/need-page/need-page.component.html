@@ -1,50 +1,63 @@
+<app-header class="header" [currentText]="'Profile'" [bgColor]="'bgColor-white'" [visibility]="'show'"></app-header>
+
 <div class="need-container">
     <div class="need-image-container">
-        <img src="https://bucket.somosohlala.com.ar/s3fs-public/styles/img_internal/public/2023-06/los_del_espacio_0.png.webp?itok=uhb74yAI" alt="">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg">
     </div>
     <div class="need-info-container">
-        <div class="first-section row">
-            <div class="needy-requestor col">
-                <div class="img-requestor-container">
-                    <img src="https://bucket.somosohlala.com.ar/s3fs-public/styles/img_internal/public/2023-06/los_del_espacio_0.png.webp?itok=uhb74yAI" alt="">
-                </div>
+        <div class="info">
+            <h2>{{need.title}}</h2>
+            <p>{{need.description}}</p>
+            <span class="info-item">
+                <i class="bi bi-person"></i>
+                <span class="text">{{need.requestor.firstName}} {{need.requestor.lastName}}</span>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-geo-alt"></i>
+                <span class="text">{{need.needAddress}}</span>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-calendar4"></i>
+                <span class="text">{{need.needDate | date}}</span>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-map"></i>
+                <span class="text">{{need.modality}}</span>
+            </span>
+            <div class="skills">
+                <span class="label">Requested Skills</span>
+                <ul *ngFor="let skill of need.requestedSkills">
+                    <li class="skill">
+                        <span class="data">{{skill.name}}</span>
+                    </li>
+                </ul>
             </div>
-            <div class="needy-skills col">
-                <div class="skills-container">
-                    <!-- <div class="skill" *ngFor="let skill of needTest.requestedSkills">
-                        <p>{{skill.name}}</p>
-                    </div> -->
-                </div>
-            </div>
-            <div class="needy-date col">
-                <p class="date-title blue"><b>Date</b></p>
-            </div>
-        </div>
-
-        <div class="description-container">
-            <p class="description-title blue">Description</p>
-        </div>
-
-        <div class="location-container">
-            <div class="img-location-container">
-                <img src="https://css-tianguis.com/wp-content/uploads/2020/03/google-maps-links.png" alt="">
-            </div>
-        </div>
-        <div class="last-section row">
-            <p class="blue" *ngIf="isRequestor == true">Appliers</p>
-            <div class="appliers-container col-2" *ngIf="isRequestor == true">
-                <div class="appliers-img-container">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" class="img-applier-1">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" class="img-applier-2">
-                </div>
-            </div>
-            <div class="col-12 btn-container" *ngIf="isRequestor == false">
-                <app-needy-button [text]="'Apply'" [bgColor]="'bgColor-blue'" class="button-needy"></app-needy-button>
-            </div>
-            <div class="col-10 btn-container" *ngIf="isRequestor == true">
-                <!-- <app-needy-button [text]="'Rating user'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="isRequestor == true && isExpired()"></app-needy-button>
-                <app-needy-button [text]="'View appliers'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="isRequestor == true && !isExpired()"></app-needy-button> -->
-            </div>
+        </div>  
+        <div class="btn-container">
+            <app-needy-button [text]="'Rating user'" 
+                [bgColor]="'bgColor-blue'" 
+                class="button-needy" 
+                *ngIf="isRequestor == true && isExpired()"
+                (click)="redirectToRatingPage()">
+            </app-needy-button>
+            <app-needy-button [text]="'View appliers'" 
+                [bgColor]="'bgColor-blue'" 
+                class="button-needy" 
+                *ngIf="isRequestor == true && !isExpired()"
+                (click)="redirectToAppliersPage()">
+            </app-needy-button>
+            <app-needy-button [text]="'Apply'" 
+                [bgColor]="'bgColor-blue'" 
+                class="button-needy" 
+                *ngIf="!isRequestor && !isApplied"
+                (click)="applyNeed()">
+            </app-needy-button>
+            <app-needy-button [text]="'Unapply'" 
+                [bgColor]="'bgColor-red'" 
+                class="button-needy" 
+                *ngIf="!isRequestor && isApplied" 
+                (click)="unapplyNeed()">
+            </app-needy-button>
         </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { NeedPageComponent } from './need/components/need-page/need-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     HttpClientModule,
     NgbModule,
+    SharedModule,
     ReactiveFormsModule
   ],
   providers: [],

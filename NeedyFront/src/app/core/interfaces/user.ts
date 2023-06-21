@@ -7,6 +7,7 @@ export interface User {
     address: string;
     zone: string;
     phone: string;
+    email: string;
     age: number;
     skills: Skill[];
     avgRating?: number;

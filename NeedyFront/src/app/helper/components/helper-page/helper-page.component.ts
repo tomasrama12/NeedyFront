@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Skill } from 'src/app/core/interfaces/skill';
-import { SkillService } from '../../services/skill.service';
+import { UserService } from '../../services/user.service';
+import { DataService } from 'src/app/shared/services/data.service';
+
+import { User } from 'src/app/core/interfaces/user';
 
 @Component({
   selector: 'app-helper-page',
@@ -10,30 +12,27 @@ import { SkillService } from '../../services/skill.service';
 })
 export class HelperPageComponent implements OnInit {
 
-  //TODO: Add the user name here from parameter
-  userFullName: string = 'John Doe';
-  age: number = 25;
-  rating: number = 3;
-  description: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.';
+  user!: User;
+  ci: string = "12345678"; //borrar esto luego
 
-  constructor(private skillService: SkillService) { }
-
-  userSkills: Skill[] = [
-    { id: 1, name: 'Skill 1' },
-    { id: 2, name: 'Skill 2' },
-    { id: 3, name: 'Skill 3' },
-  ];
+  constructor(
+    private userService: UserService,
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
-  }
-
-  getSkills(){
-    this.skillService.getSkills().subscribe(
-      skills => {
-        this.userSkills = skills;
-        console.log(skills);
+    //this.dataService.userCI
+    const userCI = JSON.stringify(this.ci);
+    this.userService.getUserByCI(userCI).subscribe(
+      user => {
+        this.user = user;
       }
     );
+  }
+
+  redirectToUserRatingsPage(ci: string) {
+    console.log('hola');
+    
   }
 
 }

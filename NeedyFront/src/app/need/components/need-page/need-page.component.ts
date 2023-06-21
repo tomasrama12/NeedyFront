@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Need } from 'src/app/core/interfaces/need';
 import { NeedService } from '../../services/need.service';
+import { DataService } from 'src/app/shared/services/data.service';
+
+import { Need } from 'src/app/core/interfaces/need';
 
 @Component({
   selector: 'app-need-page',
@@ -10,49 +12,60 @@ import { NeedService } from '../../services/need.service';
 })
 export class NeedPageComponent implements OnInit {
 
-  need?: Need;
-
-  //TODO: cuidado aca, fijate que este bien el metodo de abajo xd
+  need!: Need;
   isRequestor: boolean = false;
+  isApplied: boolean = false;
 
-  //TODO: MAXI CAMBIA EL needTest por need cuando pruebes con los datos reales// CAMBIALO EN EL HTML TMB
-
-  constructor(private needService: NeedService) { }
+  constructor(
+    private needService: NeedService,
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
+    this.needService.getNeedById(this.dataService.needId).subscribe(
+      need => {
+        this.need = need;
+        this.checkIsRequestor();
+        this.checkIsApplied();
+      }
+    );
   }
 
-  checkIfIsRequestor(){
+  checkIsRequestor() {
     localStorage.getItem('CI') == this.need?.requestor.ci ? this.isRequestor = true : this.isRequestor = false;
   }
 
-  //TODO: MAXI CAMBIA EL needTest por need
-  // isExpired(){
-  //   const currentDate = new Date();
+  //TODO: funcion para chequear si el usuario ya esta aplicado a la need para poner el boton unapply
+  checkIsApplied() {
+    //TODO
+  }
 
-  //   if(this.needTest){
-  //     if(currentDate > this.needTest?.needDate){
-  //       return true;
-  //     }
-  //   }
+  isExpired() {
+    const currentDate = new Date();
 
-  //   return false;
-  // }
+    if (this.need) {
+      if (currentDate > this.need?.needDate) {
+        return true;
+      }
+    }
 
-  // formatDate(date: Date): string {
-  //   console.log(date)
-  //   const day = date.getDate().toString().padStart(2, '0');
-  //   const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  //   const year = date.getFullYear().toString().slice(-2);
-  
-  //   return `${day}/${month}/${year}`;
-  // }
+    return false;
+  }
 
-  // getNeedById(id: number){
-  //   this.needService.getNeedById(id).subscribe(
-  //     need => {
-  //       this.need = need;
-  //     }
-  //   );
-  // }
+  applyNeed() {
+    //TODO
+  }
+
+  unapplyNeed() {
+    //TODO
+  }
+
+  redirectToRatingPage() {
+    //TODO
+  }
+
+  redirectToAppliersPage() {
+    //TODO
+  }
+
 }

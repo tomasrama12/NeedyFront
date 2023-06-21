@@ -15,4 +15,5 @@ export interface Need {
     requestedSkills: Skill[];
     needAddress: string;
     modality: string;
+    imagerSrc: string;
 }

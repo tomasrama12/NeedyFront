@@ -10,6 +10,12 @@
     color:  #0a2472 ;
 }
 
+.bgColor-red{
+    background-color: #FD5D5D;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
 .bgColor-lightBlue{
     background-color: rgba(255, 255, 255, 0.4);
     width: 100%;

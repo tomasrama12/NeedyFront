@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Need } from 'src/app/core/interfaces/need';
 import { User } from 'src/app/core/interfaces/user';
 
 import { UserService } from 'src/app/helper/services/user.service';
 import { NeedService } from 'src/app/need/services/need.service';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -15,7 +17,9 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(
     private needService: NeedService,
-    private userService: UserService
+    private userService: UserService,
+    private dataService: DataService,
+    private router: Router
   ) { }
 
   user!: User;
@@ -46,6 +50,11 @@ export class ProfilePageComponent implements OnInit {
 
   selectMenu(index:number){
     this.selectedMenuIndex = index;
+  }
+
+  redirectToNeedPage(id: number){
+    this.dataService.needId = id;
+    this.router.navigateByUrl('/need');
   }
 
 }

@@ -1,115 +1,114 @@
-.blue-container{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #0a2472;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100vh;
-}
-
-  
-
-.info-container{
-    width: 100%;
-    height: 70%;
-    border-radius: 25px 25px 0px 0px;
-    background-color: white;
-    overflow: hidden;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-}
-
-.heading {
-    font-family: Calibri, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 24px;
-    color: #0a2472;
-    margin-bottom: 15px;
-  }
-
-.rating {
-    font-family: Calibri, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    color: yellowgreen;
-}
-
-.space::before {
-    content: "\00a0"; /* Unicode character for a non-breaking space */
-  }
-  
-.rating-row {
-    /* Styles for the rating row */
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Add separation below the rating row */
-  }
-
-  .expanded-container {
-    flex: 1;
-  }
-  
-  .list-container {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    height: 450px; 
-  }
-  
 .rating-container {
-    height: auto; /* Set the desired height for the container */
-    border-radius: 10px;
-    width: auto;
-    padding: 10px;
-    margin-bottom: 10px; 
-    background-color: #0a2472; /* Replace with your desired background color */
-    /* Add any other styles for the container */
-    display: flex;
-    align-items: center;
-    color: white;
-    overflow: hidden;
-  }
-
-.giver-name {
-    font-family: Calibri, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-    color: white;
-}
-
-.rating-comment {
-    font-family: Calibri, Arial, sans-serif;
-    font-weight: regular;
-    font-size: 18px;
-    color: rgb(186, 182, 182);
-    margin-bottom: 10px;
-}
-
-.img-header-container{
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.img-container{
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-}
-
-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.rating-details {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-left: 10px; /* Add spacing between image and details */
+  align-items: center;
+}
+
+.header {
+  color: white;
+}
+
+.helper-image-container {
   width: 100%;
+  height: 35%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.helper-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-container {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 25px 25px 0px 0px;
+  background-color: white;
+  margin-top: -20px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  width: 90vw;
+}
+
+.bi {
+  font-size: 1.7rem;
+  margin-right: 1rem;
+  color: #0A2472;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.skills {
+  margin-top: 1rem;
+}
+
+.label {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0A2472;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill {
+  margin-top: 0.5rem;
+  background-color: rgb(180, 180, 180);
+  color: white;
+  font-weight: 600;
+  width: 30%;
+  height: 2.2rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #0A2472;
+}
+
+.name {
+  margin: 2rem 0 1rem 0;
+}
+
+.age {
+  margin-left: 1.2rem;
+  font-size: 1.5rem;
+  color: #0A2472;
+}
+
+.rating {
+  margin-right: 1.2rem;
+  font-size: 1.5rem;
+  color: #FFC700;
 }
