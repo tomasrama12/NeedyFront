@@ -13,7 +13,6 @@ import { User } from 'src/app/core/interfaces/user';
 export class HelperPageComponent implements OnInit {
 
   user!: User;
-  ci: string = "12345678"; //borrar esto luego
 
   constructor(
     private userService: UserService,
@@ -21,9 +20,7 @@ export class HelperPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //this.dataService.userCI
-    const userCI = JSON.stringify(this.ci);
-    this.userService.getUserByCI(userCI).subscribe(
+    this.userService.getUserByCI(this.dataService.userCI).subscribe(
       user => {
         this.user = user;
       }

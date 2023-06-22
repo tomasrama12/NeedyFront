@@ -49,6 +49,8 @@ img {
 
 .info {
   width: 90vw;
+  margin-bottom: 4rem;
+  overflow-y: scroll;
 }
 
 .bi {
@@ -83,7 +85,8 @@ ul {
   background-color: rgb(180, 180, 180);
   color: white;
   font-weight: 600;
-  width: 30%;
+  min-width: 25%;
+  max-width: 50%;
   height: 2.2rem;
   border-radius: 2rem;
   display: flex;
@@ -116,6 +119,8 @@ h2 {
 .btn-container {
   width: 80vw;
   margin-bottom: 1rem;
+  position: fixed;
+  bottom: 0;
 }
 
 .seeAll {

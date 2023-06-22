@@ -1,28 +1,6 @@
-<!-- <div class="card-container">
-    <div class="img-container">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-    </div>
-    <div class="info-container">
-        <p class="info">
-            <span class="title">
-                <strong>{{need.title}}</strong>
-                <span class="text-light">{{need.requestor.firstName}} {{need.requestor.lastName}}</span>
-            </span>
-            <span class="info-item">
-                <i class="bi bi-geo-alt"></i>
-                <span class="text">{{need.needAddress}}</span>
-            </span>
-            <span>
-                <i class="bi bi-calendar4"></i>
-                <span class="text">{{need.needDate | date}}</span>
-            </span>
-        </p>
-    </div>
-</div> -->
-
 <div class="card-container" *ngIf="type === 'need'">
     <div class="img-container">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+        <img class="square" src="https://www.w3schools.com/howto/img_avatar.png">
     </div>
     <div class="info-container">
         <p class="info">
@@ -42,13 +20,46 @@
     </div>
 </div>
 
-<div *ngIf="type === 'user'">
+<div class="card-container" *ngIf="type === 'user'">
     <h2>Información del User</h2>
 </div>
 
+<div class="card-container" *ngIf="type === 'applier'">
+    <div class="image-container">
+        <div class="img-cir" (click)="redirectToUserPage(user.ci)">
+            <img class="circular" src="https://www.w3schools.com/howto/img_avatar.png">
+        </div>
+    </div>
+    <div class="info-container">
+        <div class="info">
+            <span class="title">
+                <strong>{{user.firstName}} {{user.lastName}}</strong>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-star-fill rating"></i>
+                <span class="text">{{user.avgRating | number : '1.2-2'}}</span>
+            </span>
+            <span class="btn-container">
+                <app-needy-button [text]="'Decline'" 
+                    [bgColor]="'bgColor-red'" 
+                    class="button-needy" 
+                    (click)="declineApplier(user.ci)">
+                </app-needy-button>
+                <app-needy-button [text]="'Accept'" 
+                    [bgColor]="'bgColor-green'" 
+                    class="button-needy" 
+                    (click)="acceptApplier(user.ci)">
+                </app-needy-button>
+            </span>
+        </div>
+    </div>
+</div>
+
 <div class="card-container" *ngIf="type === 'rating'">
-    <div class="img-container">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+    <div class="image-container">
+        <div class="img-cir">
+            <img class="circular" src="https://www.w3schools.com/howto/img_avatar.png">
+        </div>
     </div>
     <div class="info-container">
         <p class="info">

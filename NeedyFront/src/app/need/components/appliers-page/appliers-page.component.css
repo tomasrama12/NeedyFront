@@ -1,0 +1,71 @@
+.appliers-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    color: white;
+}
+
+.helper-image-container {
+    width: 100%;
+    height: 35%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.helper-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-container {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px 25px 0px 0px;
+    background-color: white;
+    margin-top: -20px;
+    overflow: hidden;
+}
+
+.list-container {
+    width: 90vw;
+    overflow-y: scroll;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    width: 90vw;
+}
+
+h2 {
+    margin: 2rem 0 1rem 0;
+    font-size: 1.5rem;
+    color: #0A2472;
+}
+
+i {
+    font-size: 2.5rem;
+}
+
+.message {
+    height: 100%;
+    color: silver;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NeedCardComponent } from './components/need-card/need-card.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { NeedCardComponent } from './components/need-card/need-card.component';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     RouterModule
   ],
   exports: [
