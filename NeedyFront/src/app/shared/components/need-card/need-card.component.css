@@ -72,3 +72,8 @@ i{
     overflow-x: auto;
     white-space: nowrap;
 }
+
+.rating {
+    font-size: 1.2rem;
+    color: #FFC700;
+  }

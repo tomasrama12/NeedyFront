@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { NeedService } from '../../services/need.service';
 import { DataService } from 'src/app/shared/services/data.service';
@@ -18,12 +19,14 @@ export class NeedPageComponent implements OnInit {
 
   constructor(
     private needService: NeedService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.needService.getNeedById(this.dataService.needId).subscribe(
       need => {
+        console.log(need);
         this.need = need;
         this.checkIsRequestor();
         this.checkIsApplied();
@@ -32,7 +35,7 @@ export class NeedPageComponent implements OnInit {
   }
 
   checkIsRequestor() {
-    localStorage.getItem('CI') == this.need?.requestor.ci ? this.isRequestor = true : this.isRequestor = false;
+    localStorage.getItem('userCI') == this.need?.requestor.ci ? this.isRequestor = true : this.isRequestor = false;
   }
 
   //TODO: funcion para chequear si el usuario ya esta aplicado a la need para poner el boton unapply
@@ -48,24 +51,43 @@ export class NeedPageComponent implements OnInit {
         return true;
       }
     }
-
     return false;
   }
 
-  applyNeed() {
+  updateNeedy() {
     //TODO
+  }
+
+  deleteNeedy() {
+    this.needService.deleteNeed(this.need.id).subscribe(
+      res => {
+        this.router.navigateByUrl('/profile');
+      }
+    );
+  }
+
+  applyNeed() {
+    this.needService.applyNeed(this.need.id).subscribe(
+      res => {
+        this.isApplied = true;
+      }
+    );
   }
 
   unapplyNeed() {
-    //TODO
+    this.needService.unapplyNeed(this.need.id).subscribe(
+      res => {
+        this.isApplied = false;
+      }
+    );
   }
 
   redirectToRatingPage() {
-    //TODO
+    this.router.navigateByUrl('/rating');
   }
 
   redirectToAppliersPage() {
-    //TODO
+    this.router.navigateByUrl('/need/appliers');
   }
 
 }

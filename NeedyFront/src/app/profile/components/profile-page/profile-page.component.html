@@ -16,13 +16,13 @@
         <div class="menu-items-container">
             <div *ngIf="selectedMenuIndex === 0"  class="need-card">
                 <div *ngFor="let need of myNeeds" (click)="redirectToNeedPage(need.id)">
-                    <app-need-card [need]="need"></app-need-card>
+                    <app-need-card [need]="need" [type]="'need'"></app-need-card>
                 </div>
             </div>
 
             <div *ngIf="selectedMenuIndex === 1" class="need-card">
                 <div *ngFor="let need of myApplies" (click)="redirectToNeedPage(need.id)">
-                    <app-need-card [need]="need"></app-need-card>
+                    <app-need-card [need]="need" [type]="'need'"></app-need-card>
                 </div>
             </div>
 
@@ -59,14 +59,14 @@
                     <span class="label">About me</span>
                     <span class="data">{{user.aboutMe}}</span>
                 </p>
-                <span class="w-100 input skills">
+                <div class="w-100 input skills">
                     <span class="label">Skills</span>
                     <ul *ngFor="let skill of user.skills">
-                        <li>
+                        <li class="skill">
                             <span class="data">{{skill.name}}</span>
                         </li>
                     </ul>
-                </span>
+                </div>
             </div>
         </div>
     </div>

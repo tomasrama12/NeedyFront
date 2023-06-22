@@ -33,6 +33,12 @@
   border-radius: 25px 25px 0px 0px;
   background-color: white;
   margin-top: -20px;
+  overflow: hidden;
+}
+
+.list-container{
+  width: 90vw;
+  overflow-y: scroll;
 }
 
 .flex {

@@ -28,8 +28,7 @@ export class ProfilePageComponent implements OnInit {
   selectedMenuIndex:number = 0;
 
   ngOnInit(): void {
-    const userCI = JSON.stringify(localStorage.getItem("userCI"));
-    this.userService.getUserByCI(userCI).subscribe(
+    this.userService.getUserByCI(localStorage.getItem('userCI')!).subscribe(
       user => {
         this.user = user;
 

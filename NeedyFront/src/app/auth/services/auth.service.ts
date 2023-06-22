@@ -41,7 +41,6 @@ export class AuthService {
   }
 
   logout() {
-    this.userService.SetUser(undefined);
     localStorage.removeItem("token");
     localStorage.removeItem("expires_at");
     localStorage.removeItem("userCI");

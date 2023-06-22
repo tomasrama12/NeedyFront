@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
 
   back() {
     this.location.back();
+    //window.location.reload();
   }
 
 }

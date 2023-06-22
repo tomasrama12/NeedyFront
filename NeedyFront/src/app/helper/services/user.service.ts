@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
 
@@ -19,29 +19,7 @@ const headers = new HttpHeaders({
 })
 export class UserService {
 
-  private userInfo?: User;
-
   constructor(private http: HttpClient) { }
-
-  get User() {
-    return this.userInfo;
-  }
-
-  SetUser(user: User | undefined) {
-    this.userInfo = user;
-  }
-
-  getThisUser() {
-    if (this.User) {
-      return of(this.User);
-    } else {
-      const userCI = JSON.parse(localStorage.getItem('userCI')!);
-      return this.http.post<User>(`${URL}/get-user-by-ci`, userCI, { headers }).pipe(
-        tap(user => this.SetUser(user)),
-        catchError(this.handleError('getThisUser'))
-      );
-    }
-  }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${URL}/get-users`, { headers }).pipe(
@@ -56,7 +34,8 @@ export class UserService {
   }
 
   getUserByCI(ci: string): Observable<User> {
-    return this.http.post<User>(`${URL}/get-user-by-ci`, ci, { headers }).pipe(
+    const userCI = JSON.stringify(ci);
+    return this.http.post<User>(`${URL}/get-user-by-ci`, userCI, { headers }).pipe(
       catchError(this.handleError<User>(`getUserByCI`))
     );
   }

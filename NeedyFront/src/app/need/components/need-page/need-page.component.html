@@ -1,4 +1,4 @@
-<app-header class="header" [currentText]="'Profile'" [bgColor]="'bgColor-white'" [visibility]="'show'"></app-header>
+<app-header class="header" [bgColor]="'bgColor-white'" [visibility]="'show'"></app-header>
 
 <div class="need-container">
     <div class="need-image-container">
@@ -34,17 +34,28 @@
             </div>
         </div>  
         <div class="btn-container">
-            <app-needy-button [text]="'Rating user'" 
+            <div class="btn-creator" *ngIf="isRequestor && !isExpired()">
+                <app-needy-button [text]="'Edit'" 
+                    [bgColor]="'bgColor-blue'" 
+                    class="button-needy small" 
+                    (click)="updateNeedy()">
+                </app-needy-button>
+                <app-needy-button [text]="'Appliers'" 
+                    [bgColor]="'bgColor-blue'" 
+                    class="button-needy small" 
+                    (click)="redirectToAppliersPage()">
+                </app-needy-button>
+                <app-needy-button [text]="'Delete'" 
+                    [bgColor]="'bgColor-red'" 
+                    class="button-needy small" 
+                    (click)="deleteNeedy()">
+                </app-needy-button>
+            </div>
+            <app-needy-button [text]="'Rating User'" 
                 [bgColor]="'bgColor-blue'" 
                 class="button-needy" 
-                *ngIf="isRequestor == true && isExpired()"
+                *ngIf="isRequestor && isExpired()"
                 (click)="redirectToRatingPage()">
-            </app-needy-button>
-            <app-needy-button [text]="'View appliers'" 
-                [bgColor]="'bgColor-blue'" 
-                class="button-needy" 
-                *ngIf="isRequestor == true && !isExpired()"
-                (click)="redirectToAppliersPage()">
             </app-needy-button>
             <app-needy-button [text]="'Apply'" 
                 [bgColor]="'bgColor-blue'" 

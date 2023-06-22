@@ -1,4 +1,4 @@
-<div class="card-container">
+<!-- <div class="card-container">
     <div class="img-container">
         <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
     </div>
@@ -15,6 +15,52 @@
             <span>
                 <i class="bi bi-calendar4"></i>
                 <span class="text">{{need.needDate | date}}</span>
+            </span>
+        </p>
+    </div>
+</div> -->
+
+<div class="card-container" *ngIf="type === 'need'">
+    <div class="img-container">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+    </div>
+    <div class="info-container">
+        <p class="info">
+            <span class="title">
+                <strong>{{need.title}}</strong>
+                <span class="text-light">{{need.requestor.firstName}} {{need.requestor.lastName}}</span>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-geo-alt"></i>
+                <span class="text">{{need.needAddress}}</span>
+            </span>
+            <span>
+                <i class="bi bi-calendar4"></i>
+                <span class="text">{{need.needDate | date}}</span>
+            </span>
+        </p>
+    </div>
+</div>
+
+<div *ngIf="type === 'user'">
+    <h2>Información del User</h2>
+</div>
+
+<div class="card-container" *ngIf="type === 'rating'">
+    <div class="img-container">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+    </div>
+    <div class="info-container">
+        <p class="info">
+            <span class="title">
+                <strong>{{rating.giver.firstName}} {{rating.giver.lastName}}</strong>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-star-fill rating"></i>
+                <span class="text">{{rating.stars | number : '1.2-2'}}</span>
+            </span>
+            <span>
+                <span class="text">{{rating.comment}}</span>
             </span>
         </p>
     </div>

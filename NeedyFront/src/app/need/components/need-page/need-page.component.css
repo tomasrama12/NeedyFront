@@ -1,4 +1,4 @@
-.need-container{
+.need-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -6,20 +6,24 @@
     align-items: center;
 }
 
-.need-image-container{
+.header {
+    color: white;
+}
+
+.need-image-container {
     width: 100%;
     height: 35%;
     object-fit: cover;
     overflow: hidden;
 }
 
-.need-image-container img{
+.need-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.need-info-container{
+.need-info-container {
     width: 100%;
     height: 65%;
     display: flex;
@@ -31,47 +35,47 @@
     margin-top: -20px;
 }
 
-img{
+img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.info{
+.info {
     width: 90vw;
 }
 
-.bi{
+.bi {
     font-size: 1.7rem;
     margin-right: 1rem;
     color: #0A2472;
 }
 
-.info-item{
+.info-item {
     display: flex;
     align-items: center;
     margin-bottom: 0.3rem;
 }
 
-.skills{
+.skills {
     margin-top: 1rem;
 }
 
-.label{
+.label {
     font-size: 1.3rem;
     font-weight: 600;
     color: #0A2472;
 }
 
-ul{
+ul {
     list-style: none;
     padding: 0;
 }
 
-.skill{
+.skill {
     margin-top: 0.5rem;
-    background-color: rgb(180, 180, 180);
-    color: white;
+    background-color: rgb(200, 200, 200);
+    color: #0A2472;
     font-weight: 600;
     width: 30%;
     height: 2.2rem;
@@ -81,13 +85,23 @@ ul{
     justify-content: center;
 }
 
-h2{
+h2 {
     margin: 2rem 0;
     font-size: 1.5rem;
     color: #0A2472;
 }
 
-.btn-container{
-    width: 80vw;
+.btn-container {
+    width: 90vw;
     margin-bottom: 1rem;
+}
+
+.btn-creator{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.small{
+    width: 30%;
 }
