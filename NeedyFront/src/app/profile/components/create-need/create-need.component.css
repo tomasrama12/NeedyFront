@@ -10,8 +10,6 @@
 .title-container{
     width: 100vw;
     align-self: flex-start;
-    position: fixed;
-    top: 4rem;
     background-color: white;
 }
 

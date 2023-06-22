@@ -47,12 +47,12 @@
                         <div *ngIf="needForm.get('description')?.errors?.['minlength']">Description must have less than 150 characters</div>
                     </div>
                 </div>
-                <!-- <div class="mb-3">
+                <div class="mb-3">
                     <label for="skills" class="form-label">Skills</label>
                     <div *ngFor="let skill of skills;" id="skills">
                         <input type="checkbox" [value]="skill.id" (click)="addDeleteSkillId(skill.id)"> {{ skill.name }}
                     </div>
-                </div> -->
+                </div>
             </div>
             <div class="button-section"> 
                 <button type="submit" class="btn bgColor-blue" [disabled]="!needForm.valid">Create Need</button>

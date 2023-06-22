@@ -1,32 +1,40 @@
-<div class = "rating-container">
-    <!-- TODO: Cambiar el backPage -->
-    <h1 class = "rating-title">Como estuvo la experiencia con .... ?</h1>
-    <div class="header">
+<app-header class="header" [currentText]="'Rating'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
+
+<div class="rating-container">
+    <div class="title-container">
+        <h2>How was your experience with...?</h2>
+    </div>
+    <div class="user-container">
         <div class="img-container">
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
         </div>
+        <h3>Carol Glass</h3>
     </div>
-    <h1 class="name-title">{{ receiverName }}</h1>
-    <form class="form-container" [formGroup]="ratingForm" (ngSubmit)="giveRating()"> 
-        <div class="mb-3">
-            <label for="comment" class="form-label">Rating</label>
-            <div class="star-rating">
-                <ng-container *ngFor="let star of getStars(rating)">
-                  <i class="fas fa-star"></i>
-                </ng-container>
-              </div>
-        </div> 
-        <div class="mb-3">
-            <label for="comment" class="form-label">Comment</label>
-            <textarea id="comment" class="form-control" formControlName="comment" placeholder="Add comment..."></textarea>
-            <div *ngIf="ratingForm.controls['comment'].invalid && ratingForm.controls['comment'].touched" class="text-danger">
-                <div *ngIf="ratingForm.get('comment')?.errors?.['required']">Comment is required</div>
-                <div *ngIf="ratingForm.get('comment')?.errors?.['minlength']">Comment must have less than 150 characters</div>
+    <div class="form-container">
+        <form class="form-container" [formGroup]="ratingForm" (ngSubmit)="giveRating()"> 
+            <div class="inputs-section">
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Rating</label>
+                    <div class="star-rating">
+                        <ng-container *ngFor="let star of getStars(rating)">
+                          <i class="bi bi-star"></i>
+                        </ng-container>
+                    </div>
+                </div> 
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Comment</label>
+                    <textarea id="comment" class="form-control" formControlName="comment" placeholder="Add comment..."></textarea>
+                    <div *ngIf="ratingForm.controls['comment'].invalid && ratingForm.controls['comment'].touched" class="text-danger">
+                        <div *ngIf="ratingForm.get('comment')?.errors?.['required']">Comment is required</div>
+                        <div *ngIf="ratingForm.get('comment')?.errors?.['minlength']">Comment must have less than 150 characters</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="button-container">
-            <button type="submit" class="btn bgColor-blue" [disabled]="!ratingForm.valid">Give rating</button>
-        </div>
-    </form>
-     <app-navbar></app-navbar>
+            <div class="button-section">
+                <button type="submit" class="btn bgColor-blue" [disabled]="!ratingForm.valid">Give rating</button>
+            </div>
+        </form>
+    </div>
 </div>
+
+<app-navbar></app-navbar>

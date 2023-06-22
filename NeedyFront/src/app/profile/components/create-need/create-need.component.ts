@@ -28,12 +28,12 @@ export class CreateNeedComponent implements OnInit {
   skillsId: number[] = [];
 
   ngOnInit(): void {
-    // this.skillsId = [];
-    // this.skillService.getSkills().subscribe(
-    //   skills => {
-    //     this.skills = skills;
-    //   }
-    // );
+    this.skillsId = [];
+    this.skillService.getSkills().subscribe(
+      skills => {
+        this.skills = skills;
+      }
+    );
 
     this.needForm = this.fb.group({
       title: new FormControl('', Validators.required),
@@ -44,8 +44,18 @@ export class CreateNeedComponent implements OnInit {
     });
   }
 
+  addDeleteSkillId(id: number) {
+    let pos = this.skillsId.indexOf(id);
+
+    if (pos === -1) {
+      this.skillsId.push(id);
+    } else {
+      this.skillsId.splice(pos, 1);
+    }
+  }
+
   create() {
-    if (this.needForm.invalid) {
+    if (this.needForm.invalid && this.skillsId.length > 0) {
       return;
     }
 
