@@ -25,7 +25,7 @@ export class ProfilePageComponent implements OnInit {
   user!: User;
   myApplies: Need[] = [];
   myNeeds: Need[] = [];
-  selectedMenuIndex:number = 0;
+  selectedMenuIndex: number = 0;
 
   ngOnInit(): void {
     this.userService.getUserByCI(localStorage.getItem('userCI')!).subscribe(

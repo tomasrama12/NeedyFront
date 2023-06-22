@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
+  searchTerm: string = '';
+  selectedMenuIndex: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectMenu(index:number){
+    this.selectedMenuIndex = index;
+  }
+
+  searchInfo() {
+    
   }
 
 }

@@ -1,2 +1,21 @@
-<p>search-page works!</p>
 <app-header class="header" [currentText]="'Search'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
+
+<div class="search-container">
+    <div class="search-header">
+        <div class="search-input">
+            <i class="bi bi-search"></i>
+            <input class="form-control" type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchInfo()" placeholder="Search...">
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="x-menu">
+            <p [class.selected-menu]="selectedMenuIndex === 0" (click)="selectMenu(0)">Needies</p>
+            <p [class.selected-menu]="selectedMenuIndex === 1" (click)="selectMenu(1)">Helpers</p>
+        </div>
+        <div class="result-container">
+            <app-search-results></app-search-results>
+        </div>
+    </div>
+</div>
+
+<app-navbar></app-navbar>
