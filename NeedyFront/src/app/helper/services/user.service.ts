@@ -33,6 +33,14 @@ export class UserService {
     );
   }
 
+  getUsersBySkillName(term: string): Observable<User[]> {
+    const searchTerm = JSON.stringify(term);
+    console.log(searchTerm);
+    return this.http.post<User[]>(`${URL}/get-users-by-skill-name`, searchTerm, { headers }).pipe(
+      catchError(this.handleError<User[]>(`getUsersBySkillName`))
+    );
+  }
+
   getUserByCI(ci: string): Observable<User> {
     const userCI = JSON.stringify(ci);
     return this.http.post<User>(`${URL}/get-user-by-ci`, userCI, { headers }).pipe(

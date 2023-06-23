@@ -5,7 +5,6 @@ import { catchError, map, of, tap } from 'rxjs';
 import * as moment from "moment";
 import { API_URL } from 'src/app/core/const';
 import { InsertUser } from 'src/app/core/interfaces/insertUser';
-import { UserService } from 'src/app/helper/services/user.service';
 
 const URL = `${API_URL}/auth`;
 
@@ -14,7 +13,7 @@ const URL = `${API_URL}/auth`;
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private userService: UserService) { }
+  constructor(private http: HttpClient) { }
 
   login(info: any) {
     return this.http.post<any>(`${URL}/login`, info).pipe(

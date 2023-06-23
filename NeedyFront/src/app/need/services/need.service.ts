@@ -41,6 +41,14 @@ export class NeedService {
     );
   }
 
+  getNeedsBySkillName(term: string): Observable<Need[]> {
+    const searchTerm = JSON.stringify(term);
+    console.log('termino users', searchTerm);
+    return this.http.post<Need[]>(`${URL}/get-needs-by-skill-name`, searchTerm, { headers }).pipe(
+      catchError(this.handleError<Need[]>(`getNeedsBySkillName`))
+    );
+  }
+
   getUserCreatedNeeds(ci: string): Observable<Need[]> {
     const userCI = JSON.stringify(ci);
     return this.http.post<Need[]>(`${URL}/get-user-created-needs`, userCI, { headers }).pipe(

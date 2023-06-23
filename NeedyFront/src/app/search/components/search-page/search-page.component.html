@@ -4,7 +4,8 @@
     <div class="search-header">
         <div class="search-input">
             <i class="bi bi-search"></i>
-            <input class="form-control" type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchInfo()" placeholder="Search...">
+            <!-- <input #searchBox class="form-control" type="text" (input)="search(searchBox.value)" placeholder="Search..."> -->
+            <input #searchBox class="form-control" type="text" (keyup.enter)="search(searchBox.value)" placeholder="Search...">
         </div>
     </div>
     <div class="content-container">
@@ -12,8 +13,9 @@
             <p [class.selected-menu]="selectedMenuIndex === 0" (click)="selectMenu(0)">Needies</p>
             <p [class.selected-menu]="selectedMenuIndex === 1" (click)="selectMenu(1)">Helpers</p>
         </div>
-        <div class="result-container">
-            <app-search-results></app-search-results>
+        <div class="result-container" *ngFor="let result of results">
+            <app-need-card *ngIf="selectedMenuIndex === 0" [need]="result" [type]="'need'"></app-need-card>
+            <app-need-card *ngIf="selectedMenuIndex === 1" [user]="result" [type]="'user'"></app-need-card>
         </div>
     </div>
 </div>

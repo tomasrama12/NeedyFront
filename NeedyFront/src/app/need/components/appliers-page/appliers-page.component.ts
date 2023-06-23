@@ -16,7 +16,6 @@ export class AppliersPageComponent implements OnInit {
   constructor(private needService: NeedService) { }
 
   ngOnInit(): void {
-    //this.dataService.needId
     this.needService.getNeedById(8).subscribe(
       need => {
         this.need = need;
