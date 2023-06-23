@@ -6,7 +6,9 @@ import { User } from '../interfaces/user';
 })
 export class FilterUserPipe implements PipeTransform {
 
-  transform(users: User[], userLogged: string, search: string = ''): User[] {
+  transform(users: User[], search: string = ''): User[] {
+
+    const userLogged = localStorage.getItem('userCI')!;
 
     if (search.length === 0) {
       return users.filter(user => user.ci !== userLogged);

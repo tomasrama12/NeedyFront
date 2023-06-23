@@ -10,13 +10,14 @@
 
 .search-header {
     height: 10%;
-    width: 90vw;
+    width: 100%;
     display: flex;
+    justify-content: center;
     overflow: hidden;
 }
 
 .search-input {
-    width: 100%;
+    width: 90vw;
     position: relative;
     display: flex;
     flex-direction: row;

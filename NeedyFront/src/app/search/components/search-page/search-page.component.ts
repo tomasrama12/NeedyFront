@@ -36,27 +36,17 @@ export class SearchPageComponent implements OnInit {
       this.selectedMenuIndex = this.dataService.searchIndex;
     }
 
-    if (this.selectedMenuIndex === 0) {
-      this.needService.getNeeds().subscribe(
-        needs => {
-          this.needs = needs;
-          this.users = [];
-          console.log(this.needs);
-          console.log(this.users);
-        }
-      );
-    }
+    this.needService.getNeeds().subscribe(
+      needs => {
+        this.needs = needs;
+      }
+    );
 
-    if (this.selectedMenuIndex === 1) {
-      this.userService.getUsers().subscribe(
-        users => {
-          this.users = users;
-          this.needs = [];
-          console.log(this.users);
-          console.log(this.needs);
-        }
-      );
-    }
+    this.userService.getUsers().subscribe(
+      users => {
+        this.users = users;
+      }
+    );
 
   }
 
