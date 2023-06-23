@@ -56,4 +56,8 @@ export class ProfilePageComponent implements OnInit {
     this.router.navigateByUrl('/need');
   }
 
+  redirectToCreateNeedPage(){
+    this.router.navigateByUrl('/profile/create-need');
+  }
+
 }

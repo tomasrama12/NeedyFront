@@ -10,7 +10,7 @@
     <div class="content-container">
         <div class="x-menu">
             <p [class.selected-menu]="selectedMenuIndex === 0" (click)="selectMenu(0)">Needies</p>
-            <p [class.selected-menu]="selectedMenuIndex === 1" (click)="selectMenu(1)">Helpers</p>
+            <p class="" [class.selected-menu]="selectedMenuIndex === 1" (click)="selectMenu(1)">Helpers</p>
         </div>
         <div class="result-container" *ngIf="selectedMenuIndex === 0">
             <div *ngFor="let need of needs | filterNeed:searchTerm" (click)="redirectToNeedPage(need.id)">

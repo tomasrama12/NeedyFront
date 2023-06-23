@@ -30,6 +30,7 @@ export class NeedPageComponent implements OnInit {
         this.need = need;
         this.checkIsRequestor();
         this.checkIsApplied();
+        this.dataService.userCI = need.requestor.ci;
       }
     );
   }
@@ -88,6 +89,11 @@ export class NeedPageComponent implements OnInit {
 
   redirectToAppliersPage() {
     this.router.navigateByUrl('/need/appliers');
+  }
+
+  redirectToUserPage(ci: string) {
+    this.dataService.userCI = ci;
+    this.router.navigateByUrl('/helper');
   }
 
 }

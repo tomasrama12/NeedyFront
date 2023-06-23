@@ -83,7 +83,7 @@ ul {
 .skill {
   margin-top: 0.5rem;
   background-color: rgb(180, 180, 180);
-  color: white;
+  color: #0A2472;
   font-weight: 600;
   min-width: 25%;
   max-width: 50%;
@@ -123,11 +123,7 @@ h2 {
   bottom: 0;
 }
 
-.seeAll {
-  color: #001AFF;
-  cursor: pointer;
-}
-
-.seeAll:hover {
+.link {
+  color: #0D6EFD;
   text-decoration: underline;
 }

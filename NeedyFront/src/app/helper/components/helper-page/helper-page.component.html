@@ -12,7 +12,7 @@
         </div>
         <div class="flex">
           <span class="rating">{{user.avgRating}}</span>
-          <a href="/helper/ratings" (click)="redirectToUserRatingsPage(user.ci)">See All...</a>
+          <a class="link" (click)="redirectToUserRatingsPage(user.ci)">See All...</a>
         </div>
         <p>{{user.aboutMe}}</p>
         <span class="info-item">

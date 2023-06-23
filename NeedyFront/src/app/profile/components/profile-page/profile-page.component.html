@@ -14,16 +14,24 @@
             <p [class.selected-menu]="selectedMenuIndex === 2" (click)="selectMenu(2)">My info</p>
         </div>
         <div class="menu-items-container">
-            <div *ngIf="selectedMenuIndex === 0"  class="need-card">
+            <div *ngIf="selectedMenuIndex === 0 && myNeeds"  class="need-card">
                 <div *ngFor="let need of myNeeds" (click)="redirectToNeedPage(need.id)">
                     <app-need-card [need]="need" [type]="'need'"></app-need-card>
                 </div>
             </div>
+            <div class="message" *ngIf="myNeeds.length == 0">
+                <i class="bi bi-exclamation-circle empty"></i>
+                <span>Todavía no hay publicaciones.</span>
+            </div>
 
-            <div *ngIf="selectedMenuIndex === 1" class="need-card">
+            <div *ngIf="selectedMenuIndex === 1 && myApplies" class="need-card">
                 <div *ngFor="let need of myApplies" (click)="redirectToNeedPage(need.id)">
                     <app-need-card [need]="need" [type]="'need'"></app-need-card>
                 </div>
+            </div>
+            <div class="message" *ngIf="myApplies.length == 0">
+                <i class="bi bi-exclamation-circle empty"></i>
+                <span>Todavía no hay postulaciones.</span>
             </div>
 
             <div *ngIf="selectedMenuIndex === 2" class="info-container">
@@ -71,8 +79,17 @@
         </div>
     </div>
     <div class="btn-container">
-        <app-needy-button [text]="'Create Needy'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 0"></app-needy-button>
-        <app-needy-button [text]="'Edit info'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 2"></app-needy-button>
+        <app-needy-button [text]="'Create Needy'" 
+            [bgColor]="'bgColor-blue'" 
+            class="button-needy" 
+            *ngIf="selectedMenuIndex === 0"
+            (click)="redirectToCreateNeedPage()">
+        </app-needy-button>
+        <app-needy-button [text]="'Edit info'" 
+            [bgColor]="'bgColor-blue'" 
+            class="button-needy" 
+            *ngIf="selectedMenuIndex === 2">
+        </app-needy-button>
     </div>
 </div>
 

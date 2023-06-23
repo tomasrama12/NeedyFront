@@ -118,3 +118,18 @@ h2 {
   font-size: 1.5rem;
   color: #FFC700;
 }
+
+.empty::before {
+  font-size: 2.5rem;
+  color: silver;
+}
+
+.message {
+  height: 100%;
+  color: silver;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

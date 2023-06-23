@@ -7,18 +7,22 @@
   <div class="info-container">
     <div class="info">
       <div class="flex name">
-        <h2>Pepe Ramon</h2>
-        <span class="age">45</span>
+        <h2>{{user.firstName}} {{user.lastName}}</h2>
+        <span class="age">{{user.age}}</span>
       </div>
       <div class="flex">
         <i class="bi bi-star-fill rating"></i>
-        <span class="rating">4.75</span>
+        <span class="rating">{{user.avgRating}}</span>
       </div>
     </div>  
-    <div class="list-container">
+    <div class="list-container" *ngIf="ratings">
       <div *ngFor="let rating of ratings">
         <app-need-card [rating]="rating" [type]="'rating'"></app-need-card>
       </div>
     </div>
+    <div class="message" *ngIf="ratings.length == 0">
+      <i class="bi bi-exclamation-circle empty"></i>
+      <span>Todavía no hay ratings.</span>
+  </div>
   </div>
 </div>

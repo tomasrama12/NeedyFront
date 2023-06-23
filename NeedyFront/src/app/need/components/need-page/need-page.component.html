@@ -10,7 +10,7 @@
             <p>{{need.description}}</p>
             <span class="info-item">
                 <i class="bi bi-person"></i>
-                <span class="text">{{need.requestor.firstName}} {{need.requestor.lastName}}</span>
+                <a class="link" (click)="redirectToUserPage(need.requestor.ci)">{{need.requestor.firstName}} {{need.requestor.lastName}}</a>
             </span>
             <span class="info-item">
                 <i class="bi bi-geo-alt"></i>

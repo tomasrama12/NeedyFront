@@ -105,3 +105,8 @@ h2 {
 .small{
     width: 30%;
 }
+
+.link {
+    color: #0D6EFD;
+    text-decoration: underline;
+}

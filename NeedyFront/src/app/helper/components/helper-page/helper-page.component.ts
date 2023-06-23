@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 import { DataService } from 'src/app/shared/services/data.service';
@@ -16,10 +17,12 @@ export class HelperPageComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    console.log('estoy en helper page', this.dataService.userCI);
     this.userService.getUserByCI(this.dataService.userCI).subscribe(
       user => {
         this.user = user;
@@ -28,8 +31,8 @@ export class HelperPageComponent implements OnInit {
   }
 
   redirectToUserRatingsPage(ci: string) {
-    console.log('hola');
-    
+    this.dataService.userCI = ci;
+    this.router.navigateByUrl('/helper/ratings');
   }
 
 }
