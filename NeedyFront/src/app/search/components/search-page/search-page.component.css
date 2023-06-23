@@ -5,12 +5,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .search-header {
     height: 10%;
     width: 90vw;
     display: flex;
+    overflow: hidden;
 }
 
 .search-input {
@@ -75,4 +77,6 @@ input {
 .result-container {
     width: 90vw;
     height: 95%;
+    overflow-y: scroll;
+    padding-bottom: 1rem;
 }

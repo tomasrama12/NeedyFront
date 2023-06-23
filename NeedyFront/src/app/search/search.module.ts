@@ -6,6 +6,7 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
   ],
   imports: [
     CommonModule,
+    CoreModule,
     FormsModule,
     SearchRoutingModule,
     SharedModule

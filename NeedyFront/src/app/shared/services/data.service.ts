@@ -7,6 +7,7 @@ export class DataService {
 
   needId!: number;
   userCI!: string;
+  searchIndex!: number;
 
   constructor() { }
 }

@@ -28,7 +28,7 @@
                 <span class="label">Requested Skills</span>
                 <ul *ngFor="let skill of need.requestedSkills">
                     <li class="skill">
-                        <span class="data">{{skill.name}}</span>
+                        <span class="data">{{skill.name | titlecase}}</span>
                     </li>
                 </ul>
             </div>

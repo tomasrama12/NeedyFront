@@ -21,7 +21,27 @@
 </div>
 
 <div class="card-container" *ngIf="type === 'user'">
-    <h2>Información del User</h2>
+    <div class="img-container">
+        <img class="square" src="https://www.w3schools.com/howto/img_avatar.png">
+    </div>
+    <div class="info-container">
+        <p class="info">
+            <span class="title">
+                <strong>{{user.firstName}} {{user.lastName}}</strong>
+            </span>
+            <span class="info-item">
+                <span class="text">{{user.age}}</span>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-star-fill rating"></i>
+                <span class="text">{{user.avgRating | number : '1.2-2'}}</span>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-geo-alt"></i>
+                <span class="text">{{user.address}} - {{user.zone}}</span>
+            </span>
+        </p>
+    </div>
 </div>
 
 <div class="card-container" *ngIf="type === 'applier'">

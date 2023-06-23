@@ -4,8 +4,8 @@
     <div class="search-header">
         <div class="search-input">
             <i class="bi bi-search"></i>
-            <!-- <input #searchBox class="form-control" type="text" (input)="search(searchBox.value)" placeholder="Search..."> -->
-            <input #searchBox class="form-control" type="text" (keyup.enter)="search(searchBox.value)" placeholder="Search...">
+            <input #searchBox class="form-control" type="text" (input)="search(searchBox.value)" placeholder="Search...">
+            <!-- <input #searchBox class="form-control" type="text" (keyup.enter)="search(searchBox.value)" placeholder="Search..."> -->
         </div>
     </div>
     <div class="content-container">
@@ -13,9 +13,15 @@
             <p [class.selected-menu]="selectedMenuIndex === 0" (click)="selectMenu(0)">Needies</p>
             <p [class.selected-menu]="selectedMenuIndex === 1" (click)="selectMenu(1)">Helpers</p>
         </div>
-        <div class="result-container" *ngFor="let result of results">
-            <app-need-card *ngIf="selectedMenuIndex === 0" [need]="result" [type]="'need'"></app-need-card>
-            <app-need-card *ngIf="selectedMenuIndex === 1" [user]="result" [type]="'user'"></app-need-card>
+        <div class="result-container" *ngIf="selectedMenuIndex === 0">
+            <div *ngFor="let need of needs | filterNeed:userLogged,searchTerm" (click)="redirectToNeedPage(need.id)">
+                <app-need-card [need]="need" [type]="'need'"></app-need-card>
+            </div>
+        </div>
+        <div class="result-container" *ngIf="selectedMenuIndex === 1">
+            <div *ngFor="let user of users | filterUser:userLogged,searchTerm" (click)="redirectToUserPage(user.ci)">
+                <app-need-card [user]="user" [type]="'user'"></app-need-card>
+            </div>
         </div>
     </div>
 </div>
