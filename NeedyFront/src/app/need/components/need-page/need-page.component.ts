@@ -54,11 +54,11 @@ export class NeedPageComponent implements OnInit {
     return false;
   }
 
-  updateNeedy() {
+  updateNeedy(id: number) {
     //TODO
   }
 
-  deleteNeedy() {
+  deleteNeedy(id: number) {
     this.needService.deleteNeed(this.need.id).subscribe(
       res => {
         this.router.navigateByUrl('/profile');
@@ -66,7 +66,7 @@ export class NeedPageComponent implements OnInit {
     );
   }
 
-  applyNeed() {
+  applyNeed(id: number) {
     this.needService.applyNeed(this.need.id).subscribe(
       res => {
         this.isApplied = true;
@@ -74,7 +74,7 @@ export class NeedPageComponent implements OnInit {
     );
   }
 
-  unapplyNeed() {
+  unapplyNeed(id: number) {
     this.needService.unapplyNeed(this.need.id).subscribe(
       res => {
         this.isApplied = false;
@@ -86,7 +86,8 @@ export class NeedPageComponent implements OnInit {
     this.router.navigateByUrl('/rating');
   }
 
-  redirectToAppliersPage() {
+  redirectToAppliersPage(id: number) {
+    this.dataService.needId = id;
     this.router.navigateByUrl('/need/appliers');
   }
 

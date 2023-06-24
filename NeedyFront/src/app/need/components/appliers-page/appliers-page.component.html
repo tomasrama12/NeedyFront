@@ -2,7 +2,7 @@
 
 <div class="appliers-container">
     <div class="helper-image-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg">
+        <img src={{need.imageSrc}}>
     </div>
     <div class="info-container">
         <div class="info">
@@ -10,7 +10,7 @@
         </div>
         <div class="list-container" *ngIf="need.appliers">
             <div *ngFor="let applier of need.appliers">
-                <app-need-card [need]="need" [user]="applier" [type]="'applier'"></app-need-card>
+                <app-need-card [user]="applier" [type]="'applier'"></app-need-card>
             </div>
         </div>
         <div class="message" *ngIf="need.appliers.length == 0">

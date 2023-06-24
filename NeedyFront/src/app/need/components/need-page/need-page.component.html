@@ -2,7 +2,7 @@
 
 <div class="need-container">
     <div class="need-image-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg">
+        <img src={{need.imageSrc}}>
     </div>
     <div class="need-info-container">
         <div class="info">
@@ -38,17 +38,17 @@
                 <app-needy-button [text]="'Edit'" 
                     [bgColor]="'bgColor-blue'" 
                     class="button-needy small" 
-                    (click)="updateNeedy()">
+                    (click)="updateNeedy(need.id)">
                 </app-needy-button>
                 <app-needy-button [text]="'Appliers'" 
                     [bgColor]="'bgColor-blue'" 
                     class="button-needy small" 
-                    (click)="redirectToAppliersPage()">
+                    (click)="redirectToAppliersPage(need.id)">
                 </app-needy-button>
                 <app-needy-button [text]="'Delete'" 
                     [bgColor]="'bgColor-red'" 
                     class="button-needy small" 
-                    (click)="deleteNeedy()">
+                    (click)="deleteNeedy(need.id)">
                 </app-needy-button>
             </div>
             <app-needy-button [text]="'Rating User'" 
@@ -61,13 +61,13 @@
                 [bgColor]="'bgColor-blue'" 
                 class="button-needy" 
                 *ngIf="!isRequestor && !isApplied"
-                (click)="applyNeed()">
+                (click)="applyNeed(need.id)">
             </app-needy-button>
             <app-needy-button [text]="'Unapply'" 
                 [bgColor]="'bgColor-red'" 
                 class="button-needy" 
                 *ngIf="!isRequestor && isApplied" 
-                (click)="unapplyNeed()">
+                (click)="unapplyNeed(need.id)">
             </app-needy-button>
         </div>
     </div>

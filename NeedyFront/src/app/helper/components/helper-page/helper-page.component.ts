@@ -25,7 +25,6 @@ export class HelperPageComponent implements OnInit {
     this.userService.getUserByCI(this.dataService.userCI).subscribe(
       user => {
         this.user = user;
-        this.setUserImageSrc(user.ci);
       }
     );
   }
@@ -33,14 +32,6 @@ export class HelperPageComponent implements OnInit {
   redirectToUserRatingsPage(ci: string) {
     this.dataService.userCI = ci;
     this.router.navigateByUrl('/helper/ratings');
-  }
-
-  setUserImageSrc(userCI: string) {
-    const dictionary = this.userService.pictures.find(d => d.ci === userCI);
-
-    if (dictionary) {
-      this.user.imageSrc = dictionary.src;
-    }
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="card-container" *ngIf="type === 'need'">
     <div class="img-container">
-        <img class="square" src="https://www.w3schools.com/howto/img_avatar.png">
+        <img class="square" src={{need.imageSrc}}>
     </div>
     <div class="info-container">
         <p class="info">
@@ -78,7 +78,7 @@
 <div class="card-container" *ngIf="type === 'rating'">
     <div class="image-container">
         <div class="img-cir">
-            <img class="circular" src="https://www.w3schools.com/howto/img_avatar.png">
+            <img class="circular" src={{rating.giver.imageSrc}}>
         </div>
     </div>
     <div class="info-container">

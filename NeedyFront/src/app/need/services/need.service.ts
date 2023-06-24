@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 import { API_URL } from 'src/app/core/const';
 import { InsertNeed } from 'src/app/core/interfaces/insertNeed';
@@ -23,20 +23,37 @@ export class NeedService {
 
   constructor(private http: HttpClient) { }
 
+  pictures = [
+    { skillId: 2, src: "./assets/images/jardinero.jpg" },
+    { skillId: 3, src: "./assets/images/carpintero.jpg" },
+    { skillId: 4, src: "./assets/images/plomero.jpg" },
+    { skillId: 5, src: "./assets/images/cocinero.jpg" },
+    { skillId: 6, src: "./assets/images/electricista.jpg" },
+    { skillId: 7, src: "./assets/images/albañil.jpg" },
+    { skillId: 8, src: "./assets/images/pintor.jpg" },
+    { skillId: 9, src: "./assets/images/diseñador.jpg" },
+    { skillId: 10, src: "./assets/images/soldador.jpg" },
+    { skillId: 11, src: "./assets/images/traductor.jpg" },
+    { skillId: 12, src: "./assets/images/mecanico.jpg"}
+  ];
+
   getNeeds(): Observable<Need[]> {
     return this.http.get<Need[]>(`${URL}/get-needs`, { headers }).pipe(
+      map(needs => needs.map(need => this.setNeedImageSrc(need))),
       catchError(this.handleError<Need[]>(`getNeeds`))
     );
   }
 
   getNeedById(id: number): Observable<Need> {
     return this.http.get<Need>(`${URL}/get-need-by-id/${id}`, { headers }).pipe(
+      map(need => this.setNeedImageSrc(need)),
       catchError(this.handleError<Need>(`getNeedById`))
     );
   }
 
   getNeedsBySkill(id: number): Observable<Need[]> {
     return this.http.get<Need[]>(`${URL}/get-needs-by-skill/${id}`, { headers }).pipe(
+      map(needs => needs.map(need => this.setNeedImageSrc(need))),
       catchError(this.handleError<Need[]>(`getNeedsBySkill`))
     );
   }
@@ -45,6 +62,7 @@ export class NeedService {
     const searchTerm = JSON.stringify(term);
     console.log('termino users', searchTerm);
     return this.http.post<Need[]>(`${URL}/get-needs-by-skill-name`, searchTerm, { headers }).pipe(
+      map(needs => needs.map(need => this.setNeedImageSrc(need))),
       catchError(this.handleError<Need[]>(`getNeedsBySkillName`))
     );
   }
@@ -52,6 +70,7 @@ export class NeedService {
   getUserCreatedNeeds(ci: string): Observable<Need[]> {
     const userCI = JSON.stringify(ci);
     return this.http.post<Need[]>(`${URL}/get-user-created-needs`, userCI, { headers }).pipe(
+      map(needs => needs.map(need => this.setNeedImageSrc(need))),
       catchError(this.handleError<Need[]>(`getUserNeeds`))
     );
   }
@@ -59,6 +78,7 @@ export class NeedService {
   getUserAppliedNeeds(ci: string): Observable<Need[]> {
     const userCI = JSON.stringify(ci);
     return this.http.post<Need[]>(`${URL}/get-user-applied-needs`, userCI, { headers }).pipe(
+      map(needs => needs.map(need => this.setNeedImageSrc(need))),
       catchError(this.handleError<Need[]>(`getUserAppliedNeeds`))
     );
   }
@@ -103,6 +123,15 @@ export class NeedService {
     return this.http.put<any>(`${URL}/decline-applier`, info, { headers }).pipe(
       catchError(this.handleError<any>(`declineApplier`))
     );
+  }
+
+  private setNeedImageSrc(need: Need): Need {
+    const dictionary = this.pictures.find(d => d.skillId === need.requestedSkills[0].id);
+
+    if (dictionary) {
+      need.imageSrc = dictionary.src;
+    }
+    return need;
   }
 
   private handleError<T>(operation: string, result?: T){

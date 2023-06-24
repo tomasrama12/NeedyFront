@@ -27,10 +27,11 @@ export class HelperRatingPageComponent implements OnInit {
     this.userService.getUserByCI(this.dataService.userCI).subscribe(
       user => {
         this.user = user;
-        this.setUserImageSrc(user.ci);
+
         this.ratingService.getUserRating(user.ci).subscribe(
           ratings => {
             this.ratings = ratings;
+
             this.ratings.forEach((rating: Rating) => {
               this.userService.getUserByCI(rating.giverCI).subscribe(
                 user => {
@@ -42,14 +43,6 @@ export class HelperRatingPageComponent implements OnInit {
         );
       }
     );
-  }
-
-  setUserImageSrc(userCI: string) {
-    const dictionary = this.userService.pictures.find(d => d.ci === userCI);
-
-    if (dictionary) {
-      this.user.imageSrc = dictionary.src;
-    }
   }
 
 }

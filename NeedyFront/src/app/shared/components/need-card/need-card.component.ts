@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Need } from 'src/app/core/interfaces/need';
 import { Rating } from 'src/app/core/interfaces/rating';
 import { User } from 'src/app/core/interfaces/user';
+
 import { DataService } from '../../services/data.service';
-import { Router } from '@angular/router';
+import { UserService } from 'src/app/helper/services/user.service';
 
 @Component({
   selector: 'app-need-card',
@@ -18,11 +21,19 @@ export class NeedCardComponent implements OnInit {
   @Input() type!: string;
 
   constructor(
+    private userService: UserService,
     private dataService: DataService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    if(this.user) {
+      this.userService.getUserByCI(this.user.ci).subscribe(
+      user => {
+        this.user = user;
+      }
+    );
+    }
   }
 
   acceptApplier(ci: string) {

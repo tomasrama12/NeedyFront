@@ -35,7 +35,5 @@ export class RatingComponent implements OnInit {
   giveRating() {
     //TODO: Add the logic here
    }
-  
-  
 
 }
