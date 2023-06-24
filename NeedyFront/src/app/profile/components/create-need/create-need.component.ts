@@ -36,10 +36,10 @@ export class CreateNeedComponent implements OnInit {
     );
 
     this.needForm = this.fb.group({
-      title: new FormControl('', Validators.required),
+      title: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       address: new FormControl('', Validators.required),
       date: new FormControl('', [Validators.required]), //validar sea 7 dias mas
-      modality: new FormControl('', [Validators.required]),
+      modality: new FormControl('', Validators.required),
       description: new FormControl('', [Validators.required, Validators.maxLength(150)]),
     });
   }
@@ -72,7 +72,7 @@ export class CreateNeedComponent implements OnInit {
       // if (response.type) {
       //   this.errorMessage = response.type;
       // } else {
-      //   this.router.navigateByUrl('/login');
+      //   this.router.navigateByUrl('/profile');
       // }
     });
   }

@@ -12,6 +12,7 @@
                     <input type="text" id="title" class="form-control" formControltitle="title">
                     <div *ngIf="needForm.controls['title'].invalid && needForm.controls['title'].touched" class="text-danger">
                         <div *ngIf="needForm.get('title')?.errors?.['required']">Title is required</div>
+                        <div *ngIf="needForm.get('title')?.errors?.['maxlength']">Description must have less than 150 characters</div>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -26,7 +27,7 @@
                     <input type="date" id="date" class="form-control" formControlName="date">
                     <div *ngIf="needForm.controls['date'].invalid && needForm.controls['date'].touched" class="text-danger">
                         <div *ngIf="needForm.get('date')?.errors?.['required']">Date is required</div>
-                        <div *ngIf="needForm.get('date')?.errors?.['adultAge']">Need Date must be at least 7 days after today's date</div>
+                        <div *ngIf="needForm.get('date')?.errors?.['adultAge']">Title must have less than 20 characters</div>
                     </div>
                 </div>
                 <div class="mb-3">

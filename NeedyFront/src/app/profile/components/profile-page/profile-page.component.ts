@@ -31,6 +31,7 @@ export class ProfilePageComponent implements OnInit {
     this.userService.getUserByCI(localStorage.getItem('userCI')!).subscribe(
       user => {
         this.user = user;
+        this.setUserImageSrc(user.ci);
 
         this.needService.getUserCreatedNeeds(user.ci).subscribe(
           needs => {
@@ -58,6 +59,14 @@ export class ProfilePageComponent implements OnInit {
 
   redirectToCreateNeedPage(){
     this.router.navigateByUrl('/profile/create-need');
+  }
+
+  setUserImageSrc(userCI: string) {
+    const dictionary = this.userService.pictures.find(d => d.ci === userCI);
+
+    if (dictionary) {
+      this.user.imageSrc = dictionary.src;
+    }
   }
 
 }

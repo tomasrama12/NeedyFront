@@ -45,6 +45,7 @@ export class SearchPageComponent implements OnInit {
     this.userService.getUsers().subscribe(
       users => {
         this.users = users;
+        this.users.forEach((user) => this.setUserImageSrc(user));
       }
     );
 
@@ -67,6 +68,14 @@ export class SearchPageComponent implements OnInit {
   redirectToUserPage(ci: string) {
     this.dataService.userCI = ci;
     this.router.navigateByUrl('/helper');
+  }
+
+  setUserImageSrc(user: User) {
+    const dictionary = this.userService.pictures.find(d => d.ci === user.ci);
+
+    if (dictionary) {
+      user.imageSrc = dictionary.src;
+    }
   }
 
 }

@@ -12,4 +12,5 @@ export interface User {
     skills: Skill[];
     avgRating?: number;
     aboutMe?: string;
+    imageSrc: string;
 }

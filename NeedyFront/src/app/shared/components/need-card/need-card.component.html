@@ -22,7 +22,7 @@
 
 <div class="card-container" *ngIf="type === 'user'">
     <div class="img-container">
-        <img class="square" src="https://www.w3schools.com/howto/img_avatar.png">
+        <img class="square" src={{user.imageSrc}}>
     </div>
     <div class="info-container">
         <p class="info">
@@ -47,7 +47,7 @@
 <div class="card-container" *ngIf="type === 'applier'">
     <div class="image-container">
         <div class="img-cir" (click)="redirectToUserPage(user.ci)">
-            <img class="circular" src="https://www.w3schools.com/howto/img_avatar.png">
+            <img class="circular" src={{user.imageSrc}}>
         </div>
     </div>
     <div class="info-container">

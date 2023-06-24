@@ -19,6 +19,19 @@ const headers = new HttpHeaders({
 })
 export class UserService {
 
+  pictures = [
+    { ci: "12345678", src: "./assets/images/profile5.jpg" },
+    { ci: "13579246", src: "./assets/images/profile1.jpg" },
+    { ci: "23456789", src: "./assets/images/profile2.jpg" },
+    { ci: "24681357", src: "./assets/images/profile8.jpg" },
+    { ci: "34567890", src: "./assets/images/profile3.jpg" },
+    { ci: "57924680", src: "./assets/images/profile10.jpg" },
+    { ci: "86420975", src: "./assets/images/profile9.jpg" },
+    { ci: "87654321", src: "./assets/images/profile6.jpg" },
+    { ci: "90876543", src: "./assets/images/profile7.jpg" },
+    { ci: "98765432", src: "./assets/images/profile4.jpg"}
+  ];
+
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {

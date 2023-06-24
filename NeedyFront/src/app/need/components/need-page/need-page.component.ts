@@ -26,7 +26,6 @@ export class NeedPageComponent implements OnInit {
   ngOnInit(): void {
     this.needService.getNeedById(this.dataService.needId).subscribe(
       need => {
-        console.log(need);
         this.need = need;
         this.checkIsRequestor();
         this.checkIsApplied();
