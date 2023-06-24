@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
 
@@ -37,28 +37,28 @@ export class NeedService {
     { skillId: 12, src: "./assets/images/mecanico.jpg"}
   ];
 
-  getNeeds(): Observable<Need[]> {
+  getNeeds(): Observable<any> {
     return this.http.get<Need[]>(`${URL}/get-needs`, { headers }).pipe(
       map(needs => needs.map(need => this.setNeedImageSrc(need))),
       catchError(this.handleError<Need[]>(`getNeeds`))
     );
   }
 
-  getNeedById(id: number): Observable<Need> {
+  getNeedById(id: number): Observable<any> {
     return this.http.get<Need>(`${URL}/get-need-by-id/${id}`, { headers }).pipe(
       map(need => this.setNeedImageSrc(need)),
       catchError(this.handleError<Need>(`getNeedById`))
     );
   }
 
-  getNeedsBySkill(id: number): Observable<Need[]> {
+  getNeedsBySkill(id: number): Observable<any> {
     return this.http.get<Need[]>(`${URL}/get-needs-by-skill/${id}`, { headers }).pipe(
       map(needs => needs.map(need => this.setNeedImageSrc(need))),
       catchError(this.handleError<Need[]>(`getNeedsBySkill`))
     );
   }
 
-  getNeedsBySkillName(term: string): Observable<Need[]> {
+  getNeedsBySkillName(term: string): Observable<any> {
     const searchTerm = JSON.stringify(term);
     console.log('termino users', searchTerm);
     return this.http.post<Need[]>(`${URL}/get-needs-by-skill-name`, searchTerm, { headers }).pipe(
@@ -67,7 +67,7 @@ export class NeedService {
     );
   }
 
-  getUserCreatedNeeds(ci: string): Observable<Need[]> {
+  getUserCreatedNeeds(ci: string): Observable<any> {
     const userCI = JSON.stringify(ci);
     return this.http.post<Need[]>(`${URL}/get-user-created-needs`, userCI, { headers }).pipe(
       map(needs => needs.map(need => this.setNeedImageSrc(need))),
@@ -75,7 +75,7 @@ export class NeedService {
     );
   }
 
-  getUserAppliedNeeds(ci: string): Observable<Need[]> {
+  getUserAppliedNeeds(ci: string): Observable<any> {
     const userCI = JSON.stringify(ci);
     return this.http.post<Need[]>(`${URL}/get-user-applied-needs`, userCI, { headers }).pipe(
       map(needs => needs.map(need => this.setNeedImageSrc(need))),
@@ -102,7 +102,7 @@ export class NeedService {
   }
 
   applyNeed(id: number) {
-    return this.http.post<any>(`${URL}/apply-need/${id}`, { headers }).pipe(
+    return this.http.post<any>(`${URL}/apply-need/${id}`, [], { headers }).pipe(
       catchError(this.handleError<any>(`applyNeed`))
     );
   }
@@ -134,10 +134,13 @@ export class NeedService {
     return need;
   }
 
-  private handleError<T>(operation: string, result?: T){
-    return (error: any): Observable<T> => {
+  private handleError<T>(operation: string){
+    return (error: any): Observable<any> => {
+      if(error.status === 200){
+        return of({ error: false });
+      }
       console.error(`${operation} failed: ${error.error.message}`);
-      return of(result as T);
+      return of({ error: true, type: error.error });
     }
   }
 }

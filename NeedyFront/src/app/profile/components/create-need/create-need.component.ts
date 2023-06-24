@@ -7,6 +7,7 @@ import { Skill } from 'src/app/core/interfaces/skill';
 
 import { SkillService } from 'src/app/helper/services/skill.service';
 import { NeedService } from 'src/app/need/services/need.service';
+import { needDateValidator } from 'src/app/core/validators/needDateValidator';
 
 @Component({
   selector: 'app-create-need',
@@ -38,7 +39,7 @@ export class CreateNeedComponent implements OnInit {
     this.needForm = this.fb.group({
       title: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       address: new FormControl('', Validators.required),
-      date: new FormControl('', [Validators.required]), //validar sea 7 dias mas
+      date: new FormControl('', [Validators.required, needDateValidator()]),
       modality: new FormControl('', Validators.required),
       description: new FormControl('', [Validators.required, Validators.maxLength(150)]),
     });
@@ -55,7 +56,7 @@ export class CreateNeedComponent implements OnInit {
   }
 
   create() {
-    if (this.needForm.invalid && this.skillsId.length > 0) {
+    if (this.needForm.invalid) {
       return;
     }
 
@@ -63,17 +64,13 @@ export class CreateNeedComponent implements OnInit {
       title: this.needForm.get('title')!.value,
       needAddress: this.needForm.get('address')!.value,
       modality: this.needForm.get('modality')!.value,
-      needDate: this.needForm.get('birthDate')!.value,
-      description: this.needForm.get('aboutMe')!.value,
-      requestedSkills: this.skillsId,
+      needDate: this.needForm.get('date')!.value,
+      description: this.needForm.get('description')!.value,
+      requestedSkillsId: this.skillsId,
     };
 
-    this.needService.insertNeed(need).subscribe(response => {
-      // if (response.type) {
-      //   this.errorMessage = response.type;
-      // } else {
-      //   this.router.navigateByUrl('/profile');
-      // }
+    this.needService.insertNeed(need).subscribe(res => {
+      this.router.navigateByUrl('/profile');
     });
   }
 

@@ -33,12 +33,15 @@
                 </ul>
             </div>
         </div>  
+        <div *ngIf="errorMessage" class="error text-danger">
+            {{errorMessage}}
+        </div>
         <div class="btn-container">
             <div class="btn-creator" *ngIf="isRequestor && !isExpired()">
                 <app-needy-button [text]="'Edit'" 
                     [bgColor]="'bgColor-blue'" 
                     class="button-needy small" 
-                    (click)="updateNeedy(need.id)">
+                    (click)="updateNeedy()">
                 </app-needy-button>
                 <app-needy-button [text]="'Appliers'" 
                     [bgColor]="'bgColor-blue'" 
@@ -48,7 +51,7 @@
                 <app-needy-button [text]="'Delete'" 
                     [bgColor]="'bgColor-red'" 
                     class="button-needy small" 
-                    (click)="deleteNeedy(need.id)">
+                    (click)="deleteNeedy()">
                 </app-needy-button>
             </div>
             <app-needy-button [text]="'Rating User'" 
@@ -61,13 +64,13 @@
                 [bgColor]="'bgColor-blue'" 
                 class="button-needy" 
                 *ngIf="!isRequestor && !isApplied"
-                (click)="applyNeed(need.id)">
+                (click)="applyNeed()">
             </app-needy-button>
             <app-needy-button [text]="'Unapply'" 
                 [bgColor]="'bgColor-red'" 
                 class="button-needy" 
                 *ngIf="!isRequestor && isApplied" 
-                (click)="unapplyNeed(need.id)">
+                (click)="unapplyNeed()">
             </app-needy-button>
         </div>
     </div>

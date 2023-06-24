@@ -10,7 +10,7 @@
         </div>
         <div class="list-container" *ngIf="need.appliers">
             <div *ngFor="let applier of need.appliers">
-                <app-need-card [user]="applier" [type]="'applier'"></app-need-card>
+                <app-need-card [need]="need" [user]="applier" [type]="'applier'"></app-need-card>
             </div>
         </div>
         <div class="message" *ngIf="need.appliers.length == 0">

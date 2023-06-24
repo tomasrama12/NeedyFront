@@ -76,6 +76,8 @@ export class UserService {
 
     if (dictionary) {
       user.imageSrc = dictionary.src;
+    } else {
+      user.imageSrc = "./assets/images/profile0.jpg";
     }
     return user;
   }

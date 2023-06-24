@@ -102,6 +102,27 @@ i {
     justify-content: space-between;
 }
 
+.bgColor-red{
+    background-color: #FD5D5D;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
+.bgColor-green{
+    background-color: #98FF8F;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
 .button-needy {
+    border-radius: 2rem;
     width: 47%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    all: unset;
 }

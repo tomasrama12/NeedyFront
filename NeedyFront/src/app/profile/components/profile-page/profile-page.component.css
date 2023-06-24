@@ -130,10 +130,11 @@ ul {
 
 .skill {
     margin-top: 0.5rem;
-    background-color: rgb(200, 200, 200);
-    color: white;
+    background-color: rgb(180, 180, 180);
+    color: #0A2472;
     font-weight: 600;
-    width: 30%;
+    min-width: 25%;
+    max-width: 50%;
     height: 2.2rem;
     border-radius: 2rem;
     display: flex;
@@ -141,15 +142,10 @@ ul {
     justify-content: center;
 }
 
-.data{
-    margin: 0;
-    color: #0A2472;
-}
-
 .empty::before {
     font-size: 2.5rem;
     color: silver;
-  }
+}
 
 .message {
     height: 100%;

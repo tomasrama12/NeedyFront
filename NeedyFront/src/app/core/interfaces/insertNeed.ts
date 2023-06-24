@@ -4,5 +4,5 @@ export interface InsertNeed {
     modality: string;
     needDate: Date;
     description: string;
-    requestedSkills: number[];
+    requestedSkillsId: number[];
 }

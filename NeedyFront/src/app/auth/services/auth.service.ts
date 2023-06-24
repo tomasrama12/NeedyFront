@@ -25,7 +25,6 @@ export class AuthService {
   signup(info: InsertUser) {
     return this.http.post<any>(`${URL}/register`, info, { observe: 'response' }).pipe(
       map((response: HttpResponse<any>) => {
-        console.log(response.body);
         return response.body;
       }),
       catchError(this.handleError<any>('signup'))

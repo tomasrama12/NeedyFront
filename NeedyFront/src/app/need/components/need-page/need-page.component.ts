@@ -16,6 +16,7 @@ export class NeedPageComponent implements OnInit {
   need!: Need;
   isRequestor: boolean = false;
   isApplied: boolean = false;
+  errorMessage?: string;
 
   constructor(
     private needService: NeedService,
@@ -38,9 +39,8 @@ export class NeedPageComponent implements OnInit {
     localStorage.getItem('userCI') == this.need?.requestor.ci ? this.isRequestor = true : this.isRequestor = false;
   }
 
-  //TODO: funcion para chequear si el usuario ya esta aplicado a la need para poner el boton unapply
   checkIsApplied() {
-    //TODO
+    this.need.appliers.some((user) => user.ci === localStorage.getItem('userCI')) ? this.isApplied = true : this.isApplied = false;
   }
 
   isExpired() {
@@ -54,11 +54,11 @@ export class NeedPageComponent implements OnInit {
     return false;
   }
 
-  updateNeedy(id: number) {
+  updateNeedy() {
     //TODO
   }
 
-  deleteNeedy(id: number) {
+  deleteNeedy() {
     this.needService.deleteNeed(this.need.id).subscribe(
       res => {
         this.router.navigateByUrl('/profile');
@@ -66,15 +66,17 @@ export class NeedPageComponent implements OnInit {
     );
   }
 
-  applyNeed(id: number) {
-    this.needService.applyNeed(this.need.id).subscribe(
-      res => {
+  applyNeed() {
+    this.needService.applyNeed(this.need.id).subscribe(response => {
+      if (response.type) {
+        this.errorMessage = response.type;
+      } else {
         this.isApplied = true;
       }
-    );
+    });
   }
 
-  unapplyNeed(id: number) {
+  unapplyNeed() {
     this.needService.unapplyNeed(this.need.id).subscribe(
       res => {
         this.isApplied = false;
@@ -94,6 +96,11 @@ export class NeedPageComponent implements OnInit {
   redirectToUserPage(ci: string) {
     this.dataService.userCI = ci;
     this.router.navigateByUrl('/helper');
+  }
+
+  reload(id: number) {
+    this.dataService.needId = id;
+    this.router.navigateByUrl('/need');
   }
 
 }

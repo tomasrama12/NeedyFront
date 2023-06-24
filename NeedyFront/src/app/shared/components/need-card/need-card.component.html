@@ -60,16 +60,18 @@
                 <span class="text">{{user.avgRating | number : '1.2-2'}}</span>
             </span>
             <span class="btn-container">
-                <app-needy-button [text]="'Decline'" 
-                    [bgColor]="'bgColor-red'" 
-                    class="button-needy" 
+                <button type="button" 
+                    class="button-needy bgColor-red" 
+                    [disabled]="need.acceptedApplier" 
                     (click)="declineApplier(user.ci)">
-                </app-needy-button>
-                <app-needy-button [text]="'Accept'" 
-                    [bgColor]="'bgColor-green'" 
-                    class="button-needy" 
+                    Decline
+                </button>
+                <button type="button" 
+                    class="button-needy bgColor-green" 
+                    [disabled]="need.acceptedApplier" 
                     (click)="acceptApplier(user.ci)">
-                </app-needy-button>
+                    Accept
+                </button>
             </span>
         </div>
     </div>

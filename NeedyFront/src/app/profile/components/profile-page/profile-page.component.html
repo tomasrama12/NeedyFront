@@ -19,7 +19,7 @@
                     <app-need-card [need]="need" [type]="'need'"></app-need-card>
                 </div>
             </div>
-            <div class="message" *ngIf="myNeeds.length == 0">
+            <div class="message" *ngIf="selectedMenuIndex === 0 && myNeeds.length == 0">
                 <i class="bi bi-exclamation-circle empty"></i>
                 <span>Todavía no hay publicaciones.</span>
             </div>
@@ -29,7 +29,7 @@
                     <app-need-card [need]="need" [type]="'need'"></app-need-card>
                 </div>
             </div>
-            <div class="message" *ngIf="myApplies.length == 0">
+            <div class="message" *ngIf="selectedMenuIndex === 1 && myApplies.length == 0">
                 <i class="bi bi-exclamation-circle empty"></i>
                 <span>Todavía no hay postulaciones.</span>
             </div>
@@ -71,7 +71,7 @@
                     <span class="label">Skills</span>
                     <ul *ngFor="let skill of user.skills">
                         <li class="skill">
-                            <span class="data">{{skill.name | titlecase}}</span>
+                            <span>{{skill.name | titlecase}}</span>
                         </li>
                     </ul>
                 </div>
