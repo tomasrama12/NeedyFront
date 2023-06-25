@@ -50,7 +50,6 @@ export class UserService {
 
   getUsersBySkillName(term: string): Observable<User[]> {
     const searchTerm = JSON.stringify(term);
-    console.log(searchTerm);
     return this.http.post<User[]>(`${URL}/get-users-by-skill-name`, searchTerm, { headers }).pipe(
       map(users => users.map(user => this.setUserImageSrc(user))),
       catchError(this.handleError<User[]>(`getUsersBySkillName`))

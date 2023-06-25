@@ -60,7 +60,6 @@ export class NeedService {
 
   getNeedsBySkillName(term: string): Observable<any> {
     const searchTerm = JSON.stringify(term);
-    console.log('termino users', searchTerm);
     return this.http.post<Need[]>(`${URL}/get-needs-by-skill-name`, searchTerm, { headers }).pipe(
       map(needs => needs.map(need => this.setNeedImageSrc(need))),
       catchError(this.handleError<Need[]>(`getNeedsBySkillName`))
