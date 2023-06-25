@@ -23,6 +23,7 @@ export class CreateNeedComponent implements OnInit {
     private router: Router
   ) { }
 
+  showAlert = false;
   needForm!: FormGroup;
   modalities: string[] = ['Remote', 'Home', 'Visit'];
   skills: Skill[] = [];
@@ -70,7 +71,12 @@ export class CreateNeedComponent implements OnInit {
     };
 
     this.needService.insertNeed(need).subscribe(res => {
-      this.router.navigateByUrl('/profile');
+      this.showAlert = true;
+
+      setTimeout(() => {
+        this.showAlert = false;
+        this.router.navigateByUrl('/profile');
+      }, 500);
     });
   }
 

@@ -1,4 +1,4 @@
-.login-container{
+.login-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -6,7 +6,7 @@
     background-color: #0a2472;
 }
 
-.title-container{
+.title-container {
     width: 100%;
     height: 30%;
     display: flex;
@@ -15,7 +15,7 @@
     background-color: #0a2472;
 }
 
-.form-container{
+.form-container {
     width: 100%;
     height: 70%;
     border-radius: 25px 25px 0px 0px;
@@ -25,7 +25,7 @@
     align-items: center;
 }
 
-form{
+form {
     width: 80vw;
     height: 100%;
     margin-top: 4rem;
@@ -34,35 +34,35 @@ form{
     justify-content: space-between;
 }
 
-.inputs-section{
+.inputs-section {
     height: 70%;
 }
 
-.button-section{
+.button-section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-input{
+input {
     border-radius: 2rem;
 }
 
-.bottom{
+.bottom {
     margin-top: 1rem;
     margin-bottom: 3rem;
 }
 
-.bgColor-blue{
+.bgColor-blue {
     background-color: #0a2472;
     color: white;
     width: 100%;
 }
 
-.btn{
+.btn {
     border-radius: 2rem;
 }
 
-.error{
+.error {
     margin-bottom: 1rem;
 }

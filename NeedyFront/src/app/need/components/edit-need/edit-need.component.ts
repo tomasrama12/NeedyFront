@@ -28,6 +28,7 @@ export class EditNeedComponent implements OnInit {
     private router: Router
   ) { }
 
+  showAlert = false;
   need!: Need;
   needForm!: FormGroup;
   modalities: string[] = ['Remote', 'Home', 'Visit'];
@@ -90,7 +91,12 @@ export class EditNeedComponent implements OnInit {
     };
 
     this.needService.updateNeed(need).subscribe(res => {
-      this.router.navigateByUrl('/profile');
+      this.showAlert = true;
+
+      setTimeout(() => {
+        this.showAlert = false;
+        this.router.navigateByUrl('/profile');
+      }, 500);
     });
   }
 

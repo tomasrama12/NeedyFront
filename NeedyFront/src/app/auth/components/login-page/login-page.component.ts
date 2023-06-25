@@ -12,11 +12,12 @@ import { AuthService } from '../../services/auth.service';
 export class LoginPageComponent implements OnInit {
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private fb: FormBuilder,
     private router: Router
   ) { }
 
+  showAlert = false;
   loginForm!: FormGroup;
   errorMessage?: string;
 
@@ -27,15 +28,20 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  login(){
-    if(this.loginForm.invalid){
+  login() {
+    if (this.loginForm.invalid) {
       return;
     }
     this.authService.login(this.loginForm.value).subscribe(response => {
       if (response.type) {
         this.errorMessage = response.type;
       } else {
-        this.router.navigateByUrl('/home');
+        this.showAlert = true;
+
+        setTimeout(() => {
+          this.showAlert = false;
+          this.router.navigateByUrl('/home');
+        }, 500);
       }
     });
   }

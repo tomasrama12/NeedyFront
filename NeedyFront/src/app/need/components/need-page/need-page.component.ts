@@ -13,6 +13,7 @@ import { Need } from 'src/app/core/interfaces/need';
 })
 export class NeedPageComponent implements OnInit {
 
+  showAppliedAlert = false;
   need!: Need;
   isRequestor: boolean = false;
   isApplied: boolean = false;
@@ -72,7 +73,12 @@ export class NeedPageComponent implements OnInit {
       if (response.type) {
         this.errorMessage = response.type;
       } else {
-        this.isApplied = true;
+        this.showAppliedAlert = true;
+
+        setTimeout(() => {
+          this.showAppliedAlert = false;
+          this.isApplied = true;
+        }, 500);
       }
     });
   }

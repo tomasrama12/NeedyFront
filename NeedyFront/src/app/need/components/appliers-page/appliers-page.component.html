@@ -8,14 +8,18 @@
         <div class="info">
             <h2>Need appliers</h2>
         </div>
-        <div class="list-container" *ngIf="need.appliers">
+        <div class="list-container" *ngIf="need.appliers && !need.acceptedApplier">
             <div *ngFor="let applier of need.appliers">
                 <app-need-card [need]="need" [user]="applier" [type]="'applier'"></app-need-card>
             </div>
         </div>
         <div class="message" *ngIf="need.appliers.length == 0">
             <i class="bi bi-exclamation-circle"></i>
-            <span>Todavía no hay postulaciones.</span>
+            <span>There are no applications yet.</span>
+        </div>
+        <div class="message" *ngIf="need.acceptedApplier">
+            <i class="bi bi-exclamation-circle"></i>
+            <span>Already accepted applier.</span>
         </div>
     </div>
 </div>
