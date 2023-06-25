@@ -1,8 +1,9 @@
 export interface UpdateNeed {
     needId: number;
-    description: string;
+    title: string;
     needAddress: string;
     modality: string;
     needDate: Date;
+    description: string;
     requestedSkills: number[];
 }

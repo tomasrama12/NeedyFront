@@ -66,7 +66,7 @@ export class NeedService {
     );
   }
 
-  getUserCreatedNeeds(ci: string): Observable<any> {
+  getUserCreatedNeeds(ci: string): Observable<any[]> {
     const userCI = JSON.stringify(ci);
     return this.http.post<Need[]>(`${URL}/get-user-created-needs`, userCI, { headers }).pipe(
       map(needs => needs.map(need => this.setNeedImageSrc(need))),

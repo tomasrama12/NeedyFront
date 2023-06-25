@@ -31,7 +31,7 @@ export class ProfilePageComponent implements OnInit {
     this.userService.getUserByCI(localStorage.getItem('userCI')!).subscribe(
       user => {
         this.user = user;
-
+        
         this.needService.getUserCreatedNeeds(user.ci).subscribe(
           needs => {
             this.myNeeds = needs;

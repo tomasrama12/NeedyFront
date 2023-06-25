@@ -1,61 +1,67 @@
-.create-need-container{
+.create-need-container {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 8rem);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 4rem 0 0 0;
-    overflow: hidden;
+    margin: 4rem 0;
 }
 
-.title-container{
-    width: 100vw;
+.title-container {
+    width: 90vw;
+    height: 15%;
     align-self: flex-start;
     background-color: white;
     overflow: hidden;
 }
 
-.form-container{
-    width: 100%;
-    height: calc(90% - 8.5rem);
-    border-radius: 2rem 2rem 0 0;
-    overflow-y: scroll;
+.form-container {
+    width: 100vw;
+    height: 90%;
     display: flex;
-    align-content: space-between;
     justify-content: center;
+    overflow: hidden;
 }
 
-form{
+form {
     width: 80vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-textarea, input, select {
+.inputs-section {
+    overflow-y: scroll;
+}
+
+textarea,
+input,
+select {
     border-radius: 2rem;
 }
 
-textarea{
+textarea {
     height: 7rem;
 }
 
-.button-section{
+.button-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+    padding: 1.5rem 0;
 }
 
-.bgColor-blue{
+.bgColor-blue {
     background-color: #0a2472;
     color: white;
     width: 100%;
 }
 
-.btn{
+.btn {
     border-radius: 2rem;
 }
 
-.white{
+.white {
     background-color: withe;
 }
