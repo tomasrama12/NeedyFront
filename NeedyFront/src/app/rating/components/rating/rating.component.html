@@ -6,19 +6,22 @@
     </div>
     <div class="user-container">
         <div class="img-container">
-            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+            <img src={{need.acceptedApplier!.imageSrc}}>
         </div>
-        <h3>Carol Glass</h3>
+        <h3>{{need.acceptedApplier!.firstName}} {{need.acceptedApplier!.lastName}}</h3>
     </div>
     <div class="form-container">
         <form class="form-container" [formGroup]="ratingForm" (ngSubmit)="giveRating()"> 
             <div class="inputs-section">
                 <div class="mb-3">
-                    <label for="comment" class="form-label">Rating</label>
-                    <div class="star-rating">
-                        <ng-container *ngFor="let star of getStars(rating)">
-                          <i class="bi bi-star"></i>
-                        </ng-container>
+                    <label for="rating" class="form-label">Rating</label><br>
+                    <ngb-rating id="rating" 
+                        class="rating"
+                        [max]="5"
+                        formControlName="stars">
+                    </ngb-rating>
+                    <div *ngIf="ratingForm.controls['stars'].invalid && ratingForm.controls['stars'].touched" class="text-danger">
+                        <div *ngIf="ratingForm.get('stars')?.errors?.['required']">Rating is required</div>
                     </div>
                 </div> 
                 <div class="mb-3">
@@ -36,5 +39,6 @@
         </form>
     </div>
 </div>
+<app-alert *ngIf="showAlert"></app-alert>
 
 <app-navbar></app-navbar>

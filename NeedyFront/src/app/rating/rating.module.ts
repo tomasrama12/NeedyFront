@@ -6,6 +6,7 @@ import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { RatingComponent } from './components/rating/rating.component';
 import { RatingRoutingModule } from './rating-routing.module';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { RatingRoutingModule } from './rating-routing.module';
     CommonModule,
     RatingRoutingModule,
     CoreModule,
+    NgbRatingModule,
     SharedModule,
     ReactiveFormsModule
   ]

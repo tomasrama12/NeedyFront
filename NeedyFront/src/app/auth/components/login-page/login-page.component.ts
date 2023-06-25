@@ -17,7 +17,7 @@ export class LoginPageComponent implements OnInit {
     private router: Router
   ) { }
 
-  showAlert = false;
+  showAlert: boolean = false;
   loginForm!: FormGroup;
   errorMessage?: string;
 
