@@ -24,12 +24,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: gray;
+}
+
+.active {
+    color: white;
+}
+
+.active i {
     color: white;
 }
 
 i{
     font-size: 1.5rem;
-    color: white;
+    color: gray;
 }
 
 p{
