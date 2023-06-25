@@ -16,6 +16,12 @@
     color:  #0a2472 ;
 }
 
+.bgColor-gray{
+    background-color: gray;
+    width: 100%;
+    color:  white ;
+}
+
 .bgColor-green{
     background-color: #98FF8F;
     width: 100%;

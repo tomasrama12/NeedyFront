@@ -38,40 +38,40 @@
         </div>
         <div class="btn-container">
             <div class="btn-creator" *ngIf="isRequestor && !isExpired()">
-                <app-needy-button [text]="'Edit'" 
+                <app-button [text]="'Edit'" 
                     [bgColor]="'bgColor-blue'" 
                     class="button-needy small" 
                     (click)="updateNeedy()">
-                </app-needy-button>
-                <app-needy-button [text]="'Appliers'" 
+                </app-button>
+                <app-button [text]="'Appliers'" 
                     [bgColor]="'bgColor-blue'" 
                     class="button-needy small" 
                     (click)="redirectToAppliersPage(need.id)">
-                </app-needy-button>
-                <app-needy-button [text]="'Delete'" 
+                </app-button>
+                <app-button [text]="'Delete'" 
                     [bgColor]="'bgColor-red'" 
                     class="button-needy small" 
                     (click)="deleteNeedy()">
-                </app-needy-button>
+                </app-button>
             </div>
-            <app-needy-button [text]="'Rating User'" 
+            <app-button [text]="'Rating User'" 
                 [bgColor]="'bgColor-blue'" 
                 class="button-needy" 
                 *ngIf="isRequestor && isExpired()"
                 (click)="redirectToRatingPage()">
-            </app-needy-button>
-            <app-needy-button [text]="'Apply'" 
+            </app-button>
+            <app-button [text]="'Apply'" 
                 [bgColor]="'bgColor-blue'" 
                 class="button-needy" 
                 *ngIf="!isRequestor && !isApplied"
                 (click)="applyNeed()">
-            </app-needy-button>
-            <app-needy-button [text]="'Unapply'" 
+            </app-button>
+            <app-button [text]="'Unapply'" 
                 [bgColor]="'bgColor-red'" 
                 class="button-needy" 
                 *ngIf="!isRequestor && isApplied" 
                 (click)="unapplyNeed()">
-            </app-needy-button>
+            </app-button>
         </div>
     </div>
 </div>

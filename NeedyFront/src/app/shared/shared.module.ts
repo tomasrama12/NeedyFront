@@ -10,14 +10,16 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { StarsComponent } from './components/stars/stars.component';
 import { CardComponent } from './components/card/card.component';
+import { ButtonComponent } from './components/button/button.component';
 
 
 @NgModule({
   declarations: [
-    NavbarComponent,
-    HeaderComponent,
-    CardComponent,
     AlertComponent,
+    ButtonComponent,
+    CardComponent,
+    HeaderComponent,
+    NavbarComponent,
     StarsComponent,
   ],
   imports: [
@@ -28,9 +30,10 @@ import { CardComponent } from './components/card/card.component';
   ],
   exports: [
     AlertComponent,
+    ButtonComponent,
+    CardComponent,
     HeaderComponent,
     NavbarComponent,
-    CardComponent,
     StarsComponent
   ]
 })
