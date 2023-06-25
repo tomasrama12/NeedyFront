@@ -51,7 +51,7 @@
                 <div class="mb-3">
                     <label for="skills" class="form-label">Skills</label>
                     <div *ngFor="let skill of skills;" id="skills">
-                        <input type="checkbox" [value]="skill.id" (click)="addDeleteSkillId(skill.id)"> {{ skill.name }}
+                        <input type="checkbox" [value]="skill.id" (click)="addDeleteSkillId(skill.id)"> {{ skill.name | titlecase }}
                     </div>
                 </div>
             </div>

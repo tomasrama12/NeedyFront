@@ -11,6 +11,7 @@
           <span class="age">{{user.age}}</span>
         </div>
         <div class="flex">
+          <app-stars [avgRating]="user.avgRating!"></app-stars>
           <span class="rating">{{user.avgRating}}</span>
           <a class="link" (click)="redirectToUserRatingsPage(user.ci)">See All...</a>
         </div>
