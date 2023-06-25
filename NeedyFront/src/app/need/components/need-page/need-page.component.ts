@@ -55,7 +55,8 @@ export class NeedPageComponent implements OnInit {
   }
 
   updateNeedy() {
-    //TODO
+    this.dataService.needId = this.need.id;
+    this.router.navigateByUrl('/need/edit-need');
   }
 
   deleteNeedy() {

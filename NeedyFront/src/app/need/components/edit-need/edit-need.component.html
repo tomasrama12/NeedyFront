@@ -1,11 +1,11 @@
 <app-header class="header white" [currentText]="'Need'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
 
-<div class="create-need-container">
+<div class="edit-need-container">
     <div class="title-container">
-        <h2>Create needy</h2>
+        <h2>Edit needy</h2>
     </div>
     <div class="form-container">
-        <form [formGroup]="needForm" (ngSubmit)="create()">
+        <form [formGroup]="needForm" (ngSubmit)="update()">
             <div class="inputs-section">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="button-section"> 
-                <button type="submit" class="btn bgColor-blue" [disabled]="!needForm.valid  || skillsId.length <= 0">Create Need</button>
+                <button type="submit" class="btn bgColor-blue" [disabled]="!needForm.valid || skillsId.length === 0">Edit Need</button>
             </div>
         </form> 
     </div>

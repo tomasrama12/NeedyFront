@@ -5,5 +5,5 @@ export interface UpdateNeed {
     modality: string;
     needDate: Date;
     description: string;
-    requestedSkills: number[];
+    requestedSkillsId: number[];
 }
