@@ -17,7 +17,7 @@
     </div>  
     <div class="list-container" *ngIf="ratings">
       <div *ngFor="let rating of ratings">
-        <app-need-card [rating]="rating" [type]="'rating'"></app-need-card>
+        <app-card [rating]="rating" [type]="'rating'"></app-card>
       </div>
     </div>
     <div class="message" *ngIf="ratings.length == 0">

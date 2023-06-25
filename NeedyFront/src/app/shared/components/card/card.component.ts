@@ -11,11 +11,11 @@ import { UserService } from 'src/app/helper/services/user.service';
 import { NeedService } from 'src/app/need/services/need.service';
 
 @Component({
-  selector: 'app-need-card',
-  templateUrl: './need-card.component.html',
-  styleUrls: ['./need-card.component.css']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
-export class NeedCardComponent implements OnInit {
+export class CardComponent implements OnInit {
 
   @Input() need!:Need;
   @Input() user!:User;

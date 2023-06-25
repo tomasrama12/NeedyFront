@@ -14,12 +14,12 @@
         </div>
         <div class="result-container" *ngIf="selectedMenuIndex === 0">
             <div *ngFor="let need of needs | filterNeed:searchTerm" (click)="redirectToNeedPage(need.id)">
-                <app-need-card [need]="need" [type]="'need'"></app-need-card>
+                <app-card [need]="need" [type]="'need'"></app-card>
             </div>
         </div>
         <div class="result-container" *ngIf="selectedMenuIndex === 1">
             <div *ngFor="let user of users | filterUser:searchTerm" (click)="redirectToUserPage(user.ci)">
-                <app-need-card [user]="user" [type]="'user'"></app-need-card>
+                <app-card [user]="user" [type]="'user'"></app-card>
             </div>
         </div>
     </div>

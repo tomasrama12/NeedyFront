@@ -7,16 +7,16 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NeedCardComponent } from './components/need-card/need-card.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { StarsComponent } from './components/stars/stars.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
     HeaderComponent,
-    NeedCardComponent,
+    CardComponent,
     AlertComponent,
     StarsComponent,
   ],
@@ -30,7 +30,7 @@ import { StarsComponent } from './components/stars/stars.component';
     AlertComponent,
     HeaderComponent,
     NavbarComponent,
-    NeedCardComponent,
+    CardComponent,
     StarsComponent
   ]
 })

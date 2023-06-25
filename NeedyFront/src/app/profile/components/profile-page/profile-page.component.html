@@ -16,7 +16,7 @@
         <div class="menu-items-container">
             <div *ngIf="selectedMenuIndex === 0 && myNeeds"  class="need-card">
                 <div *ngFor="let need of myNeeds" (click)="redirectToNeedPage(need.id)">
-                    <app-need-card [need]="need" [type]="'need'"></app-need-card>
+                    <app-card [need]="need" [type]="'need'"></app-card>
                 </div>
             </div>
             <div class="message" *ngIf="selectedMenuIndex === 0 && myNeeds.length == 0">
@@ -26,7 +26,7 @@
 
             <div *ngIf="selectedMenuIndex === 1 && myApplies" class="need-card">
                 <div *ngFor="let need of myApplies" (click)="redirectToNeedPage(need.id)">
-                    <app-need-card [need]="need" [type]="'need'"></app-need-card>
+                    <app-card [need]="need" [type]="'need'"></app-card>
                 </div>
             </div>
             <div class="message" *ngIf="selectedMenuIndex === 1 && myApplies.length == 0">
