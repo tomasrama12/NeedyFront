@@ -61,18 +61,21 @@ input {
 }
 
 .x-menu p {
+    width: 50%;
     color: grey;
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
     top: 0.75rem;
     position: relative;
+    text-align: center;
 }
 
 .selected-menu {
-    width: 50%;
+    width: 100%;
     color: #0A2472 !important;
     border-bottom: 5px solid #0A2472;
+    text-align: center;
 }
 
 .result-container {

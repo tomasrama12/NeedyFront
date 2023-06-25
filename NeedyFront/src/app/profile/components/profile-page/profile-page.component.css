@@ -51,16 +51,18 @@ h2 {
 }
 
 .x-menu p {
+    width: 33%;
     color: grey;
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
     top: 0.85rem;
     position: relative;
+    text-align: center;
 }
 
 .selected-menu {
-    width: 30%;
+    width: 100%;
     color: #0A2472 !important;
     border-bottom: 5px solid #0A2472;
 }
