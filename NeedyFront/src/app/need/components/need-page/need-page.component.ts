@@ -45,10 +45,11 @@ export class NeedPageComponent implements OnInit {
   }
 
   isExpired() {
-    const currentDate = new Date();
+    const currentDate = new Date().getTime();
+    const needDateParsed = new Date(this.need?.needDate).getTime();
 
     if (this.need) {
-      if (currentDate > this.need?.needDate) {
+      if (currentDate > needDateParsed) {
         return true;
       }
     }
