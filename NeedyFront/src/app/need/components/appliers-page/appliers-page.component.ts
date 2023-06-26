@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NeedService } from '../../services/need.service';
+import { DataService } from 'src/app/shared/services/data.service';
 
 import { Need } from 'src/app/core/interfaces/need';
-import { DataService } from 'src/app/shared/services/data.service';
+
 
 @Component({
   selector: 'app-appliers-page',
@@ -26,5 +27,4 @@ export class AppliersPageComponent implements OnInit {
       }
     );
   }
-
 }
