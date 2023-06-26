@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   @Input() currentText?: string;
   @Input() bgColor!: string;
   @Input() visibility!: string;
+  showModal: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -25,12 +26,21 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
+    this.showModal = false;
     this.authService.logout();
     this.router.navigateByUrl('/');
   }
 
   back() {
     this.location.back();
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 
 }

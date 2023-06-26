@@ -11,6 +11,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { StarsComponent } from './components/stars/stars.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtonComponent } from './components/button/button.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ButtonComponent } from './components/button/button.component';
     HeaderComponent,
     NavbarComponent,
     StarsComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,7 @@ import { ButtonComponent } from './components/button/button.component';
     ButtonComponent,
     CardComponent,
     HeaderComponent,
+    ModalComponent,
     NavbarComponent,
     StarsComponent
   ]

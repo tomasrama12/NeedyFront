@@ -1,0 +1,11 @@
+<div class="modal">
+    <div class="container">
+        <button type="button" class="btn-close" (click)="onCloseModal()"></button>
+        <i class="bi bi-exclamation-circle"></i>
+        <p>{{text}}</p>
+        <div class="btn-container">
+            <app-button class="button" [bgColor]="'bgColor-gray'" [text]="'Cancel'" (click)="onCloseModal()"></app-button>
+            <app-button class="button" [bgColor]="'bgColor-red'" [text]="btnText" (click)="onActionModal()"></app-button>
+        </div>
+    </div>
+</div>

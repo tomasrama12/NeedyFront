@@ -18,6 +18,8 @@ export class NeedPageComponent implements OnInit {
   isRequestor: boolean = false;
   isApplied: boolean = false;
   errorMessage?: string;
+  showUnapplyModal: boolean = false;
+  showDeleteModal: boolean = false;
 
   constructor(
     private needService: NeedService,
@@ -63,6 +65,7 @@ export class NeedPageComponent implements OnInit {
   deleteNeedy() {
     this.needService.deleteNeed(this.need.id).subscribe(
       res => {
+        this.showDeleteModal = false;
         this.router.navigateByUrl('/profile');
       }
     );
@@ -87,6 +90,7 @@ export class NeedPageComponent implements OnInit {
     this.needService.unapplyNeed(this.need.id).subscribe(
       res => {
         this.isApplied = false;
+        this.showUnapplyModal = false;
       }
     );
   }
@@ -108,6 +112,19 @@ export class NeedPageComponent implements OnInit {
   reload(id: number) {
     this.dataService.needId = id;
     this.router.navigateByUrl('/need');
+  }
+
+  openUnapplyModal() {
+    this.showUnapplyModal = true;
+  }
+  
+  openDeleteModal() {
+    this.showDeleteModal = true;
+  }
+
+  closeModal() {
+    this.showDeleteModal = false;
+    this.showUnapplyModal = false;
   }
 
 }
