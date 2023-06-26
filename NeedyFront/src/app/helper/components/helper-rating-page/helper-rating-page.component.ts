@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Rating } from 'src/app/core/interfaces/rating';
+import { User } from 'src/app/core/interfaces/user';
+
+import { RatingService } from '../../services/rating.service';
+import { UserService } from '../../services/user.service';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-helper-rating-page',
@@ -8,58 +14,35 @@ import { Rating } from 'src/app/core/interfaces/rating';
 })
 export class HelperRatingPageComponent implements OnInit {
 
-    //TODO: Add the user name here from parameter
-    userFullName: string = 'John Doe';
-    age: number = 25;
-    rating: number = 3;
-    description: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.';
+  user!: User;
+  ratings: Rating[] = [];
 
-  constructor() { }
-
-  userRatings: Rating[] = [
-    {
-      id: 1,
-      giverCI: "12344",
-      receiverCI: "2345",
-      needId: 5,
-      stars: 3,
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.'
-    },
-    {
-      id: 1,
-      giverCI: "12344",
-      receiverCI: "2345",
-      needId: 5,
-      stars: 3,
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.'
-    },
-    {
-      id: 1,
-      giverCI: "12344",
-      receiverCI: "2345",
-      needId: 5,
-      stars: 3,
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.'
-    },
-    {
-      id: 1,
-      giverCI: "12344",
-      receiverCI: "2345",
-      needId: 5,
-      stars: 3,
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.'
-    },
-    {
-      id: 1,
-      giverCI: "12344",
-      receiverCI: "2345",
-      needId: 5,
-      stars: 3,
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.'
-    },
-  ];
+  constructor(
+    private ratingService: RatingService,
+    private userService: UserService,
+    private dataService: DataService,
+  ) { }
 
   ngOnInit(): void {
+    this.userService.getUserByCI(this.dataService.userCI).subscribe(
+      user => {
+        this.user = user;
+
+        this.ratingService.getUserRating(user.ci).subscribe(
+          ratings => {
+            this.ratings = ratings;
+
+            this.ratings.forEach((rating: Rating) => {
+              this.userService.getUserByCI(rating.giverCI).subscribe(
+                user => {
+                  rating.giver = user;
+                }
+              );
+            });
+          }
+        );
+      }
+    );
   }
 
 }

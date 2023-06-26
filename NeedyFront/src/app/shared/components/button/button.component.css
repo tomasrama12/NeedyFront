@@ -1,0 +1,39 @@
+.bgColor-blue{
+    background-color: #0a2472;
+    color: white;
+    width: 100%;
+}
+
+.bgColor-white{
+    background-color: white;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
+.bgColor-red{
+    background-color: #FD5D5D;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
+.bgColor-gray{
+    background-color: gray;
+    width: 100%;
+    color:  white ;
+}
+
+.bgColor-green{
+    background-color: #98FF8F;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
+.bgColor-lightBlue{
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    color: white;
+}
+
+.btn{
+    border-radius: 2rem;
+}

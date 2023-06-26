@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { Skill } from 'src/app/core/interfaces/skill';
-import { SkillService } from '../../services/skill.service';
+import { UserService } from '../../services/user.service';
+import { DataService } from 'src/app/shared/services/data.service';
+
+import { User } from 'src/app/core/interfaces/user';
 
 @Component({
   selector: 'app-helper-page',
@@ -10,30 +13,31 @@ import { SkillService } from '../../services/skill.service';
 })
 export class HelperPageComponent implements OnInit {
 
-  //TODO: Add the user name here from parameter
-  userFullName: string = 'John Doe';
-  age: number = 25;
-  rating: number = 3;
-  description: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.';
+  user!: User;
+  isUserLogged: boolean = false;
 
-  constructor(private skillService: SkillService) { }
-
-  userSkills: Skill[] = [
-    { id: 1, name: 'Skill 1' },
-    { id: 2, name: 'Skill 2' },
-    { id: 3, name: 'Skill 3' },
-  ];
+  constructor(
+    private userService: UserService,
+    private dataService: DataService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-  }
-
-  getSkills(){
-    this.skillService.getSkills().subscribe(
-      skills => {
-        this.userSkills = skills;
-        console.log(skills);
+    this.userService.getUserByCI(this.dataService.userCI).subscribe(
+      user => {
+        this.user = user;
+        this.checkIsLogged();
       }
     );
+  }
+
+  checkIsLogged() {
+    localStorage.getItem('userCI') == this.user.ci ? this.isUserLogged = true : this.isUserLogged = false;
+  }
+
+  redirectToUserRatingsPage(ci: string) {
+    this.dataService.userCI = ci;
+    this.router.navigateByUrl('/helper/ratings');
   }
 
 }

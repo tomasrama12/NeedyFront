@@ -1,27 +1,44 @@
-<div class="blue-container">
-    <app-header [backPage]="'/helpers'" [currentText]="'Helper profile'"></app-header>
-    <div class="header">
-      <div class="img-container">
-          <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+<app-header class="header" [bgColor]="'bgColor-white'" [visibility]="'show'"></app-header>
+
+<div class="helper-container">
+  <div class="helper-image-container">
+      <img src={{user.imageSrc}}>
+  </div>
+  <div class="helper-info-container">
+      <div class="info">
+        <div class="flex name">
+          <h2>{{user.firstName}} {{user.lastName}}</h2>
+          <span class="age">{{user.age}}</span>
+        </div>
+        <div class="flex">
+          <app-stars [avgRating]="user.avgRating!"></app-stars>
+          <span class="rating">{{user.avgRating}}</span>
+          <a class="link" (click)="redirectToUserRatingsPage(user.ci)">See All...</a>
+        </div>
+        <p>{{user.aboutMe}}</p>
+        <span class="info-item">
+            <i class="bi bi-geo-alt"></i>
+            <span class="text">{{user.address}} - {{user.zone}}</span>
+        </span>
+        <span class="info-item">
+          <i class="bi bi-telephone"></i>
+          <span class="text">{{user.phone}}</span>
+        </span>
+          <span class="info-item">
+              <i class="bi bi-envelope"></i>
+              <span class="text">{{user.email}}</span>
+          </span>
+          <div class="skills">
+              <span class="label">Skills</span>
+              <ul *ngFor="let skill of user.skills">
+                  <li class="skill">
+                      <span class="data">{{skill.name | titlecase}}</span>
+                  </li>
+              </ul>
+          </div>
+      </div>  
+      <div class="btn-container" *ngIf="!isUserLogged">
+          <app-button [text]="'Contact'" [bgColor]="'bgColor-blue'" class="button-needy"></app-button>
       </div>
   </div>
-    <div class="info-container">
-        <h1 class="heading">{{ userFullName }}<span class="space"></span> {{ age }}</h1>
-        <div class="rating-row">
-          <h1 class="rating">Rating:<span class="space"></span> {{ rating }}/5</h1>
-          <button class="rating-button" routerLink="/helpers/rating">VER HELPER RATING</button>
-        </div>
-        <h1 class="description">{{description}}</h1>
-        <h1 class="heading">Skills</h1>
-        <div class="container-row">
-            <div class="container-item" *ngFor="let skill of userSkills">
-              <div class="container">
-                <h1 class="description">{{ skill.name }}</h1>
-              </div>
-            </div>
-          </div>          
-        <!--TODO: Agregar el click-->
-        <div class="button-container">
-            <app-needy-button [text]="'Contactar'" [bgColor]="'bgColor-blue'" class="button-needy"></app-needy-button>
-    </div>
 </div>

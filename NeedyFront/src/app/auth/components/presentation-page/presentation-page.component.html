@@ -2,10 +2,14 @@
     <div class="title-container">
         <h1 class="main-screen-title">Needy</h1>
     </div>
+
     <div class="button-container">
-        <app-needy-button [text]="'Login'" [bgColor]="'bgColor-white'" class="button-needy" routerLink="/login"></app-needy-button>
+        <app-button [text]="'Login'" [bgColor]="'bgColor-white'" class="button-needy" routerLink="/login"></app-button>
+    
+        <div class="center-or">
+            <p class="my-1 text-light px-1 or">or</p>
+        </div>
+    
+        <app-button [text]="'Sign up'" [bgColor]="'bgColor-lightBlue'" class="button-needy" routerLink="/signup"></app-button>
     </div>
-    <!--TODO: Add routerLink to signup-->
-    <div class="button-container">
-        <app-needy-button [text]="'Sign up'" [bgColor]="'bgColor-lightBlue'" class="button-needy"></app-needy-button>
 </div>

@@ -1,1 +1,28 @@
-<p>search-page works!</p>
+<app-header class="header" [currentText]="'Search'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
+
+<div class="search-container">
+    <div class="search-header">
+        <div class="search-input">
+            <i class="bi bi-search"></i>
+            <input #searchBox class="form-control" type="text" (input)="search(searchBox.value)" placeholder="Search...">
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="x-menu">
+            <p [class.selected-menu]="selectedMenuIndex === 0" (click)="selectMenu(0)">Needies</p>
+            <p [class.selected-menu]="selectedMenuIndex === 1" (click)="selectMenu(1)">Helpers</p>
+        </div>
+        <div class="result-container" *ngIf="selectedMenuIndex === 0">
+            <div *ngFor="let need of needs | filterNeed:searchTerm" (click)="redirectToNeedPage(need.id)">
+                <app-card [need]="need" [type]="'need'"></app-card>
+            </div>
+        </div>
+        <div class="result-container" *ngIf="selectedMenuIndex === 1">
+            <div *ngFor="let user of users | filterUser:searchTerm" (click)="redirectToUserPage(user.ci)">
+                <app-card [user]="user" [type]="'user'"></app-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-navbar></app-navbar>

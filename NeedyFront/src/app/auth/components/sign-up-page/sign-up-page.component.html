@@ -1,1 +1,126 @@
-<p>sign-up-page works!</p>
+<app-header class="header" [currentText]="'Signup'" [bgColor]="'bgColor-white'" [visibility]="'hidden'"></app-header>
+<div class="signup-container">
+    <div class="title-container">
+        <h1 class="login-title">Needy</h1>
+    </div>
+    <div class="form-container">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <div class="inputs-section">
+                <div class="mb-3">
+                    <label for="ci" class="form-label">CI</label>
+                    <input type="text" id="ci" class="form-control" formControlName="ci" placeholder="12345678">
+                    <div *ngIf="signupForm.controls['ci'].invalid && signupForm.controls['ci'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('ci')?.errors?.['required']">CI is required</div>
+                        <div *ngIf="signupForm.get('ci')?.errors?.['pattern']">CI must contain only numbers</div>
+                        <div *ngIf="signupForm.get('ci')?.errors?.['minlength']">CI must contain 8 digits</div>
+                        <div *ngIf="signupForm.get('ci')?.errors?.['maxlength']">CI must contain 8 digits</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                    <div *ngIf="signupForm.controls['firstName'].invalid && signupForm.controls['firstName'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('firstName')?.errors?.['required']">First Name is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" id="lastName" class="form-control" formControlName="lastName">
+                    <div *ngIf="signupForm.controls['lastName'].invalid && signupForm.controls['lastName'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('lastName')?.errors?.['required']">Last Name is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" id="address" class="form-control" formControlName="address">
+                    <div *ngIf="signupForm.controls['address'].invalid && signupForm.controls['address'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('address')?.errors?.['required']">Address is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="zone" class="form-label">Zone</label>
+                    <select id="zone" class="form-select" formControlName="zone">
+                        <option value="">Select Zone</option>
+                        <option *ngFor="let option of zones" [value]="option">{{ option }}</option>
+                      </select>
+                    <div *ngIf="signupForm.controls['zone'].invalid && signupForm.controls['zone'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('zone')?.errors?.['required']">Zone is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="text" id="phone" class="form-control" formControlName="phone" placeholder="099123456">
+                    <div *ngIf="signupForm.controls['phone'].invalid && signupForm.controls['phone'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('phone')?.errors?.['required']">Phone is required</div>
+                        <div *ngIf="signupForm.get('phone')?.errors?.['pattern']">Phone must contain only numbers</div>
+                        <div *ngIf="signupForm.get('phone')?.errors?.['minlength']">Phone must contain 9 digits</div>
+                        <div *ngIf="signupForm.get('phone')?.errors?.['maxlength']">Phone must contain 9 digits</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select id="gender" class="form-select" formControlName="gender">
+                        <option value="">Select Gender</option>
+                        <option *ngFor="let option of genders" [value]="option">{{ option }}</option>
+                      </select>
+                    <div *ngIf="signupForm.controls['gender'].invalid && signupForm.controls['gender'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('gender')?.errors?.['required']">Gender is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="birthDate" class="form-label">BirthDate</label>
+                    <input type="date" id="birthDate" class="form-control" formControlName="birthDate">
+                    <div *ngIf="signupForm.controls['birthDate'].invalid && signupForm.controls['birthDate'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('birthDate')?.errors?.['required']">BirthDate is required</div>
+                        <div *ngIf="signupForm.get('birthDate')?.errors?.['adultAge']">You must be over 18 years old</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        class="form-control" 
+                        formControlName="email" 
+                        placeholder="needy@example.com"
+                        [class.invalid]="signupForm.get('email')?.invalid">
+                    <div *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</div>
+                        <div *ngIf="signupForm.get('email')?.errors?.['email']">Invalid email format</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" formControlName="password">
+                    <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</div>
+                        <div *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must have more than 4 characters</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="aboutMe" class="form-label">About Me</label>
+                    <textarea id="aboutMe" class="form-control" formControlName="aboutMe" placeholder="Add description..."></textarea>
+                    <div *ngIf="signupForm.controls['aboutMe'].invalid && signupForm.controls['aboutMe'].touched" class="text-danger">
+                        <div *ngIf="signupForm.get('aboutMe')?.errors?.['required']">About Me is required</div>
+                        <div *ngIf="signupForm.get('aboutMe')?.errors?.['minlength']">About Me must have less than 150 characters</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="skills" class="form-label">Skills</label>
+                    <div *ngFor="let skill of skills;" id="skills">
+                        <input type="checkbox" [value]="skill.id" (click)="addDeleteSkillId(skill.id)"> {{ skill.name }}
+                    </div>
+                </div>
+                <div *ngIf="errorMessage"class="error text-danger">
+                    {{errorMessage}}
+                </div>
+            </div>
+            <div class="button-section"> 
+                <button type="submit" class="btn bgColor-blue" [disabled]="!signupForm.valid">Signup</button>
+                <div class="bottom">
+                    <span>Already have an account? </span><a href="/login">Login</a>
+                </div>
+            </div>
+        </form>  
+    </div> 
+</div>

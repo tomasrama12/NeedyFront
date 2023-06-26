@@ -1,0 +1,66 @@
+<app-header class="header white" [currentText]="'Need'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
+
+<div class="create-need-container">
+    <div class="title-container">
+        <h2>Create needy</h2>
+    </div>
+    <div class="form-container">
+        <form [formGroup]="needForm" (ngSubmit)="create()">
+            <div class="inputs-section">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" class="form-control" formControlName="title">
+                    <div *ngIf="needForm.controls['title'].invalid && needForm.controls['title'].touched" class="text-danger">
+                        <div *ngIf="needForm.get('title')?.errors?.['required']">Title is required</div>
+                        <div *ngIf="needForm.get('title')?.errors?.['maxlength']">Title must have less than 20 characters</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" id="address" class="form-control" formControlName="address">
+                    <div *ngIf="needForm.controls['address'].invalid && needForm.controls['address'].touched" class="text-danger">
+                        <div *ngIf="needForm.get('address')?.errors?.['required']">Address is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" id="date" class="form-control" formControlName="date">
+                    <div *ngIf="needForm.controls['date'].invalid && needForm.controls['date'].touched" class="text-danger">
+                        <div *ngIf="needForm.get('date')?.errors?.['required']">Date is required</div>
+                        <div *ngIf="needForm.get('date')?.errors?.['needDate']">Date must be at least 7 days after today</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="modality" class="form-label">Modality</label>
+                    <select id="modality" class="form-select" formControlName="modality">
+                        <option value="">Select Modality</option>
+                        <option *ngFor="let option of modalities" [value]="option">{{ option }}</option>
+                    </select>
+                    <div *ngIf="needForm.controls['modality'].invalid && needForm.controls['modality'].touched" class="text-danger">
+                        <div *ngIf="needForm.get('modality')?.errors?.['required']">Modality is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" class="form-control" formControlName="description" placeholder="Add description..."></textarea>
+                    <div *ngIf="needForm.controls['description'].invalid && needForm.controls['description'].touched" class="text-danger">
+                        <div *ngIf="needForm.get('description')?.errors?.['required']">Description is required</div>
+                        <div *ngIf="needForm.get('description')?.errors?.['minlength']">Description must have less than 150 characters</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="skills" class="form-label">Skills</label>
+                    <div *ngFor="let skill of skills;" id="skills">
+                        <input type="checkbox" [value]="skill.id" (click)="addDeleteSkillId(skill.id)"> {{ skill.name | titlecase }}
+                    </div>
+                </div>
+            </div>
+            <div class="button-section"> 
+                <button type="submit" class="btn bgColor-blue" [disabled]="!needForm.valid  || skillsId.length <= 0">Create Need</button>
+            </div>
+        </form> 
+    </div>
+</div>
+<app-alert *ngIf="showAlert"></app-alert>
+
+<app-navbar></app-navbar>

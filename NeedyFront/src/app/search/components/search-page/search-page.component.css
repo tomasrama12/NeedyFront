@@ -1,0 +1,86 @@
+.search-container {
+    margin-top: 4rem;
+    height: calc(100vh - 8rem);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.search-header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.search-input {
+    width: 90vw;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.content-container {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i {
+    font-size: 1.5rem;
+    color: gray;
+    left: 1.2rem;
+    position: absolute;
+    z-index: 1;
+}
+
+input {
+    height: 3rem;
+    border-radius: 2rem;
+    border: 2px solid gray;
+    display: flex;
+    align-items: center;
+    padding-left: 3.2rem;
+    position: relative;
+}
+
+.x-menu {
+    height: 5%;
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid gray;
+}
+
+.x-menu p {
+    width: 50%;
+    color: grey;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    top: 0.75rem;
+    position: relative;
+    text-align: center;
+}
+
+.selected-menu {
+    width: 100%;
+    color: #0A2472 !important;
+    border-bottom: 5px solid #0A2472;
+    text-align: center;
+}
+
+.result-container {
+    width: 90vw;
+    height: 95%;
+    overflow-y: scroll;
+    padding-bottom: 1rem;
+}

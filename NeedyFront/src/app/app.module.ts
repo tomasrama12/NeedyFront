@@ -6,6 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NeedPageComponent } from './need/components/need-page/need-page.component';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -13,10 +17,14 @@ import { NeedPageComponent } from './need/components/need-page/need-page.compone
     NeedPageComponent,
   ],
   imports: [
-    CoreModule,
+    AppRoutingModule,
     BrowserModule,
+    CoreModule,
     HttpClientModule,
-    AppRoutingModule
+    //NgbModule,
+    SharedModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +12,25 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() currentText?: string;
-  @Input() backPage?: string;
+  @Input() bgColor!: string;
+  @Input() visibility!: string;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private location: Location
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigateByUrl('/');
+  }
+
+  back() {
+    this.location.back();
   }
 
 }

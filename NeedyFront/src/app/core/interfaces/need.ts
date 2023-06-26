@@ -3,6 +3,7 @@ import { User } from "./user";
 
 export interface Need {
     id: number;
+    title: string;
     requestor: User;
     appliers: User[];
     acceptedApplier?: User;
@@ -14,4 +15,5 @@ export interface Need {
     requestedSkills: Skill[];
     needAddress: string;
     modality: string;
+    imageSrc: string;
 }

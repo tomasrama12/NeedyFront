@@ -1,33 +1,44 @@
-<div class = "rating-container">
-    <!-- TODO: Cambiar el backPage -->
-    <app-header [backPage]="'/helpers'" [currentText]="'Rating'"></app-header>
-    <h1 class = "rating-title">Como estuvo la experiencia con .... ?</h1>
-    <div class="header">
-        <div class="img-container">
-            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-        </div>
+<app-header class="header" [currentText]="'Rating'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
+
+<div class="rating-container">
+    <div class="title-container">
+        <h2>How was your experience with...?</h2>
     </div>
-    <h1 class="name-title">{{ receiverName }}</h1>
-    <form class="form-container" [formGroup]="ratingForm" (ngSubmit)="giveRating()"> 
-        <div class="mb-3">
-            <label for="comment" class="form-label">Rating</label>
-            <div class="star-rating">
-                <ng-container *ngFor="let star of getStars(rating)">
-                  <i class="fas fa-star"></i>
-                </ng-container>
-              </div>
-        </div> 
-        <div class="mb-3">
-            <label for="comment" class="form-label">Comment</label>
-            <textarea id="comment" class="form-control" formControlName="comment" placeholder="Add comment..."></textarea>
-            <div *ngIf="ratingForm.controls['comment'].invalid && ratingForm.controls['comment'].touched" class="text-danger">
-                <div *ngIf="ratingForm.get('comment')?.errors?.['required']">Comment is required</div>
-                <div *ngIf="ratingForm.get('comment')?.errors?.['minlength']">Comment must have less than 150 characters</div>
+    <div class="user-container">
+        <div class="img-container">
+            <img src={{need.acceptedApplier!.imageSrc}}>
+        </div>
+        <h3>{{need.acceptedApplier!.firstName}} {{need.acceptedApplier!.lastName}}</h3>
+    </div>
+    <div class="form-container">
+        <form class="form-container" [formGroup]="ratingForm" (ngSubmit)="giveRating()"> 
+            <div class="inputs-section">
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label><br>
+                    <ngb-rating id="rating" 
+                        class="rating"
+                        [max]="5"
+                        formControlName="stars">
+                    </ngb-rating>
+                    <div *ngIf="ratingForm.controls['stars'].invalid && ratingForm.controls['stars'].touched" class="text-danger">
+                        <div *ngIf="ratingForm.get('stars')?.errors?.['required']">Rating is required</div>
+                    </div>
+                </div> 
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Comment</label>
+                    <textarea id="comment" class="form-control" formControlName="comment" placeholder="Add comment..."></textarea>
+                    <div *ngIf="ratingForm.controls['comment'].invalid && ratingForm.controls['comment'].touched" class="text-danger">
+                        <div *ngIf="ratingForm.get('comment')?.errors?.['required']">Comment is required</div>
+                        <div *ngIf="ratingForm.get('comment')?.errors?.['minlength']">Comment must have less than 150 characters</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="button-container">
-            <button type="submit" class="btn bgColor-blue" [disabled]="!ratingForm.valid">Give rating</button>
-        </div>
-    </form>
-     <app-navbar></app-navbar>
+            <div class="button-section">
+                <button type="submit" class="btn bgColor-blue" [disabled]="!ratingForm.valid">Give rating</button>
+            </div>
+        </form>
+    </div>
 </div>
+<app-alert *ngIf="showAlert"></app-alert>
+
+<app-navbar></app-navbar>

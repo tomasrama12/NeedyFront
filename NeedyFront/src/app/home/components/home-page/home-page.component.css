@@ -3,21 +3,27 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: white;
     align-items: center;
     justify-content: center;
 }
 
-
 .button-container{
-    width: 50%;
-    border-radius: 45px;
-    overflow: hidden;
-    margin-bottom: 10px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-h1{
-    font-size: 2vh;
+.button-needy{
+    width: 80vw;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-or{
     color: #0a2472;
-    font-family: 'Franklin Gothic Medium', 'Arial', sans-serif;
+    font-weight: bold;
 }

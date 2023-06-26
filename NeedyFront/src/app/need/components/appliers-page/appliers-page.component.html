@@ -1,18 +1,25 @@
-<div class="appliers-page-container">
-    <div class="need-image-container">
-        <img src="https://twyzle-s3-1.s3.amazonaws.com/networks/1/sites/10306/plomero-san-fernando-header-mobile.jpg" alt="">
+<app-header class="header" [bgColor]="'bgColor-white'" [visibility]="'show'"></app-header>
+
+<div class="appliers-container">
+    <div class="helper-image-container">
+        <img src={{need.imageSrc}}>
     </div>
-    <div class="need-info-container">
-        <div class="title-container">
-            <h1>Plomero</h1>
+    <div class="info-container">
+        <div class="info">
+            <h2>Need appliers</h2>
         </div>
-        <div class="applies-container">
-            <app-user-preview class="applie"
-            *ngFor="let applier of need.appliers"
-             [name]="applier.firstName"
-             [lastName]="applier.lastName"
-             [avgRating]="applier.avgRating!"
-             ></app-user-preview>
+        <div class="list-container" *ngIf="need.appliers && !need.acceptedApplier">
+            <div *ngFor="let applier of need.appliers">
+                <app-card [need]="need" [user]="applier" [type]="'applier'"></app-card>
+            </div>
+        </div>
+        <div class="message" *ngIf="need.appliers.length == 0">
+            <i class="bi bi-exclamation-circle"></i>
+            <span>There are no applications yet.</span>
+        </div>
+        <div class="message" *ngIf="need.acceptedApplier">
+            <i class="bi bi-exclamation-circle"></i>
+            <span>Already accepted applier.</span>
         </div>
     </div>
 </div>

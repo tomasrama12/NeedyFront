@@ -1,30 +1,28 @@
-<div class="blue-container">
-  <app-header [backPage]="'/helpers'" [currentText]="'Helper rating'"></app-header>
-  <div class="header">
-    <div class="img-header-container">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-    </div>
+<app-header class="header" [bgColor]="'bgColor-white'" [visibility]="'show'"></app-header>
+
+<div class="rating-container">
+  <div class="helper-image-container">
+      <img src={{user.imageSrc}}>
   </div>
-    <div class="info-container">
-        <h1 class="heading">{{ userFullName }}<span class="space"></span> {{ age }}</h1>
-        <div class="rating-row">
-          <h1 class="rating">Rating:<span class="space"></span> {{ rating }}/5</h1>
-        </div>    
-        <div class="expanded-container">
-            <div class="list-container">
-                <div *ngFor="let rating of userRatings">
-                  <div class="rating-container">
-                    <div class="img-container">
-                      <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                  </div>
-                  <div class="rating-details">
-                    <h2 class="giver-name">{{ rating.giverCI }}</h2>
-                    <h3 class="rating">Rating: {{ rating.stars }}/5</h3>
-                    <p class="rating-comment">{{ rating.comment }}</p>
-                  </div>
-                  </div>
-                </div>
-              </div>
-          </div>
+  <div class="info-container">
+    <div class="info">
+      <div class="flex name">
+        <h2>{{user.firstName}} {{user.lastName}}</h2>
+        <span class="age">{{user.age}}</span>
+      </div>
+      <div class="flex">
+        <app-stars [avgRating]="user.avgRating!"></app-stars>
+        <span class="rating">{{user.avgRating}}</span>
+      </div>
+    </div>  
+    <div class="list-container" *ngIf="ratings">
+      <div *ngFor="let rating of ratings">
+        <app-card [rating]="rating" [type]="'rating'"></app-card>
+      </div>
     </div>
+    <div class="message" *ngIf="ratings.length == 0">
+      <i class="bi bi-exclamation-circle empty"></i>
+      <span>Are no ratings yet.</span>
+  </div>
+  </div>
 </div>

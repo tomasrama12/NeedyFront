@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Need } from 'src/app/core/interfaces/need';
+import { User } from 'src/app/core/interfaces/user';
+
+import { UserService } from 'src/app/helper/services/user.service';
+import { NeedService } from 'src/app/need/services/need.service';
+import { DataService } from 'src/app/shared/services/data.service';
+
 
 @Component({
   selector: 'app-search-page',
@@ -7,9 +16,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor() { }
+  needs: Need[] = [];
+  users: User[] = [];
+  userLogged!: string;
+  searchTerm: string = '';
+  selectedMenuIndex: number = 0;
+
+  constructor(
+    private needService: NeedService,
+    private userService: UserService,
+    private dataService: DataService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.userLogged = localStorage.getItem('userCI')!;
+
+    if (this.dataService.searchIndex) {
+      this.selectedMenuIndex = this.dataService.searchIndex;
+    }
+
+    this.needService.getNeeds().subscribe(
+      needs => {
+        this.needs = needs;
+      }
+    );
+
+    this.userService.getUsers().subscribe(
+      users => {
+        this.users = users;
+      }
+    );
+
+  }
+
+  selectMenu(index: number) {
+    this.selectedMenuIndex = index;
+    this.ngOnInit();
+  }
+
+  search(term: string) {
+    this.searchTerm = term.toLowerCase();
+  }
+
+  redirectToNeedPage(id: number) {
+    this.dataService.needId = id;
+    this.router.navigateByUrl('/need');
+  }
+
+  redirectToUserPage(ci: string) {
+    this.dataService.userCI = ci;
+    this.router.navigateByUrl('/helper');
   }
 
 }

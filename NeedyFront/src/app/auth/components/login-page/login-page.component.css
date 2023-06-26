@@ -1,4 +1,4 @@
-.login-container{
+.login-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -6,7 +6,7 @@
     background-color: #0a2472;
 }
 
-.title-container{
+.title-container {
     width: 100%;
     height: 30%;
     display: flex;
@@ -15,16 +15,54 @@
     background-color: #0a2472;
 }
 
-.form-container{
+.form-container {
     width: 100%;
     height: 70%;
     border-radius: 25px 25px 0px 0px;
     background-color: white;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h1{
-    font-size: 10vh;
+form {
+    width: 80vw;
+    height: 100%;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputs-section {
+    height: 70%;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    border-radius: 2rem;
+}
+
+.bottom {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.bgColor-blue {
+    background-color: #0a2472;
     color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+}
+
+.btn {
+    border-radius: 2rem;
+}
+
+.error {
+    margin-bottom: 1rem;
 }

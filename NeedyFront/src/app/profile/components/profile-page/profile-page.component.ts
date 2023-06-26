@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Need } from 'src/app/core/interfaces/need';
 import { User } from 'src/app/core/interfaces/user';
+
+import { UserService } from 'src/app/helper/services/user.service';
+import { NeedService } from 'src/app/need/services/need.service';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -9,187 +15,49 @@ import { User } from 'src/app/core/interfaces/user';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private needService: NeedService,
+    private userService: UserService,
+    private dataService: DataService,
+    private router: Router
+  ) { }
 
-  user: User = {
-    ci: "12345678",
-    firstName: "John",
-    lastName: "Doe",
-    address: "123 Main St",
-    zone: "City",
-    phone: "555-1234",
-    age: 30,
-    skills: [
-      { id: 1, name: "Expert" },
-      { id: 2, name: "Intermediate" },
-      { id: 3, name: "Advanced" }
-    ],
-    avgRating: 4.5,
-    aboutMe: "I am a skilled professional with experience in various fields."
-  }
-
-  //Necesario para las que publique
-  needs:Need[] = [
-    {
-      id:1,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 1, name: "Expert" },
-        { id: 2, name: "Intermediate" },
-        { id: 3, name: "Advanced" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    },
-    {
-      id:2,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 1, name: "Expert" },
-        { id: 2, name: "Intermediate" },
-        { id: 3, name: "Advanced" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    },
-    {
-      id:3,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 1, name: "Expert" },
-        { id: 2, name: "Intermediate" },
-        { id: 3, name: "Advanced" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    },
-    {
-      id:4,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 1, name: "Expert" },
-        { id: 2, name: "Intermediate" },
-        { id: 3, name: "Advanced" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    },
-    {
-      id:5,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 1, name: "Expert" },
-        { id: 2, name: "Intermediate" },
-        { id: 3, name: "Advanced" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    },{
-      id:6,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 1, name: "Expert" },
-        { id: 2, name: "Intermediate" },
-        { id: 3, name: "Advanced" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    },
-    {
-      id:7,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 1, name: "Expert" },
-        { id: 2, name: "Intermediate" },
-        { id: 3, name: "Advanced" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    }
-  ]
-
-  //Necesario para las que aplique
-  myNeedysApplied:Need[] = [
-    {
-      id:1,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 1, name: "Expert" },
-        { id: 2, name: "Intermediate" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    },
-    {
-      id:2,
-      requestor: this.user,
-      appliers: [],
-      status: "Open",
-      description: "I need help with my homework",
-      creationDate: new Date(),
-      needDate: new Date(),
-      requestedSkills: [
-        { id: 2, name: "Intermediate" }
-      ],
-      needAddress: "123 Main St",
-      modality: "In Person"
-    }
-  ]
-
+  user!: User;
+  myApplies: Need[] = [];
+  myNeeds: Need[] = [];
+  selectedMenuIndex: number = 0;
 
   ngOnInit(): void {
+    this.userService.getUserByCI(localStorage.getItem('userCI')!).subscribe(
+      user => {
+        this.user = user;
+        
+        this.needService.getUserCreatedNeeds(user.ci).subscribe(
+          needs => {
+            this.myNeeds = needs;
+          }
+        );
+    
+        this.needService.getUserAppliedNeeds(user.ci).subscribe(
+          needs => {
+            this.myApplies = needs;
+          }
+        );
+      }
+    );
   }
 
-  selectedMenuIndex:number = 0;
-
-  //Funcion para cambiar de menu
   selectMenu(index:number){
-    console.log(index);
     this.selectedMenuIndex = index;
   }
 
-  getSkillsString(){
-    return this.user.skills.map(skill => skill.name).join(", ");
+  redirectToNeedPage(id: number){
+    this.dataService.needId = id;
+    this.router.navigateByUrl('/need');
+  }
+
+  redirectToCreateNeedPage(){
+    this.router.navigateByUrl('/profile/create-need');
   }
 
 }

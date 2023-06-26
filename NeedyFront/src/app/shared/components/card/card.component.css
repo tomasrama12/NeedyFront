@@ -1,0 +1,128 @@
+.card-container {
+    width: 100%;
+    height: 8.5rem;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    background-color: #0A2472;
+    color: white;
+    border-radius: 1rem;
+}
+
+.img-container {
+    width: 8.5rem;
+    height: 8.5rem;
+}
+
+.image-container {
+    width: 8.5rem;
+    height: 8.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-cir {
+    width: 70%;
+    height: 70%; 
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.square {
+    border-radius: 1rem 0 0 1rem;
+}
+
+.circular {
+    border-radius: 50%;
+}
+
+.info-container {
+    width: calc(100% - 8.5rem);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.info {
+    margin: 0.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    font-size: 0.8rem;
+    color: rgb(230, 230, 230) !important;
+}
+
+strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.text-light {
+    font-size: 0.73rem;
+    color: rgb(180, 180, 180) !important;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+}
+
+i {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.long-text {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.rating {
+    font-size: 1.2rem;
+    color: #FFC700;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bgColor-red{
+    background-color: #FD5D5D;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
+.bgColor-green{
+    background-color: #98FF8F;
+    width: 100%;
+    color:  #0a2472 ;
+}
+
+.button-needy {
+    border-radius: 2rem;
+    width: 47%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    all: unset;
+}

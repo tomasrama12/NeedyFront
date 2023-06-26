@@ -1,9 +1,11 @@
+<app-header class="header" [currentText]="'Profile'" [bgColor]="'bgColor-blue'" [visibility]="'show'"></app-header>
+
 <div class="profile-container">
-    <div class="header">
+    <div class="top">
         <div class="img-container">
-            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+            <img src={{user.imageSrc}} class="avatar">
         </div>
-        <h2>{{user.firstName}}</h2>
+        <h2>{{user.firstName | uppercase}} {{user.lastName | uppercase}}</h2>
     </div>
     <div class="content-container">
         <div class="x-menu">
@@ -12,68 +14,83 @@
             <p [class.selected-menu]="selectedMenuIndex === 2" (click)="selectMenu(2)">My info</p>
         </div>
         <div class="menu-items-container">
-            <div *ngIf="selectedMenuIndex === 0"  class="need-card">
-                <app-need-card 
-                *ngFor="let need of needs"
-                [need]="need"
-                ></app-need-card>
+            <div *ngIf="selectedMenuIndex === 0 && myNeeds"  class="need-card">
+                <div *ngFor="let need of myNeeds" (click)="redirectToNeedPage(need.id)">
+                    <app-card [need]="need" [type]="'need'"></app-card>
+                </div>
+            </div>
+            <div class="message" *ngIf="selectedMenuIndex === 0 && myNeeds.length == 0">
+                <i class="bi bi-exclamation-circle empty"></i>
+                <span>Are no posts yet.</span>
             </div>
 
-            <div *ngIf="selectedMenuIndex === 1" class="need-card">
-                <app-need-card 
-                *ngFor="let need of myNeedysApplied"
-                [need]="need"
-                ></app-need-card>
+            <div *ngIf="selectedMenuIndex === 1 && myApplies" class="need-card">
+                <div *ngFor="let need of myApplies" (click)="redirectToNeedPage(need.id)">
+                    <app-card [need]="need" [type]="'need'"></app-card>
+                </div>
+            </div>
+            <div class="message" *ngIf="selectedMenuIndex === 1 && myApplies.length == 0">
+                <i class="bi bi-exclamation-circle empty"></i>
+                <span>You are not applied yet.</span>
             </div>
 
             <div *ngIf="selectedMenuIndex === 2" class="info-container">
-                <div class="w-100">
-                    <label for="basic-url">CI</label>
-                    <p>{{user.ci}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">First name</label>
-                    <p>{{user.firstName}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Last name</label>
-                    <p>{{user.lastName}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Address</label>
-                    <p>{{user.address}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Zone</label>
-                    <p>{{user.zone}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Phone</label>
-                    <p>{{user.phone}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Age</label>
-                    <p>{{user.age}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Skills</label>
-                    <p>{{getSkillsString()}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">Average rating</label>
-                    <p>{{user.avgRating}}</p>
-                </div>
-                <div class="w-100">
-                    <label for="basic-url">About me</label>
-                    <p>{{user.aboutMe}}</p>
+                <p class="w-100 input">
+                    <span class="label">CI</span>
+                    <span class="data">{{user.ci}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">First name</span>
+                    <span class="data">{{user.firstName}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Last name</span>
+                    <span class="data">{{user.lastName}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Address</span>
+                    <span class="data">{{user.address}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Zone</span>
+                    <span class="data">{{user.zone}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Phone</span>
+                    <span class="data">{{user.phone}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">Age</span>
+                    <span class="data">{{user.age}}</span>
+                </p>
+                <p class="w-100 input">
+                    <span class="label">About me</span>
+                    <span class="data">{{user.aboutMe}}</span>
+                </p>
+                <div class="w-100 input skills">
+                    <span class="label">Skills</span>
+                    <ul *ngFor="let skill of user.skills">
+                        <li class="skill">
+                            <span>{{skill.name | titlecase}}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
     <div class="btn-container">
-        <app-needy-button [text]="'Create Needy'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 0 || selectedMenuIndex === 1"></app-needy-button>
-        <app-needy-button [text]="'Modify info'" [bgColor]="'bgColor-blue'" class="button-needy" *ngIf="selectedMenuIndex === 2"></app-needy-button>
+        <app-button [text]="'Create Needy'" 
+            [bgColor]="'bgColor-blue'" 
+            class="button-needy" 
+            *ngIf="selectedMenuIndex === 0"
+            (click)="redirectToCreateNeedPage()">
+        </app-button>
+        <app-button [text]="'Edit info'" 
+            [bgColor]="'bgColor-blue'" 
+            class="button-needy" 
+            *ngIf="selectedMenuIndex === 2">
+        </app-button>
     </div>
-    <app-navbar></app-navbar>
 </div>
 
+<app-navbar></app-navbar>

@@ -1,0 +1,100 @@
+<div class="card-container" *ngIf="type === 'need'">
+    <div class="img-container">
+        <img class="square" src={{need.imageSrc}}>
+    </div>
+    <div class="info-container">
+        <p class="info">
+            <span class="title">
+                <strong>{{need.title}}</strong>
+                <span class="text-light">{{need.requestor.firstName}} {{need.requestor.lastName}}</span>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-geo-alt"></i>
+                <span class="text">{{need.needAddress}}</span>
+            </span>
+            <span>
+                <i class="bi bi-calendar4"></i>
+                <span class="text">{{need.needDate | date}}</span>
+            </span>
+        </p>
+    </div>
+</div>
+
+<div class="card-container" *ngIf="type === 'user'">
+    <div class="img-container">
+        <img class="square" src={{user.imageSrc}}>
+    </div>
+    <div class="info-container">
+        <p class="info">
+            <span class="title">
+                <strong>{{user.firstName}} {{user.lastName}}</strong>
+            </span>
+            <span class="info-item">
+                <span class="text">{{user.age}}</span>
+            </span>
+            <span class="info-item">
+                <app-stars [avgRating]="user.avgRating!"></app-stars>
+                <span class="text">{{user.avgRating | number : '1.2-2'}}</span>
+            </span>
+            <span class="info-item">
+                <i class="bi bi-geo-alt"></i>
+                <span class="text">{{user.zone}}</span>
+            </span>
+        </p>
+    </div>
+</div>
+
+<div class="card-container" *ngIf="type === 'applier'">
+    <div class="image-container">
+        <div class="img-cir" (click)="redirectToUserPage(user.ci)">
+            <img class="circular" src={{user.imageSrc}}>
+        </div>
+    </div>
+    <div class="info-container">
+        <div class="info">
+            <span class="title">
+                <strong>{{user.firstName}} {{user.lastName}}</strong>
+            </span>
+            <span class="info-item">
+                <app-stars [avgRating]="user.avgRating!"></app-stars>
+                <span class="text">{{user.avgRating | number : '1.2-2'}}</span>
+            </span>
+            <span class="btn-container">
+                <button type="button" 
+                    class="button-needy bgColor-red" 
+                    [disabled]="need.acceptedApplier" 
+                    (click)="declineApplier(user.ci)">
+                    Decline
+                </button>
+                <button type="button" 
+                    class="button-needy bgColor-green" 
+                    [disabled]="need.acceptedApplier" 
+                    (click)="acceptApplier(user.ci)">
+                    Accept
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="card-container" *ngIf="type === 'rating'">
+    <div class="image-container">
+        <div class="img-cir">
+            <img class="circular" src={{rating.giver.imageSrc}}>
+        </div>
+    </div>
+    <div class="info-container">
+        <p class="info">
+            <span class="title">
+                <strong>{{rating.giver.firstName}} {{rating.giver.lastName}}</strong>
+            </span>
+            <span class="info-item">
+                <app-stars [avgRating]="rating.giver.avgRating!"></app-stars>
+                <span class="text">{{rating.stars | number : '1.2-2'}}</span>
+            </span>
+            <span>
+                <span class="text">{{rating.comment}}</span>
+            </span>
+        </p>
+    </div>
+</div>

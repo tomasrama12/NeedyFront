@@ -1,77 +1,98 @@
-.rating-title {
-    font-family: Calibri, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 24px;
-    color: #0a2472;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-
-  .header{
-    height: 30%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .img-container{
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    border-radius: 50%;
-  }
-
-  .img-container img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .name-title {
-    font-family: Calibri, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 24px;
-    color: #0a2472;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    width: max-content;
-  }
-
-  .button-container{
-    width: 100%;
-    border-radius: 45px;
-    overflow: hidden;
-    margin-top: 50;
-    align-items: center;
-    justify-content: center;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
+.rating-container {
+  width: 100vw;
+  height: calc(100vh - 8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem 0;
 }
 
-.btn{
-    border-radius: 2rem;
-}
-.bgColor-blue{
-    background-color: #0a2472;
-    color: white;
-    width: 100%;
-}
-
-.rating-container{
-    width: 90vw;
-    display: flex;
-    flex-direction: column;
-    margin-left: 25px;
-
+.title-container {
+  width: 90vw;
+  align-self: flex-start;
+  position: fixed;
+  top: 4rem;
+  background-color: white;
 }
 
-.form-container{
-    width: 100%;
+.user-container {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+h3 {
+  color: #0a2472;
+  font-weight: 600;
+}
 
+.img-container {
+  margin-bottom: 1rem;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
 
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-container {
+  width: 80vw;
+  height: 100%;
+  border-radius: 2rem 2rem 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+textarea,
+input,
+select {
+  border-radius: 2rem;
+}
+
+textarea {
+  height: 7rem;
+}
+
+.button-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bgColor-blue {
+  background-color: #0a2472;
+  color: white;
+  width: 100%;
+}
+
+.btn {
+  border-radius: 2rem;
+}
+
+.white {
+  background-color: withe;
+}
+
+i {
+  font-size: 1.2rem;
+  margin-right: 0.2rem;
+  color: gray;
+}
+
+.rating {
+  color: #FFC700;
+  font-size: 3rem;
+}
