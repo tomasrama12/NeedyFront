@@ -1,5 +1,11 @@
 <div class="headerNavbar" [class]="bgColor">
     <i class="bi bi-chevron-left" (click)="back()"></i>
     <h3 *ngIf="currentText" class="m-0">{{currentText}}</h3>
-    <i class="bi bi-box-arrow-left logout" [class]="visibility" (click)="logout()"></i>
+    <i class="bi bi-box-arrow-left logout" [class]="visibility" (click)="openModal()"></i>
 </div>
+<app-modal *ngIf="showModal"
+    (closeModal)="closeModal()" 
+    (actionModal)="logout()"
+    [btnText]="'Logout'" 
+    [text]="'Are you sure you want to logout?'">
+</app-modal>

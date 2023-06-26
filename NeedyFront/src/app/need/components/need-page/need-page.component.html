@@ -51,7 +51,7 @@
                 <app-button [text]="'Delete'" 
                     [bgColor]="'bgColor-red'" 
                     class="button-needy small" 
-                    (click)="deleteNeedy()">
+                    (click)="openDeleteModal()">
                 </app-button>
             </div>
             <app-button [text]="'Rating User'" 
@@ -70,9 +70,21 @@
                 [bgColor]="'bgColor-red'" 
                 class="button-needy" 
                 *ngIf="!isRequestor && isApplied" 
-                (click)="unapplyNeed()">
+                (click)="openUnapplyModal()">
             </app-button>
         </div>
     </div>
 </div>
 <app-alert *ngIf="showAppliedAlert"></app-alert>
+<app-modal *ngIf="showUnapplyModal"
+    (closeModal)="closeModal()" 
+    (actionModal)="unapplyNeed()"
+    [btnText]="'Unapply'" 
+    [text]="'Are you sure you want to unapply?'">
+</app-modal>
+<app-modal *ngIf="showDeleteModal"
+    (closeModal)="closeModal()" 
+    (actionModal)="deleteNeedy()"
+    [btnText]="'Delete'" 
+    [text]="'Are you sure you want to delete this need?'">
+</app-modal>

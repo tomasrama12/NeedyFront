@@ -1,4 +1,4 @@
-i{
+i {
     font-size: 1.3rem;
 }
 
@@ -10,23 +10,23 @@ i{
     margin-top: 2rem;
 }
 
-h3{
+h3 {
     font-weight: 100;
     font-size: 1rem;
 }
 
-.bgColor-blue{
+.bgColor-blue {
     color: #0a2472;
 }
 
-.bgColor-white{
-    color:  white ;
+.bgColor-white {
+    color: white;
 }
 
-.hidden{
+.hidden {
     visibility: hidden;
 }
 
-.show{
+.show {
     visibility: visible;
 }
