@@ -11,17 +11,17 @@ const routes: Routes = [
   {
     path: '',
     component: NeedPageComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'appliers',
     component: AppliersPageComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'edit-need',
     component: EditNeedComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 

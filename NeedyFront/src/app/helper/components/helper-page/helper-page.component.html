@@ -37,7 +37,7 @@
               </ul>
           </div>
       </div>  
-      <div class="btn-container">
+      <div class="btn-container" *ngIf="!isUserLogged">
           <app-button [text]="'Contact'" [bgColor]="'bgColor-blue'" class="button-needy"></app-button>
       </div>
   </div>

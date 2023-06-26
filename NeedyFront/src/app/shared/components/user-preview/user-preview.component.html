@@ -1,0 +1,22 @@
+<div class="apply-container">
+    <div class="img-container">
+        <img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/VXY2NTQXABGSLALG4KY3OC6FDI.jpg" alt="">
+    </div>
+    <div class="info-container">
+        <div class="name-container">
+            <h1>{{this.name + ' ' + this.lastName}}</h1>
+        </div>
+        <div class="rating-container">
+            <div class="stars-container">
+                <i class="fas fa-star" style="color: #ffd500;" *ngFor="let i of range(1, getRatingFloor())"></i>
+                <i class="fas fa-star-half-alt" style="color: #ffd500;" *ngIf="showHalfStar()"></i>
+                <i class="far fa-star" style="color: #ffd500;" *ngFor="let i of range(getRatingFloor()+1, 4)"></i>
+            </div>
+            <p class="rating">{{this.avgRating}}</p>
+        </div>
+        <div class="buttons-container">
+            <button class="btn btn-primary decline">Decline</button>
+            <button class="btn btn-primary accept">Accept</button>
+        </div>
+    </div>
+</div>

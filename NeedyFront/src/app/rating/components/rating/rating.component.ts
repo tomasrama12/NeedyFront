@@ -31,8 +31,7 @@ export class RatingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //this.dataService.needId!
-    this.needService.getNeedById(4).subscribe(
+    this.needService.getNeedById(this.dataService.needId!).subscribe(
       need => {
         this.need = need;
         this.userService.getUserByCI(need.acceptedApplier.ci).subscribe(
