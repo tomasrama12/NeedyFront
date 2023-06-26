@@ -20,7 +20,7 @@ export class SearchPageComponent implements OnInit {
   users: User[] = [];
   userLogged!: string;
   searchTerm: string = '';
-  selectedMenuIndex: number = 0;
+  selectedMenuIndex!: number;
 
   constructor(
     private needService: NeedService,
@@ -30,6 +30,7 @@ export class SearchPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.selectedMenuIndex = 0;
     this.userLogged = localStorage.getItem('userCI')!;
 
     if (this.dataService.searchIndex) {
@@ -52,7 +53,6 @@ export class SearchPageComponent implements OnInit {
 
   selectMenu(index: number) {
     this.selectedMenuIndex = index;
-    this.ngOnInit();
   }
 
   search(term: string) {
